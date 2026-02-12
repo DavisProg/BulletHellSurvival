@@ -1751,6 +1751,8 @@ GameObject:
   - component: {fileID: 1725769604}
   - component: {fileID: 1725769605}
   - component: {fileID: 1725769606}
+  - component: {fileID: 1725769608}
+  - component: {fileID: 1725769607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1974,12 +1976,12 @@ MonoBehaviour:
   title: Missile
   description: 
   known: 1
-  amount: 200
+  amount: 1
   damage: 3
-  speed: 70
+  speed: 7
   range: 7
-  cooldown: 0.1
-  pierce: 3
+  cooldown: 2
+  pierce: 0
   grouped: 1
   canShoot: 1
   entities: []
@@ -1989,6 +1991,52 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   projectile: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
+--- !u!114 &1725769607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1234cdfa9d083e44805349cfa359c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawning
+  enemy: {fileID: 7906689853839711279, guid: 6fec8f59f2c0ecf42b11d6cc52b559dd, type: 3}
+  radius: 23
+  interval: 10
+  canSpawn: 1
+--- !u!114 &1725769608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8cedd014ba953428784fa8dc85f866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnergyOrb
+  title: Energy Orb
+  description: 
+  known: 1
+  amount: 1
+  damage: 5
+  speed: 4
+  range: 3
+  cooldown: 5
+  pierce: 5
+  grouped: 0
+  canShoot: 1
+  entities: []
+  nearestObject: {fileID: 0}
+  nearestDistance: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  projectile: {fileID: 4660098579384437625, guid: 6a0712a7cbaf24d4aa04dd89a5ddfce7, type: 3}
 --- !u!1 &2021411110
 GameObject:
   m_ObjectHideFlags: 0

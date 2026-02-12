@@ -4,7 +4,7 @@ using System.Collections;
 using Unity.VisualScripting;
 
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
