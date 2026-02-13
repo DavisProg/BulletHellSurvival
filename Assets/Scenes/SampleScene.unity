@@ -658,6 +658,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &372219514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+  m_PrefabInstance: {fileID: 1671773723021213107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &373459832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1753,6 +1758,7 @@ GameObject:
   - component: {fileID: 1725769606}
   - component: {fileID: 1725769608}
   - component: {fileID: 1725769607}
+  - component: {fileID: 1725769609}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1980,6 +1986,7 @@ MonoBehaviour:
   damage: 3
   speed: 7
   range: 7
+  size: 0
   cooldown: 2
   pierce: 0
   grouped: 1
@@ -1990,7 +1997,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  projectile: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
+  summonObject: {fileID: 0}
 --- !u!114 &1725769607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2033,7 @@ MonoBehaviour:
   damage: 5
   speed: 4
   range: 3
+  size: 0
   cooldown: 5
   pierce: 5
   grouped: 0
@@ -2036,7 +2044,38 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  projectile: {fileID: 4660098579384437625, guid: 6a0712a7cbaf24d4aa04dd89a5ddfce7, type: 3}
+  summonObject: {fileID: 0}
+--- !u!114 &1725769609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7054739b5faeb43956714c8728f3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnergyExplosion
+  title: Energy Explosion
+  description: 
+  known: 1
+  amount: 1
+  damage: 10
+  speed: 0
+  range: 3
+  size: 2
+  cooldown: 2
+  pierce: 0
+  grouped: 0
+  canShoot: 1
+  entities: []
+  nearestObject: {fileID: 0}
+  nearestDistance: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  summonObject: {fileID: 372219514}
 --- !u!1 &2021411110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,6 +2271,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049502771}
   m_CullTransparentMesh: 1
+--- !u!1001 &1671773723021213107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314145446456226256, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+      propertyPath: m_Name
+      value: EnergyExplosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
 --- !u!1001 &2427613580412310898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2308,3 +2404,4 @@ SceneRoots:
   - {fileID: 4675918}
   - {fileID: 373459832}
   - {fileID: 1602345829}
+  - {fileID: 1671773723021213107}

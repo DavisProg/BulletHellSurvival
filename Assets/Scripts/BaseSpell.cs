@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BaseSpell : MonoBehaviour
+public abstract class BaseSpell : MonoBehaviour
 {
     public string title;
     public string description;
@@ -12,6 +11,7 @@ public class BaseSpell : MonoBehaviour
     public float damage;
     public float speed;
     public float range;
+    public float size;
     public float cooldown;
     public int pierce;
     public bool grouped;
@@ -20,7 +20,7 @@ public class BaseSpell : MonoBehaviour
     public Collider2D nearestObject;
     public float nearestDistance;
     public LayerMask enemyLayer;
-    public GameObject projectile;
+    public GameObject summonObject;
 void OnDrawGizmosSelected() {
     Gizmos.color = Color.red;
     Gizmos.DrawWireSphere(transform.position, range);
@@ -44,11 +44,24 @@ void OnDrawGizmosSelected() {
     {
         while (projectileAmount > 0)
         {
-            GameObject proj  = Instantiate(projectile, transform.position, Quaternion.identity);
+            GameObject proj  = Instantiate(summonObject, transform.position, Quaternion.identity);
             Projectile bullet = proj.GetComponent<Projectile>();
             bullet.Init(bulletDirection, damage, speed, pierce);
             projectileAmount--;
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+    public void castArea()
+    {
+        if (canShoot){
+            int entitiesCount = Physics2D.OverlapCircleNonAlloc(transform.position, range, entities, enemyLayer);
+            Vector2 chosenPosition = entities[Random.Range(0, entitiesCount)].transform.position;  
+            GameObject area  = Instantiate(summonObject, chosenPosition, Quaternion.identity);
+            Splash splash = area.GetComponent<Splash>();
+            splash.Init(damage, 0.5f, size);
+
+            canShoot = false;
+            StartCoroutine(spellCooldown());
         }
     }
     public void castProjectile()
