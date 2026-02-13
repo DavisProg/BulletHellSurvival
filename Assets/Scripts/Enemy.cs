@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -22,6 +23,19 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             die();
+        }
+    }
+    public IEnumerator takeDamageOverTime(float damageOverTime, float damageOverTimeInterval, float damagePerInterval)
+    {
+        Debug.Log("Bye bye");
+        float damageLeft = damageOverTime;
+        while(damageLeft > 0)
+        {
+            takeDamage(damagePerInterval);
+            damageLeft = damageLeft - damagePerInterval;
+            Debug.Log("Damage left to make: " + damageLeft);
+            Debug.Log("Enemy health: " + health);
+            yield return new WaitForSeconds(damageOverTimeInterval);
         }
     }
 

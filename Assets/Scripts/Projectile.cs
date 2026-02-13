@@ -5,6 +5,9 @@ public class Projectile : MonoBehaviour
 {
     float damage;
     float speed;
+    float damageOverTime;
+    float damageOverTimeInterval;
+    float damagePerInterval;
     int pierce;
     Vector2 direction;
     Rigidbody2D rb;
@@ -14,6 +17,11 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")){
             if (collision.TryGetComponent(out Enemy component)){
 		        component.takeDamage(damage);
+                if (damageOverTime > 0)
+                {
+                    Debug.Log("Hello");
+                    component.StartCoroutine(component.takeDamageOverTime(damageOverTime, damageOverTimeInterval, damagePerInterval));
+                }
                 pierce -= 1;
                 if (pierce <= 0){
                     Destroy(gameObject);
@@ -27,12 +35,15 @@ public class Projectile : MonoBehaviour
         m_Renderer = GetComponent<Renderer>();
         
     }
-    public void Init(Vector2 dir, float damage, float speed, int pierce)
+    public void Init(Vector2 dir, float damage, float speed, int pierce, float damageOverTime, float damageOverTimeInterval, float damagePerInterval)
     {
         direction = dir.normalized;
         this.damage = damage;
         this.speed = speed;
         this.pierce = pierce;
+        this.damageOverTime = damageOverTime;
+        this.damageOverTimeInterval = damageOverTimeInterval;
+        this.damagePerInterval = damagePerInterval;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         rb.rotation = angle;

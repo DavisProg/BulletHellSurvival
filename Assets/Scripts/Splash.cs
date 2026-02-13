@@ -6,6 +6,8 @@ public class Splash : MonoBehaviour
 {
     float damage;
     float stayTime;
+    float damageOverTime;
+    float damageOverTimeInterval;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

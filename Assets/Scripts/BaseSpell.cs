@@ -9,6 +9,9 @@ public abstract class BaseSpell : MonoBehaviour
     public bool known;
     public int amount;
     public float damage;
+    public float damageOverTime;
+    public float damageOverTimeInterval;
+    public float damagePerInterval;
     public float speed;
     public float range;
     public float size;
@@ -46,7 +49,7 @@ void OnDrawGizmosSelected() {
         {
             GameObject proj  = Instantiate(summonObject, transform.position, Quaternion.identity);
             Projectile bullet = proj.GetComponent<Projectile>();
-            bullet.Init(bulletDirection, damage, speed, pierce);
+            bullet.Init(bulletDirection, damage, speed, pierce, damageOverTime, damageOverTimeInterval, damagePerInterval);
             projectileAmount--;
             yield return new WaitForSeconds(0.1f);
         }
