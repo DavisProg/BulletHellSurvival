@@ -25,19 +25,13 @@ public class Splash : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Enemy")){
-            if (effects == null)
-{
-    Debug.LogError("Splash effects are NULL — Init() was not called in time!");
-    return;
-}
-		if (collision.TryGetComponent(out Enemy enemy))
-        {
-            foreach (var eff in effects)
-            {
-                eff.Apply(collision.gameObject);
+		    if (collision.TryGetComponent(out Enemy enemy)){
+                foreach (var eff in effects)
+                {
+                    eff.Apply(collision.gameObject);
+                }
             }
-        }
-    }
+        }   
     }
     IEnumerator Stay(float duration){
         yield return new WaitForSeconds(duration);

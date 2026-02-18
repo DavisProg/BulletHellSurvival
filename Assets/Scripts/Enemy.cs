@@ -16,16 +16,6 @@ public class Enemy : MonoBehaviour
         Instantiate(xp, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
-    public IEnumerator reduceSpeed(float newPercentage, float duration)
-    {
-        float currentSpeed = speed;
-        speed = speed * newPercentage;
-
-        yield return new WaitForSeconds(duration);
-
-        speed = currentSpeed;
-    }
-
     public void takeDamage(float damage)
     {
         health -= damage;
@@ -34,20 +24,6 @@ public class Enemy : MonoBehaviour
             die();
         }
     }
-    public IEnumerator takeDamageOverTime(float damageOverTime, float damageOverTimeInterval, float damagePerInterval)
-    {
-        Debug.Log("Bye bye");
-        float damageLeft = damageOverTime;
-        while(damageLeft > 0)
-        {
-            takeDamage(damagePerInterval);
-            damageLeft = damageLeft - damagePerInterval;
-            Debug.Log("Damage left to make: " + damageLeft);
-            Debug.Log("Enemy health: " + health);
-            yield return new WaitForSeconds(damageOverTimeInterval);
-        }
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

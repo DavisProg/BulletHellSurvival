@@ -3,25 +3,21 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float damage;
-    float speed;
-    float damageOverTime;
-    float damageOverTimeInterval;
-    float damagePerInterval;
+
     int pierce;
-    bool slow;
+    float speed;
+    IEffect[] effects;
     Vector2 direction;
     Rigidbody2D rb;
     Renderer m_Renderer;
+    Collider2D col;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy")){
             if (collision.TryGetComponent(out Enemy component)){
-		        component.takeDamage(damage);
-                if (damageOverTime > 0)
+                foreach(var eff in effects)
                 {
-                    Debug.Log("Hello");
-                    component.StartCoroutine(component.takeDamageOverTime(damageOverTime, damageOverTimeInterval, damagePerInterval));
+                   eff.Apply(collision.gameObject);
                 }
                 pierce -= 1;
                 if (pierce <= 0){
@@ -34,21 +30,22 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         m_Renderer = GetComponent<Renderer>();
-        
+        col = GetComponent<BoxCollider2D>();
+        col.enabled = false;
     }
-    public void Init(Vector2 dir, float damage, float speed, int pierce, float damageOverTime, float damageOverTimeInterval, float damagePerInterval, bool slow)
+    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, IEffect[] effects)
     {
-        direction = dir.normalized;
-        this.damage = damage;
         this.speed = speed;
         this.pierce = pierce;
-        this.damageOverTime = damageOverTime;
-        this.damageOverTimeInterval = damageOverTimeInterval;
-        this.damagePerInterval = damagePerInterval;
-        this.slow = slow;
+        this.effects = effects;
 
+        Vector2 playerLocation = caster.position;
+        direction = (target - playerLocation).normalized;
+
+        gameObject.transform.localScale = new Vector3(size, size, 1f);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         rb.rotation = angle;
+        col.enabled = true;
     }
     void FixedUpdate()
     {
