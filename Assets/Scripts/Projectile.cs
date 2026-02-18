@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     float damageOverTimeInterval;
     float damagePerInterval;
     int pierce;
+    bool slow;
     Vector2 direction;
     Rigidbody2D rb;
     Renderer m_Renderer;
@@ -35,7 +36,7 @@ public class Projectile : MonoBehaviour
         m_Renderer = GetComponent<Renderer>();
         
     }
-    public void Init(Vector2 dir, float damage, float speed, int pierce, float damageOverTime, float damageOverTimeInterval, float damagePerInterval)
+    public void Init(Vector2 dir, float damage, float speed, int pierce, float damageOverTime, float damageOverTimeInterval, float damagePerInterval, bool slow)
     {
         direction = dir.normalized;
         this.damage = damage;
@@ -44,6 +45,7 @@ public class Projectile : MonoBehaviour
         this.damageOverTime = damageOverTime;
         this.damageOverTimeInterval = damageOverTimeInterval;
         this.damagePerInterval = damagePerInterval;
+        this.slow = slow;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         rb.rotation = angle;

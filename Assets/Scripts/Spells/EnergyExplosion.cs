@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class EnergyExplosion : BaseSpell
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        entities = new Collider2D[20];
-    }
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float damage;
+    [SerializeField] float size;
+    [SerializeField] float duration;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        castArea();
+        targeting = new RandomTarget(enemyLayer);
+
+        casting = new CastArea(
+            explosionPrefab,
+            size,
+            duration,
+            new DamageEffect(damage)
+        );
+
+        StartCoroutine(tryCast());
     }
 }

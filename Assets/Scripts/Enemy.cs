@@ -16,6 +16,15 @@ public class Enemy : MonoBehaviour
         Instantiate(xp, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+    public IEnumerator reduceSpeed(float newPercentage, float duration)
+    {
+        float currentSpeed = speed;
+        speed = speed * newPercentage;
+
+        yield return new WaitForSeconds(duration);
+
+        speed = currentSpeed;
+    }
 
     public void takeDamage(float damage)
     {

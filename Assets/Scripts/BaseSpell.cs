@@ -4,45 +4,7 @@ using UnityEngine;
 
 public abstract class BaseSpell : MonoBehaviour
 {
-    public string title;
-    public string description;
-    public bool known;
-    public int amount;
-    public float damage;
-    public float damageOverTime;
-    public float damageOverTimeInterval;
-    public float damagePerInterval;
-    public float speed;
-    public float range;
-    public float size;
-    public float cooldown;
-    public int pierce;
-    public bool grouped;
-    public bool canShoot = true;
-    public Collider2D[] entities;
-    public Collider2D nearestObject;
-    public float nearestDistance;
-    public LayerMask enemyLayer;
-    public GameObject summonObject;
-void OnDrawGizmosSelected() {
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere(transform.position, range);
-}
-    public IEnumerator spellCooldown(){
-        yield return new WaitForSeconds(cooldown);
-        canShoot = true;
-    }
     /*
-    void init(float damage, float speed, float range, float cooldown, GameObject projectile)
-    {
-        known = true;
-        this.damage = damage;
-        this.speed = speed;
-        this.range = range;
-        this.cooldown = cooldown;
-        this.projectile = projectile;
-    }
-    */
     public IEnumerator createProjectile(Vector2 bulletDirection, int projectileAmount)
     {
         while (projectileAmount > 0)
@@ -52,19 +14,6 @@ void OnDrawGizmosSelected() {
             bullet.Init(bulletDirection, damage, speed, pierce, damageOverTime, damageOverTimeInterval, damagePerInterval);
             projectileAmount--;
             yield return new WaitForSeconds(0.1f);
-        }
-    }
-    public void castArea()
-    {
-        if (canShoot){
-            int entitiesCount = Physics2D.OverlapCircleNonAlloc(transform.position, range, entities, enemyLayer);
-            Vector2 chosenPosition = entities[Random.Range(0, entitiesCount)].transform.position;  
-            GameObject area  = Instantiate(summonObject, chosenPosition, Quaternion.identity);
-            Splash splash = area.GetComponent<Splash>();
-            splash.Init(damage, 0.5f, size);
-
-            canShoot = false;
-            StartCoroutine(spellCooldown());
         }
     }
     public void castProjectile()
@@ -95,8 +44,27 @@ void OnDrawGizmosSelected() {
             StartCoroutine(spellCooldown());
         }
     }
-        
-    void Start()
+*/
+    [SerializeField] protected float range;
+    [SerializeField] protected float cooldown;
+
+    protected ITargetable targeting;
+    protected ICastable casting;
+
+    bool canCast = true;
+
+    protected IEnumerator tryCast()
     {
+        Debug.Log("Hello");
+        while (canCast)
+        {
+            if(targeting.GetTarget(transform, range, out Vector2 target)){
+                casting.Cast(transform, target);
+            }
+            canCast = false;
+            yield return new WaitForSeconds(cooldown);
+            canCast = true;
+        }
     }
+
 }

@@ -67,10 +67,6 @@ public class Player : MonoBehaviour
         {
             takeDamage(1);
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            GameObject.Find("Player").GetComponent<Missile>().known = true;
-        }
     }
 
     private void FixedUpdate()
