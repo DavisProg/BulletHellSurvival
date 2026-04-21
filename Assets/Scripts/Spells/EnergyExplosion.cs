@@ -10,13 +10,16 @@ public class EnergyExplosion : BaseSpell
 
     void Awake()
     {
-        targeting = new RandomTarget(enemyLayer);
+        targeting = new RandomPoint(enemyLayer);
 
         casting = new CastArea(
             explosionPrefab,
             size,
             duration,
-            new DamageEffect(damage)
+            new IEffect[]{
+            new DamageEffect(damage),
+            new SlowEffect(100, 1)
+            }
         );
 
         StartCoroutine(tryCast());
