@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         canDamage = true;
     }
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -18,7 +18,8 @@ public class MagicMissile : BaseSpell
             speed,
             pierce,
             size,
-            new DamageOverTimeEffect(damage, 1, 0.5f)
+            "Enemy",
+            new DamageEffect(damage)
         );
 
         StartCoroutine(tryCast());

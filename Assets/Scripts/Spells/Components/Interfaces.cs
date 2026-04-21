@@ -11,4 +11,7 @@ public interface IEffect
 {
     void Apply(GameObject target);
 }
-
+public interface IHittable
+{
+    void OnHit();
+}

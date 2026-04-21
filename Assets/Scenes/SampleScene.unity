@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 28618101}
   - component: {fileID: 28618100}
   - component: {fileID: 28618102}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: xpBar
   m_TagString: xpBar
   m_Icon: {fileID: 0}
@@ -510,7 +510,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 1.5
   health: 10
+  facingRight: 1
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
+  rb: {fileID: 0}
+  moveDirection: {x: 0, y: 0}
+  target: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &176195348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -658,6 +663,76 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1001 &261643276
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -2253911629886400664, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_Name
+      value: mushroom-sprout
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3001fa54cbd29064b9c6062ace863dae, type: 2}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8431197
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1084795
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934618285}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934618287}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934618286}
+  m_SourcePrefab: {fileID: -8435245712485981826, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
 --- !u!1001 &373459832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -727,7 +802,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -865,7 +940,7 @@ GameObject:
   - component: {fileID: 611509038}
   - component: {fileID: 611509037}
   - component: {fileID: 611509036}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FIll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1393,7 @@ GameObject:
   - component: {fileID: 1255066785}
   - component: {fileID: 1255066784}
   - component: {fileID: 1255066783}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FIll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1693,8 +1768,8 @@ GameObject:
   - component: {fileID: 1725769603}
   - component: {fileID: 1725769604}
   - component: {fileID: 1725769607}
-  - component: {fileID: 1725769609}
-  m_Layer: 0
+  - component: {fileID: 1725769608}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1882,7 +1957,7 @@ MonoBehaviour:
   radius: 23
   interval: 10
   canSpawn: 1
---- !u!114 &1725769609
+--- !u!114 &1725769608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1891,18 +1966,110 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725769599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7054739b5faeb43956714c8728f3e0, type: 3}
+  m_Script: {fileID: 11500000, guid: e48608373e2cf0e46ad6e4faaf58bece, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnergyExplosion
-  range: 5
+  m_EditorClassIdentifier: Assembly-CSharp::MagicMissile
+  range: 7
   cooldown: 1
-  explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+  projectilePrefab: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   damage: 10
-  size: 9
-  duration: 2
+  size: 5
+  speed: 1
+  pierce: 0
+--- !u!1 &1934618280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: a0cfeac388db05f469d3f975eee9f04b, type: 3}
+  m_PrefabInstance: {fileID: 261643276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1934618285
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934618280}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1934618286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934618280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2004615c2cad067469f9f17be7e39864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomEnemy
+  speed: 4
+  health: 7
+  facingRight: 1
+  xp: {fileID: 0}
+  rb: {fileID: 0}
+  moveDirection: {x: 0, y: 0}
+  target: {fileID: 0}
+  animator: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!58 &1934618287
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934618280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.34375}
+  m_Radius: 10
 --- !u!1 &2021411110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +2082,7 @@ GameObject:
   - component: {fileID: 2021411114}
   - component: {fileID: 2021411113}
   - component: {fileID: 2021411112}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2018,7 +2185,7 @@ GameObject:
   - component: {fileID: 2049502775}
   - component: {fileID: 2049502774}
   - component: {fileID: 2049502773}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: healthBar
   m_TagString: healthBar
   m_Icon: {fileID: 0}
@@ -2231,3 +2398,4 @@ SceneRoots:
   - {fileID: 4675918}
   - {fileID: 373459832}
   - {fileID: 1602345829}
+  - {fileID: 261643276}

@@ -11,19 +11,18 @@ public class Projectile : MonoBehaviour
     Rigidbody2D rb;
     Renderer m_Renderer;
     Collider2D col;
+    string enemyTag;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")){
-            if (collision.TryGetComponent(out Enemy component)){
-                foreach(var eff in effects)
-                {
-                   eff.Apply(collision.gameObject);
-                }
-                pierce -= 1;
-                if (pierce <= 0){
-                    Destroy(gameObject);
-                }   
-	        }
+        if (collision.gameObject.CompareTag(enemyTag)){
+            foreach(var eff in effects)
+            {
+               eff.Apply(collision.gameObject);
+            }
+            pierce -= 1;
+            if (pierce <= 0){
+                Destroy(gameObject);
+            }   
         }
     }
     void Awake()
@@ -33,11 +32,12 @@ public class Projectile : MonoBehaviour
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
     }
-    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, IEffect[] effects)
+    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, IEffect[] effects, string enemyTag)
     {
         this.speed = speed;
         this.pierce = pierce;
         this.effects = effects;
+        this.enemyTag = enemyTag;
 
         Vector2 playerLocation = caster.position;
         direction = (target - playerLocation).normalized;
@@ -49,12 +49,6 @@ public class Projectile : MonoBehaviour
     }
     void FixedUpdate()
     {
-        /*
-        Debug.Log(
-        "Damage: " + damage + 
-        "Speed: " + speed + 
-        "Direction: " + direction);
-        */
         rb.linearVelocity = direction * speed;
         if (!m_Renderer.isVisible)
         {

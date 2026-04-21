@@ -84,8 +84,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.31177303, g: 0.027661027, b: 0.4188679, a: 1}
+  m_Sprite: {fileID: -2833246252606183768, guid: 3beaf5b9603651f408b243322397ce58, type: 3}
+  m_Color: {r: 0.91764706, g: 0.64705884, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.42, y: 1.42}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -179,6 +179,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c1f31223a3ce444b2db37e81bcff5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  damage: 1
-  speed: 5
-  direction: {x: 0, y: 0}

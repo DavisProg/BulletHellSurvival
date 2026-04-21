@@ -15,5 +15,9 @@ public class DamageEffect : IEffect
         {
             enemy.takeDamage(damage);
         }
+        else if (target.TryGetComponent(out Player player))
+        {
+            player.takeDamage(damage);
+        }
     }
 }
