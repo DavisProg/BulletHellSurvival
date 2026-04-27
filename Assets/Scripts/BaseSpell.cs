@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public abstract class BaseSpell : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public abstract class BaseSpell : MonoBehaviour
         }
     }
 */
+    [SerializeField] protected bool known;
     [SerializeField] protected float range;
     [SerializeField] protected float cooldown;
 
@@ -55,16 +57,23 @@ public abstract class BaseSpell : MonoBehaviour
 
     protected IEnumerator tryCast()
     {
-        Debug.Log("Hello");
-        while (canCast)
+        if (known)
         {
-            if(targeting.GetTarget(transform, range, out Vector2 target)){
-                casting.Cast(transform, target);
+            Debug.Log("Hello");
+            while (canCast)
+            {
+                if(targeting.GetTarget(transform, range, out Vector2 target)){
+                    casting.Cast(transform, target);
+                }
+                canCast = false;
+                yield return new WaitForSeconds(cooldown);
+                canCast = true;
             }
-            canCast = false;
-            yield return new WaitForSeconds(cooldown);
-            canCast = true;
         }
     }
-
+    public void enable()
+    {
+        known = true;
+        StartCoroutine(tryCast());
+    }
 }

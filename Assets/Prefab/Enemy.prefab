@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 1.5
-  health: 10
+  health: 3
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
 --- !u!50 &2232642130733925030
 Rigidbody2D:

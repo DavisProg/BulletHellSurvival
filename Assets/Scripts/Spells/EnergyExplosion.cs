@@ -17,8 +17,7 @@ public class EnergyExplosion : BaseSpell
             size,
             duration,
             new IEffect[]{
-            new DamageEffect(damage),
-            new SlowEffect(100, 1)
+            new DamageEffect(damage)
             }
         );
 
