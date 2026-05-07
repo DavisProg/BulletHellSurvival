@@ -1,26 +1,29 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SpellSelection : MonoBehaviour
 {
     public GameObject spellSelectionMenu;
     public BaseSpell[] availableSpells;
+    BaseSpell[] chosenSpellList;
+    public Button btn1, btn2, btn3;
+    GameObject Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        chosenSpellList = new BaseSpell[]{
+            availableSpells[Random.Range(0, availableSpells.Length)],
+            availableSpells[Random.Range(0, availableSpells.Length)],
+            availableSpells[Random.Range(0, availableSpells.Length)]
+        };
+        Player = GameObject.Find("Player");
     }
 
     public void showSpellSelectionMenu()
     {
         spellSelectionMenu.SetActive(true);
-        BaseSpell[] chosenSpellList = {
-            availableSpells[Random.Range(0, availableSpells.Length)],
-            availableSpells[Random.Range(0, availableSpells.Length)],
-            availableSpells[Random.Range(0, availableSpells.Length)]
-        }
-        ;
         for(int i = 1; i <= 3; i++)
         {
             int randomSpell = Random.Range(0, availableSpells.Length);
@@ -37,5 +40,22 @@ public class SpellSelection : MonoBehaviour
 
             titleText.text = availableSpells[randomSpell].GetType().Name;
         }
+        btn1.onClick.AddListener(() =>
+            {
+                Select(chosenSpellList[0]);
+            });
+        btn2.onClick.AddListener(() =>
+            {
+                Select(chosenSpellList[1]);
+            });
+        btn3.onClick.AddListener(() =>
+            {
+                Select(chosenSpellList[2]);
+            });
+    }
+    void Select(BaseSpell chosenSpell)
+    {
+        chosenSpell.enable();
+        spellSelectionMenu.SetActive(false);
     }
 }
