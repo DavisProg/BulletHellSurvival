@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Level Up");
             xp = 0;
+            GetComponent<SpellSelection>().showSpellSelectionMenu();
         }
         else
         {
