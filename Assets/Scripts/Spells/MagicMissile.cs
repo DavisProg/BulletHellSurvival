@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MagicMissile : BaseSpell
 {
@@ -18,7 +19,11 @@ public class MagicMissile : BaseSpell
             speed,
             pierce,
             size,
-            new DamageOverTimeEffect(damage, 1, 0.5f)
+            new IEffect[]
+            {
+                new DamageEffect(damage),
+                new RepeatEffect(new CastProjectile(projectilePrefab, speed, pierce, size), range, new NearestTarget(enemyLayer)) 
+            }
         );
 
         StartCoroutine(tryCast());

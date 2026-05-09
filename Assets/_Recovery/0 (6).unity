@@ -2570,16 +2570,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicOrb
   known: 0
-  range: 6
-  cooldown: 3
+  range: 5
+  cooldown: 6
   projectilePrefab: {fileID: 4660098579384437625, guid: 6a0712a7cbaf24d4aa04dd89a5ddfce7, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  damage: 5
+  damage: 4
   size: 0.5
   speed: 2
-  pierce: 100
+  pierce: 2
 --- !u!114 &1725769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2592,7 +2592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48608373e2cf0e46ad6e4faaf58bece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicMissile
-  known: 1
+  known: 0
   range: 8
   cooldown: 2
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
@@ -2602,7 +2602,7 @@ MonoBehaviour:
   damage: 2
   size: 0.2
   speed: 3.5
-  pierce: 5
+  pierce: 1
 --- !u!114 &1725769613
 MonoBehaviour:
   m_ObjectHideFlags: 0

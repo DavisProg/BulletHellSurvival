@@ -23,6 +23,7 @@ public class SpellSelection : MonoBehaviour
 
     public void showSpellSelectionMenu()
     {
+        Time.timeScale = 0;
         spellSelectionMenu.SetActive(true);
         for(int i = 1; i <= 3; i++)
         {
@@ -57,5 +58,6 @@ public class SpellSelection : MonoBehaviour
     {
         chosenSpell.enable();
         spellSelectionMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }
