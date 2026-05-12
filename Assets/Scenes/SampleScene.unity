@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawning
   enemy: {fileID: 7906689853839711279, guid: 6fec8f59f2c0ecf42b11d6cc52b559dd, type: 3}
   radius: 23
-  interval: 10
+  interval: 8
   canSpawn: 1
 --- !u!114 &1725769609
 MonoBehaviour:
@@ -2602,7 +2602,7 @@ MonoBehaviour:
   damage: 2
   size: 0.2
   speed: 3.5
-  pierce: 5
+  pierce: 2
 --- !u!114 &1725769613
 MonoBehaviour:
   m_ObjectHideFlags: 0

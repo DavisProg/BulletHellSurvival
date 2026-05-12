@@ -22,7 +22,7 @@ public class MagicMissile : BaseSpell
             new IEffect[]
             {
                 new DamageEffect(damage),
-                new RepeatEffect(new CastProjectile(projectilePrefab, speed, pierce, size), range, new NearestTarget(enemyLayer)) 
+                new RepeatEffect(new CastProjectile(projectilePrefab, speed, pierce, size, new DamageEffect(10)), range, new NearestTarget(enemyLayer)) 
             }
         );
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class NearestTarget : ITargetable
@@ -19,10 +20,11 @@ public class NearestTarget : ITargetable
 
         for (int i = 0; i < entitiesCount; i++){
             float distance = Vector2.Distance(caster.position, arr[i].transform.position);
-            if (distance < nearestDistance){
+            if (distance < nearestDistance && distance > 1){
                 nearestDistance = distance;
                 nearestObject = arr[i];
             }
+            Debug.Log(distance);
         }
         if (nearestObject == null){
             position = default;
