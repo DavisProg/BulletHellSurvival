@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float health = 7;
 
     public GameObject xp;
+    bool canMove = true;
     Rigidbody2D rb;
     Vector2 moveDirection;
     Transform target;
@@ -23,6 +24,18 @@ public class Enemy : MonoBehaviour
         {
             die();
         }
+    }
+    public void takeKnockback(float strength, float delay, Vector2 direction)
+    {
+        canMove = false;
+        StopCoroutine(Reset(delay));
+        rb.AddForce(direction * strength, ForceMode2D.Impulse);
+        StartCoroutine(Reset(delay));
+    }
+    private IEnumerator Reset(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canMove = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,7 +65,10 @@ public class Enemy : MonoBehaviour
     {
         if (target)
         {
-            rb.linearVelocity = moveDirection * speed;
+            if (canMove)
+            {
+                rb.linearVelocity = moveDirection * speed;
+            }
         }
     }
 }

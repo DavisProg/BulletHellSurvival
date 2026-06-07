@@ -67,6 +67,7 @@ Assets/Scripts/
   Effects/
    DamageEffect.cs
    DamageOverTimeEffect.cs
+   KnockbackEffect.cs
    RepeatEffect.cs
    SlowEffect.cs
   Interfaces.cs
