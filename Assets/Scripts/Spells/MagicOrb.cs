@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class MagicOrb : BaseSpell
@@ -13,14 +14,28 @@ public class MagicOrb : BaseSpell
     {
         targeting = new NearestTarget(enemyLayer);
 
-        casting = new CastProjectile(
+        defineCast();
+
+        StartCoroutine(tryCast());
+    }
+    public override void firstPathEnable()
+    {
+        pierce += 3;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        speed += 3;
+        defineCast();
+    }
+    protected void defineCast()
+    {
+        casting =  new CastProjectile(
             projectilePrefab,
             speed,
             pierce,
             size,
             new DamageEffect(damage)
         );
-
-        StartCoroutine(tryCast());
     }
 }

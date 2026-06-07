@@ -2602,7 +2602,7 @@ MonoBehaviour:
   damage: 2
   size: 0.2
   speed: 3.5
-  pierce: 2
+  pierce: 1
 --- !u!114 &1725769613
 MonoBehaviour:
   m_ObjectHideFlags: 0

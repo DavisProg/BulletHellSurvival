@@ -30,9 +30,9 @@ public class ProgressBar : MonoBehaviour
     }
     void getCurrentFill()
     {
-        float fillamount = current / max;
+        float fillAmount = current / max;
         //Debug.Log(fillamount);
-        mask.fillAmount = fillamount;
+        mask.fillAmount = fillAmount;
         //mask.transform.localScale = new Vector3(1, );
     }
 }

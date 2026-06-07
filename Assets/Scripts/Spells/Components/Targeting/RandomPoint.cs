@@ -9,7 +9,6 @@ public class RandomPoint : ITargetable
     {
         this.enemyLayer = enemyLayer;
     }
-
     public bool GetTarget(Transform caster, float range, out Vector2 position)
     {
         position = (Vector2)caster.position + Random.insideUnitCircle * range;
