@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GetComponent<MagicOrb>().enable();
+            increaseXP(3);
         }
     }
 
