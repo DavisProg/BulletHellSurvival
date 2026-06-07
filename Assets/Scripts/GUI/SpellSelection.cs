@@ -14,7 +14,6 @@ public class SpellSelection : MonoBehaviour
     private bool btn1Enabled = true;
     private bool btn2Enabled;
     private bool btn3Enabled;
-    GameObject Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,30 +22,13 @@ public class SpellSelection : MonoBehaviour
             availableSpells[Random.Range(0, availableSpells.Count)],
             availableSpells[Random.Range(0, availableSpells.Count)],
             availableSpells[Random.Range(0, availableSpells.Count)]
-        };
-        Player = GameObject.Find("Player");
+    };
     }
 
     public void showSpellSelectionMenu()
     {
-        btn1.onClick.RemoveAllListeners();
-        btn2.onClick.RemoveAllListeners();
-        btn3.onClick.RemoveAllListeners();
-        btn1Enabled = true;
-        btn2Enabled = true;
-        btn3Enabled = true;
-        Time.timeScale = 0;
-        spellSelectionMenu.SetActive(true);
-        int maxSpellAmount;
-        if (availableSpells.Count >= 3)
-        {
-            maxSpellAmount = 3;
-        }
-        else
-        {
-            maxSpellAmount = availableSpells.Count;
-        }
-        for(int i = 1; i <= maxSpellAmount; i++)
+        initMenu();
+        for(int i = 1; i <= 3; i++)
         {
             int randomSpell = Random.Range(0, availableSpells.Count);
             BaseSpell chosenSpell = availableSpells[randomSpell];
@@ -69,6 +51,7 @@ public class SpellSelection : MonoBehaviour
             }
 
             Debug.Log(chosenSpellList.Length + " " + availableSpells.Count);
+            // Empty buttons when not enough spells
             if (availableSpells.Count < 3)
             {
                 if (availableSpells.Count == 2 && i == 3)
@@ -79,7 +62,6 @@ public class SpellSelection : MonoBehaviour
                 {
                     titleText.text = "";
                 }
-                chosenSpellList[i - 1] = chosenSpell; 
                 if(availableSpells.Count == 1)
                 {
                     btn2Enabled = false;
@@ -98,21 +80,21 @@ public class SpellSelection : MonoBehaviour
             }
             
         }
-        if (btn1Enabled)
+        if (btn1Enabled && chosenSpellList[0])
         {
             btn1.onClick.AddListener(() =>
             {
                 Select(chosenSpellList[0]);
             });
         }
-        if (btn2Enabled)
+        if (btn2Enabled && chosenSpellList[1])
         {
             btn2.onClick.AddListener(() =>
             {
                 Select(chosenSpellList[1]);
             });
         }
-        if (btn3Enabled)
+        if (btn3Enabled && chosenSpellList[2])
         {
             btn3.onClick.AddListener(() =>
             {
@@ -129,5 +111,16 @@ public class SpellSelection : MonoBehaviour
         }
         chosenSpell.enable();
         spellSelectionMenu.SetActive(false);
+    }
+    void initMenu()
+    {
+        btn1.onClick.RemoveAllListeners();
+        btn2.onClick.RemoveAllListeners();
+        btn3.onClick.RemoveAllListeners();
+        btn1Enabled = true;
+        btn2Enabled = true;
+        btn3Enabled = true;
+        Time.timeScale = 0;
+        spellSelectionMenu.SetActive(true);
     }
 }
