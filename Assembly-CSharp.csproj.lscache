@@ -83,6 +83,7 @@ Assets/Scripts/
   MagicMissile.cs
   MagicOrb.cs
   PoisonDart.cs
+  Pulse.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]

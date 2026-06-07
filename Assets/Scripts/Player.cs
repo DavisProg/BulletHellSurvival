@@ -38,10 +38,13 @@ public class Player : MonoBehaviour
     }
     public void takeDamage(float damage)
     {
+        Debug.Log("Hello");
         if (canDamage)
         {
+            Debug.Log("Hi");
             health -= damage;
             canDamage = false;
+            GetComponent<Pulse>().quickCast();
             StartCoroutine(IFrames(iFramesTime));
         }
     }

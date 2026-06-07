@@ -15,7 +15,7 @@ public abstract class BaseSpell : MonoBehaviour
 
     bool canCast = true;
 
-    protected IEnumerator tryCast()
+    public IEnumerator tryCast()
     {
         if (level > 0)
         {
@@ -29,6 +29,12 @@ public abstract class BaseSpell : MonoBehaviour
                 yield return new WaitForSeconds(cooldown);
                 canCast = true;
             }
+        }
+    }
+    public void quickCast()
+    {
+        if(targeting.GetTarget(transform, range, out Vector2 target)){
+            casting.Cast(transform, target);
         }
     }
     public int getLevel()
