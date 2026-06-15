@@ -25,16 +25,12 @@ public class Enemy : MonoBehaviour
             die();
         }
     }
-    public void takeKnockback(float strength, float delay, Vector2 direction)
+    public void disableMovement()
     {
         canMove = false;
-        StopCoroutine(Reset(delay));
-        rb.AddForce(direction * strength, ForceMode2D.Impulse);
-        StartCoroutine(Reset(delay));
     }
-    private IEnumerator Reset(float delay)
+    public void enableMovement()
     {
-        yield return new WaitForSeconds(delay);
         canMove = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

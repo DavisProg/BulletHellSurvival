@@ -8,6 +8,8 @@ public class Pulse : BaseSpell
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float size;
     [SerializeField] float duration;
+    [SerializeField] float strength;
+    [SerializeField] float delay;
     void Awake()
     {
         targeting = new RandomPoint(enemyLayer);
@@ -18,11 +20,6 @@ public class Pulse : BaseSpell
     }
     protected void defineCast()
     {
-        casting =  new CastArea(
-            explosionPrefab,
-            size,
-            duration,
-            new KnockbackEffect(4, 0.15f, gameObject.transform)
-        );
+        
     }
 }

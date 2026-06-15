@@ -16,7 +16,7 @@ public class KnockbackEffect : IEffect
     {
         if (target.TryGetComponent(out Enemy enemy))
         {
-            Vector2 direction = target.transform.position - caster.transform.position;
+            Vector2 direction = (target.transform.position - caster.transform.position).normalized;
             enemy.takeKnockback(strength, delay, direction);
         }
         }
