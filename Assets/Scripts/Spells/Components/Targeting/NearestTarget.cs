@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class NearestTarget : ITargetable
+public class NearestTarget : ITarget
 {
     LayerMask enemyLayer;
     Collider2D[] arr = new Collider2D[20];

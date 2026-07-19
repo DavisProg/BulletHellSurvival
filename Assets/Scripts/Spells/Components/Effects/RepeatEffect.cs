@@ -4,10 +4,10 @@ using System.Collections;
 
 public class RepeatEffect : IEffect
 {
-    ICastable spell;
-    ITargetable targeting;
+    ICast spell;
+    ITarget targeting;
     float range;
-    public RepeatEffect(ICastable spell,float range, ITargetable targeting)
+    public RepeatEffect(ICast spell,float range, ITarget targeting)
     {
         this.spell = spell;
         this.range = range;

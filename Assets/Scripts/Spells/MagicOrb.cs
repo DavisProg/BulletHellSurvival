@@ -15,8 +15,7 @@ public class MagicOrb : BaseSpell
         targeting = new NearestTarget(enemyLayer);
 
         defineCast();
-
-        StartCoroutine(tryCast());
+        setTrigger(new onLoop(this, cooldown));
     }
     public override void firstPathEnable()
     {

@@ -15,6 +15,11 @@ public class PoisonDart : BaseSpell
     {
         targeting = new NearestTarget(enemyLayer);
 
+        defineCast();
+        setTrigger(new onLoop(this, cooldown));
+    }
+    protected void defineCast()
+    {
         casting = new CastProjectile(
             projectilePrefab,
             speed,
@@ -22,7 +27,5 @@ public class PoisonDart : BaseSpell
             size,
             new DamageOverTimeEffect(damage, damagePerInterval, damageDuration)
         );
-
-        StartCoroutine(tryCast());
     }
 }

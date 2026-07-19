@@ -12,6 +12,11 @@ public class EnergyExplosion : BaseSpell
     {
         targeting = new RandomPoint(enemyLayer);
 
+        defineCast();
+        setTrigger(new onLoop(this, cooldown));
+    }
+    protected void defineCast()
+    {
         casting = new CastArea(
             explosionPrefab,
             size,
@@ -20,7 +25,5 @@ public class EnergyExplosion : BaseSpell
             new DamageEffect(damage)
             }
         );
-
-        StartCoroutine(tryCast());
     }
 }

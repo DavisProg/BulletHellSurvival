@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RandomTarget : ITargetable
+public class RandomTarget : ITarget
 {
     LayerMask enemyLayer;
     Collider2D[] arr = new Collider2D[20];

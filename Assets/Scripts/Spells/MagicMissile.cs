@@ -14,7 +14,12 @@ public class MagicMissile : BaseSpell
     {
         targeting = new NearestTarget(enemyLayer);
 
-        casting = new CastProjectile(
+        defineCast();
+        setTrigger(new onLoop(this, cooldown));
+    }
+    protected void defineCast()
+    {
+        casting =  new CastProjectile(
             projectilePrefab,
             speed,
             pierce,
@@ -25,7 +30,5 @@ public class MagicMissile : BaseSpell
                 new KnockbackEffect(3, 0.1f, gameObject.transform)
             }
         );
-
-        StartCoroutine(tryCast());
     }
 }

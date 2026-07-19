@@ -10,24 +10,28 @@ public abstract class BaseSpell : MonoBehaviour
     [SerializeField] protected float range;
     [SerializeField] protected float cooldown;
 
-    protected ITargetable targeting;
-    protected ICastable casting;
+    protected ITarget targeting;
+    protected ICast casting;
+    protected ITrigger trigger;
 
-    bool canCast = true;
+    public void setTrigger(ITrigger newTrigger)
+    {
+        if(trigger != null)
+        {
+            trigger.Triggered -= tryCast;
+            trigger.Disable();
+        }
+        trigger = newTrigger;
 
-    public IEnumerator tryCast()
+        trigger.Triggered += tryCast;
+    }
+
+    public void tryCast()
     {
         if (level > 0)
         {
-            Debug.Log("Hello");
-            while (canCast)
-            {
-                if(targeting.GetTarget(transform, range, out Vector2 target)){
+            if(targeting.GetTarget(transform, range, out Vector2 target)){
                     casting.Cast(transform, target);
-                }
-                canCast = false;
-                yield return new WaitForSeconds(cooldown);
-                canCast = true;
             }
         }
     }
@@ -46,13 +50,18 @@ public abstract class BaseSpell : MonoBehaviour
         if (level == 0)
         {
             level++;
-            StartCoroutine(tryCast());
+            trigger.Enable();
         }
         else if(level == 1)
         {
             level++;
             GetComponent<SpellUpgrade>().showUpgradeSelectionMenu(this);
         }
+    }
+    public void disable()
+    {
+        trigger.Triggered -= tryCast;
+        trigger.Disable();
     }
     public virtual void firstPathEnable(){}
     public virtual void secondPathEnable(){}

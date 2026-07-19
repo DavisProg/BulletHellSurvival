@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CastArea : ICastable
+public class CastArea : ICast
 {
     GameObject prefab;
     float size;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CastProjectile : ICastable
+public class CastProjectile : ICast
 {
     GameObject prefab;
 
