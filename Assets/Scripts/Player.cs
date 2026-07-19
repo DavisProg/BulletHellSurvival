@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public int xp = 0;
     private Rigidbody2D rb;
     private Vector2 input;
+    public event Action PlayerDamaged;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void increaseXP(int incXP)
@@ -41,10 +42,11 @@ public class Player : MonoBehaviour
         Debug.Log("Hello");
         if (canDamage)
         {
+            PlayerDamaged?.Invoke();
             Debug.Log("Hi");
             health -= damage;
             canDamage = false;
-            GetComponent<Pulse>().quickCast();
+            //GetComponent<Pulse>().quickCast();
             StartCoroutine(IFrames(iFramesTime));
         }
     }
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        GetComponent<Pulse>().enable();
         rb = GetComponent<Rigidbody2D>();
     }
 

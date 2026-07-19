@@ -13,17 +13,14 @@ public class Pulse : BaseSpell
     void Awake()
     {
         targeting = new RandomPoint(enemyLayer);
-
-        level = 1;
-
         defineCast();
+        setTrigger(new onPlayerDamage(gameObject.GetComponent<Player>()));
     }
     protected void defineCast()
     {
         casting =  new CastArea(
             explosionPrefab,
             size,
-            
             duration,
             new KnockbackEffect(strength, delay, gameObject.transform)
         );
