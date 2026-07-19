@@ -14,10 +14,10 @@ public class KnockbackEffect : IEffect
     }
     public void Apply(GameObject target)
     {
-        if (target.TryGetComponent(out Enemy enemy))
+        if (target.TryGetComponent(out KnockbackController kb))
         {
             Vector2 direction = (target.transform.position - caster.transform.position).normalized;
-            enemy.takeKnockback(strength, delay, direction);
+            kb.takeKnockback(strength, delay, direction);
         }
         }
 }

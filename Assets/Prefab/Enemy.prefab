@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8120146949401848690}
   - component: {fileID: 6646504075372963399}
   - component: {fileID: 2232642130733925030}
+  - component: {fileID: -1343610570141255519}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -182,3 +183,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1343610570141255519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906689853839711279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03daa758685c8946a6caf7636d1b05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KnockbackController

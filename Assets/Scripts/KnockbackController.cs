@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Knockback : MonoBehaviour
+public class KnockbackController : MonoBehaviour
 {
     Rigidbody2D rb;
     Enemy enemy;

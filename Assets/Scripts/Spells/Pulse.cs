@@ -20,6 +20,12 @@ public class Pulse : BaseSpell
     }
     protected void defineCast()
     {
-        
+        casting =  new CastArea(
+            explosionPrefab,
+            size,
+            
+            duration,
+            new KnockbackEffect(strength, delay, gameObject.transform)
+        );
     }
 }
