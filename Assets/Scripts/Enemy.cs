@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 1.5f;
     public float health = 7;
+    public event Action<Enemy, BaseSpell> onDeath;
+    private bool isRegisteredForDeath = false;
 
     public GameObject xp;
     bool canMove = true;
@@ -12,17 +15,25 @@ public class Enemy : MonoBehaviour
     Vector2 moveDirection;
     Transform target;
 
-    void die()
+    void die(BaseSpell source)
     {
         Instantiate(xp, transform.position, Quaternion.identity);
+        Debug.Log("Died from " + source);
+        onDeath?.Invoke(this, source);
         Destroy(gameObject);
     }
-    public void takeDamage(float damage)
+    public void takeDamage(float damage, BaseSpell source)
     {
         health -= damage;
+        Debug.Log("Took damage from " + source);
+        if (!isRegisteredForDeath)
+        {
+            EnemyDeathController.Instance.RegisterEnemyDeathEvent(this);
+            isRegisteredForDeath = true;
+        }
         if (health <= 0)
         {
-            die();
+            die(source);
         }
     }
     public void disableMovement()

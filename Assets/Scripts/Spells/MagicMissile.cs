@@ -26,7 +26,7 @@ public class MagicMissile : BaseSpell
             size,
             new IEffect[]
             {
-                new DamageEffect(damage),
+                new DamageEffect(damage, this),
                 new KnockbackEffect(3, 0.1f, gameObject.transform)
             }
         );

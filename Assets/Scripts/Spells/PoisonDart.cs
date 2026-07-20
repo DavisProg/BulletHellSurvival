@@ -25,7 +25,7 @@ public class PoisonDart : BaseSpell
             speed,
             pierce,
             size,
-            new DamageOverTimeEffect(damage, damagePerInterval, damageDuration)
+            new DamageOverTimeEffect(damage, damagePerInterval, damageDuration, this)
         );
     }
 }

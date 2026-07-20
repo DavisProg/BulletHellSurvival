@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnergyExplosion : BaseSpell
@@ -7,13 +8,14 @@ public class EnergyExplosion : BaseSpell
     [SerializeField] float damage;
     [SerializeField] float size;
     [SerializeField] float duration;
+    [SerializeField] BaseSpell parentSpell;
 
     void Awake()
     {
         targeting = new RandomPoint(enemyLayer);
 
         defineCast();
-        setTrigger(new onLoop(this, cooldown));
+        setTrigger(new onEnemyDeath(parentSpell));
     }
     protected void defineCast()
     {
@@ -22,7 +24,7 @@ public class EnergyExplosion : BaseSpell
             size,
             duration,
             new IEffect[]{
-            new DamageEffect(damage)
+            new DamageEffect(damage, this)
             }
         );
     }

@@ -6,20 +6,22 @@ public class DamageOverTimeEffect : IEffect
     float damage;
     float damagePerInterval;
     float intervalCooldown;
+    BaseSpell source;
 
-    public DamageOverTimeEffect(float damage, float damagePerInterval, float intervalCooldown)
+    public DamageOverTimeEffect(float damage, float damagePerInterval, float intervalCooldown, BaseSpell source)
     {
         this.damage = damage;
         this.damagePerInterval = damagePerInterval;
         this.intervalCooldown = intervalCooldown;
+        this.source = source;
     }
-    IEnumerator damageOverTime(GameObject target)
+    IEnumerator damageOverTime(GameObject target, BaseSpell source)
     {
         float damageLeft = damage;
         Enemy enemy = target.GetComponent<Enemy>();
         while(damageLeft > 0)
         {
-            enemy.takeDamage(damagePerInterval);
+            enemy.takeDamage(damagePerInterval, source);
             damageLeft = damageLeft - damagePerInterval;
             Debug.Log("Damage left to make: " + damageLeft);
             Debug.Log("Enemy health: " + enemy.health);
@@ -28,6 +30,6 @@ public class DamageOverTimeEffect : IEffect
     }
     public void Apply(GameObject target)
     {
-        target.GetComponent<Enemy>().StartCoroutine(damageOverTime(target));
+        target.GetComponent<Enemy>().StartCoroutine(damageOverTime(target, source));
     }
 }
