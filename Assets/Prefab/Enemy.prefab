@@ -155,6 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 1.5
   health: 3
+  separationDistance: 0.3
+  separationStrength: 0.2
+  seperationWeight: 0.5
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
 --- !u!50 &2232642130733925030
 Rigidbody2D:

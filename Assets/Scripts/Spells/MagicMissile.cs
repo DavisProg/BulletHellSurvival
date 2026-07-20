@@ -27,6 +27,7 @@ public class MagicMissile : BaseSpell
             new IEffect[]
             {
                 new DamageEffect(damage, this),
+                new SlowEffect(60, 2),
                 new KnockbackEffect(3, 0.1f, gameObject.transform)
             }
         );

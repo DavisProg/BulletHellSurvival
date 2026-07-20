@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = 1.5f;
     public float health = 7;
+    public float separationDistance = 1.5f;
+    public float separationStrength = 2f;
+    public float seperationWeight = 0.5f;
     public event Action<Enemy, BaseSpell> onDeath;
     private bool isRegisteredForDeath = false;
 
@@ -74,8 +78,36 @@ public class Enemy : MonoBehaviour
         {
             if (canMove)
             {
-                rb.linearVelocity = moveDirection * speed;
+                Vector2 separation = getSeperationForce();
+                Vector2 finalDirection = moveDirection + separation * seperationWeight;
+                rb.linearVelocity = finalDirection.normalized * speed;
             }
         }
+    }
+    private void OnDrawGizmosSelected()
+{
+    Gizmos.DrawWireSphere(transform.position, separationDistance);
+}
+    private Vector2 getSeperationForce()
+    {
+        Vector2 separation = Vector2.zero;
+
+        Collider2D[] overlappingEnemies = new Collider2D[10];
+        int overlappingEnemyCount =Physics2D.OverlapCircleNonAlloc(transform.position, separationDistance, overlappingEnemies, 1 << gameObject.layer);
+
+        for(int i = 0; i < overlappingEnemyCount; i++)
+        {
+            Collider2D col = overlappingEnemies[i];
+            if (col.gameObject == gameObject)
+            {
+                continue;
+            }
+            Vector2 away = transform.position - col.transform.position;
+            if (away.magnitude > 0)
+            {
+                separation += away.normalized / away.magnitude;
+            }
+        }
+        return separation * separationStrength;
     }
 }
