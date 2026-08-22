@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public int xp = 0;
     private Rigidbody2D rb;
-    private Vector2 input;
+    public Vector2 input;
     public event Action PlayerDamaged;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GetComponent<Pulse>().enable();
+        GetComponent<Dash>().enable();
         rb = GetComponent<Rigidbody2D>();
     }
 

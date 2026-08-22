@@ -31,6 +31,10 @@ public class NearestTarget : ITarget
             return false;
         }
         position = nearestObject.transform.position;
-        return true;
+        if (position != null)
+        {
+            return true;
+        }
+        return false;
     }
 }

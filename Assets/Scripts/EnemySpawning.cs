@@ -10,10 +10,6 @@ public class EnemySpawning : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    void OnDrawGizmosSelected() {
-    Gizmos.color = Color.blue;
-    Gizmos.DrawWireSphere(transform.position, radius);
-}
     bool isPointVisible(Vector3 point)
     {
         Camera cam = Camera.main;
