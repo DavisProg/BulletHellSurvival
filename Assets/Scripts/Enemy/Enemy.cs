@@ -1,23 +1,24 @@
-using System;
+ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    public float speed = 1.5f;
-    public float health = 7;
-    public float separationDistance = 1.5f;
-    public float separationStrength = 2f;
-    public float seperationWeight = 0.5f;
+    [SerializeField] public float speed = 1.5f;
+    [SerializeField] public float health = 7;
+    [SerializeField] protected float separationDistance = 1.5f;
+    [SerializeField] protected float separationStrength = 2f;
+    [SerializeField] protected float seperationWeight = 0.5f;
     public event Action<Enemy, BaseSpell> onDeath;
-    private bool isRegisteredForDeath = false;
+    [SerializeField] protected bool isRegisteredForDeath = false;
 
     public GameObject xp;
     bool canMove = true;
-    Rigidbody2D rb;
-    Vector2 moveDirection;
-    Transform target;
+    protected Rigidbody2D rb;
+    protected Vector2 moveDirection;
+    protected Transform target;
+    protected bool facingRight = true;
 
     void die(BaseSpell source)
     {
@@ -40,6 +41,19 @@ public class Enemy : MonoBehaviour
             die(source);
         }
     }
+    public void move()
+    {
+        if (target)
+        {
+            if (canMove)
+            {
+                Vector2 separation = getSeperationForce();
+                Vector2 finalDirection = moveDirection + separation * seperationWeight;
+                rb.linearVelocity = finalDirection.normalized * speed;
+                tryFlip();
+            }
+        }
+    }
     public void disableMovement()
     {
         canMove = false;
@@ -48,15 +62,7 @@ public class Enemy : MonoBehaviour
     {
         canMove = true;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        target = GameObject.Find("Player").transform;
-    }
-
-    // Update is called once per frame
-    void Update()
+    public void getDirection()
     {
         if (target)
         {
@@ -74,15 +80,7 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (target)
-        {
-            if (canMove)
-            {
-                Vector2 separation = getSeperationForce();
-                Vector2 finalDirection = moveDirection + separation * seperationWeight;
-                rb.linearVelocity = finalDirection.normalized * speed;
-            }
-        }
+        move();
     }
     private void OnDrawGizmosSelected()
 {
@@ -109,5 +107,18 @@ public class Enemy : MonoBehaviour
             }
         }
         return separation * separationStrength;
+    }
+    public void tryFlip()
+    {
+        if (target.transform.position.x > transform.position.x && facingRight)
+        {
+            facingRight = !facingRight;
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (target.transform.position.x < transform.position.x && !facingRight)
+        {
+            facingRight = !facingRight;
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
     }
 }

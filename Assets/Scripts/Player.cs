@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public Vector2 input;
     public event Action PlayerDamaged;
+    private bool facingRight = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void increaseXP(int incXP)
@@ -68,6 +69,17 @@ public class Player : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+
+        if (input.x == -1 && facingRight)
+        {
+            facingRight = !facingRight;
+            transform.localEulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (input.x == 1 && !facingRight)
+        {
+            facingRight = !facingRight;
+            transform.localEulerAngles = new Vector3(0, 0, 0);
+        }
 
         input.Normalize();
 

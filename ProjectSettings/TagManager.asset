@@ -44,5 +44,26 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3748734791
+    locked: 0
+  - name: Pickup
+    uniqueID: 843906821
+    locked: 0
+  - name: Enemy
+    uniqueID: 3024859389
+    locked: 0
+  - name: Projectile
+    uniqueID: 4219346101
+    locked: 0
+  - name: Item
+    uniqueID: 158859491
+    locked: 0
+  - name: Player
+    uniqueID: 4241830675
+    locked: 0
+  - name: Status
+    uniqueID: 2741520905
+    locked: 0
   m_RenderingLayers:
   - Default
