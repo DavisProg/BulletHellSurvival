@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Vector2 input;
     public event Action PlayerDamaged;
     private bool facingRight = true;
+    [SerializeField] Camera camera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void increaseXP(int incXP)
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
             health -= damage;
             canDamage = false;
             //GetComponent<Pulse>().quickCast();
+            camera.GetComponent<CameraShake>().startCameraShake();
             StartCoroutine(IFrames(iFramesTime));
         }
     }

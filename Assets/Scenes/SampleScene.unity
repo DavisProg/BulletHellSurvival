@@ -1197,6 +1197,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1338,6 +1339,63 @@ MonoBehaviour:
   cameraOffsetStrength: -3
   smoothTime: 0.1
   target: {fileID: 1725769602}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca4a025e290c3942a0bd98a6583fb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  start: 0
+  duration: 0.6
+  intensity: 0.3
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.09569272
+      value: 0.5664326
+      inSlope: -1.8288896
+      outSlope: -1.8288896
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.05107991
+    - serializedVersion: 3
+      time: 0.99484247
+      value: 0.0000038594007
+      inSlope: -0.14617214
+      outSlope: -0.14617214
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0001968
+      value: 0.0015224731
+      inSlope: -1.3102945
+      outSlope: -1.3102945
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.049026534
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &611509034
 GameObject:
   m_ObjectHideFlags: 0
@@ -40080,6 +40138,7 @@ MonoBehaviour:
   health: 9
   xp: 0
   input: {x: 0, y: 0}
+  camera: {fileID: 519420031}
 --- !u!61 &1725769604
 BoxCollider2D:
   m_ObjectHideFlags: 0
