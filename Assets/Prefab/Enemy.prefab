@@ -181,6 +181,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03daa758685c8946a6caf7636d1b05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnockbackController
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.4507101
+      outSlope: 0.4507101
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.053221397
+    - serializedVersion: 3
+      time: 0.08944779
+      value: 1
+      inSlope: -3.5568097
+      outSlope: -3.5568097
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.036239315
+    - serializedVersion: 3
+      time: 1.0018921
+      value: 0
+      inSlope: -0.30706537
+      outSlope: -0.30706537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.065906055
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1333276860537717586
 MonoBehaviour:
   m_ObjectHideFlags: 0
