@@ -37,12 +37,14 @@ public class DebugScreen : MonoBehaviour
         {
             debugScreen.SetActive(true);
             debugMenuScreen.SetActive(true);
+            Time.timeScale = 0;
         }
         else if (debugScreen.activeSelf == true)
         {
             debugScreen.SetActive(false);
             debugMenuScreen.SetActive(false);
             spellSelectionDebugScreen.SetActive(false);
+            Time.timeScale = 1;
         }
     }
     public void initSpellSelectionDebugScreen()
@@ -51,10 +53,8 @@ public class DebugScreen : MonoBehaviour
         debugMenuScreen.SetActive(false);
         spellSelectionDebugScreen.SetActive(true);
 
-        //Clear all options
         spellOptions.Clear();
         spellSelectionDropdown.ClearOptions();
-        //Add options
         foreach (BaseSpell spell in spellList)
         {
             TMP_Dropdown.OptionData spellOption = new TMP_Dropdown.OptionData(spell.ToString(), null, new Color(1f, 0f, 0f));
