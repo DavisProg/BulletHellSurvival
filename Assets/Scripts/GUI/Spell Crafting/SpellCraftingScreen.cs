@@ -3,8 +3,13 @@ using UnityEngine;
 public class SpellCraftingScreen : MonoBehaviour
 {
 [SerializeField] private GameObject spellCraftingScreen;
+SpellCraftingManager craftingManager;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        craftingManager = spellCraftingScreen.GetComponent<SpellCraftingManager>();
+        
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -23,6 +28,7 @@ public class SpellCraftingScreen : MonoBehaviour
         else if(spellCraftingScreen.activeSelf == true)
         {
             spellCraftingScreen.SetActive(false);
+            craftingManager.Clear();
             Time.timeScale = 1;
         }
     }

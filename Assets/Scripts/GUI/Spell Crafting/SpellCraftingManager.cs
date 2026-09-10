@@ -87,4 +87,16 @@ public class SpellCraftingManager : MonoBehaviour
         Debug.Log(player.learntSpells);
 
     }
+    public void Clear()
+    {
+        foreach(SpellCraftSlot slot in slots)
+        {
+            slot.currentSpell = null;
+            slot.GetComponent<Image>().sprite = null;
+        }
+        resultSlot.currentSpell = null;
+        resultSlot.GetComponent<Image>().sprite = null;
+        currentSpell = null;
+        customCursor.gameObject.SetActive(false);
+    }
 }
