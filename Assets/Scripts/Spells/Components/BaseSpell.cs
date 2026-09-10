@@ -1,18 +1,14 @@
-using System.Collections;
-using JetBrains.Annotations;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public abstract class BaseSpell : MonoBehaviour
 {
     [SerializeField] protected int level = 0;
     [SerializeField] protected float range;
     [SerializeField] protected float cooldown;
-    public Image icon;
-    public string name;
-    public string description;
+    public Sprite spellIcon;
+    public string spellName;
+    public string spellDescription;
 
     protected ITarget targeting;
     protected ICast casting;
@@ -55,6 +51,7 @@ public abstract class BaseSpell : MonoBehaviour
         {
             level++;
             trigger.Enable();
+            GetComponent<Player>().learntSpells.Add(this);
         }
         else if(level == 1)
         {
@@ -66,6 +63,8 @@ public abstract class BaseSpell : MonoBehaviour
     {
         trigger.Triggered -= tryCast;
         trigger.Disable();
+        level = 0;
+        GetComponent<Player>().learntSpells.Remove(this);
     }
     public virtual void firstPathEnable(){}
     public virtual void secondPathEnable(){}

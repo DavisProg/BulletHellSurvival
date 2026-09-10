@@ -38923,7 +38923,12 @@ MonoBehaviour:
   slots:
   - {fileID: 1444548614}
   - {fileID: 157329584}
+  resultSlot: {fileID: 1881987422}
   maxCraftDistance: 100
+  recipeList:
+  - firstSpell: {fileID: 1725769612}
+    secondSpell: {fileID: 1725769609}
+    resultSpell: {fileID: 1725769618}
 --- !u!1 &1329897282
 GameObject:
   m_ObjectHideFlags: 0
@@ -39842,7 +39847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1454192753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1325019445}
+        m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
+        m_MethodName: CraftSpell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1454192753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40918,6 +40935,9 @@ MonoBehaviour:
   level: 0
   range: 5
   cooldown: 5
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -40941,6 +40961,9 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 3
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   projectilePrefab: {fileID: 5096605751458326597, guid: 360693723021ab648a78e2e8b0ff5152, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -40966,6 +40989,9 @@ MonoBehaviour:
   level: 0
   range: 6
   cooldown: 3
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   projectilePrefab: {fileID: 4660098579384437625, guid: 6a0712a7cbaf24d4aa04dd89a5ddfce7, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -40990,6 +41016,9 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 2
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -41051,6 +41080,9 @@ MonoBehaviour:
   level: 0
   range: 0.001
   cooldown: 0.0001
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   explosionPrefab: {fileID: 467577717174556695, guid: 9158889a6c61cff4cb05db6bd8e99344, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -41074,6 +41106,9 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 2
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   beamPrefab: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -41097,6 +41132,9 @@ MonoBehaviour:
   level: 0
   range: 0
   cooldown: 0
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
   projectilePrefab: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -41120,6 +41158,9 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 3
+  spellIcon: {fileID: -1379874378083911668, guid: 2d21943606d44724dbb8836b1cccfdd3, type: 3}
+  spellName: Fireball
+  spellDescription: Kaboom
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
   enemyLayer:
@@ -41436,6 +41477,7 @@ GameObject:
   - component: {fileID: 1881987419}
   - component: {fileID: 1881987421}
   - component: {fileID: 1881987420}
+  - component: {fileID: 1881987422}
   m_Layer: 5
   m_Name: ResultSlot
   m_TagString: Untagged
@@ -41500,6 +41542,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881987418}
   m_CullTransparentMesh: 1
+--- !u!114 &1881987422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881987418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9916140f4596a4eadedb77621c0a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
+  currentSpell: {fileID: 0}
+  index: 0
 --- !u!1 &1904595979
 GameObject:
   m_ObjectHideFlags: 0

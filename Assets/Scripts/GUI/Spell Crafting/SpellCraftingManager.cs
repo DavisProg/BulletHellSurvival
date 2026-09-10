@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,11 @@ public class SpellCraftingManager : MonoBehaviour
     [SerializeField] SpellCraftSlot resultSlot;
     [SerializeField] float maxCraftDistance;
     [SerializeField] Recipe[] recipeList;
+    Player player;
+    void Awake()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
     void Update(){
         if (Input.GetMouseButtonUp(0))
         {
@@ -52,6 +59,7 @@ public class SpellCraftingManager : MonoBehaviour
     }
     public void CraftSpell()
     {
+        Debug.Log(player.learntSpells);
         BaseSpell firstSpell = slots[0].currentSpell.spell;
         BaseSpell secondSpell = slots[1].currentSpell.spell;
         Debug.Log("firstspell: " + firstSpell + " secondspell: " + secondSpell);
@@ -66,14 +74,17 @@ public class SpellCraftingManager : MonoBehaviour
                 {
                     Debug.Log("Found resultSpell");
                     resultSpell.enable();
-                    resultSlot.GetComponent<Image>().sprite = slots[0].GetComponent<Image>().sprite;
+                    resultSlot.GetComponent<Image>().sprite = resultSpell.spellIcon;
                     foreach(SpellCraftSlot slot in slots)
                     {
-                        //placeholder
+                        slot.GetComponent<Image>().sprite = null;
+                        slot.currentSpell.spell.disable();
+                        slot.currentSpell = null;
                     }
                 }
             }
         }
+        Debug.Log(player.learntSpells);
 
     }
 }

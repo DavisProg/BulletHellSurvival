@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     private float iFramesTime = 0.5f;
 
     private bool canDamage = true;
+    public List<BaseSpell> learntSpells = new List<BaseSpell>();
 
     public int xp = 0;
     private Rigidbody2D rb;
