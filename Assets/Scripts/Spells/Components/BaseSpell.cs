@@ -1,5 +1,6 @@
 using System.Collections;
 using JetBrains.Annotations;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
@@ -9,6 +10,9 @@ public abstract class BaseSpell : MonoBehaviour
     [SerializeField] protected int level = 0;
     [SerializeField] protected float range;
     [SerializeField] protected float cooldown;
+    public Image icon;
+    public string name;
+    public string description;
 
     protected ITarget targeting;
     protected ICast casting;

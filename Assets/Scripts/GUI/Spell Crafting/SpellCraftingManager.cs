@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,9 @@ public class SpellCraftingManager : MonoBehaviour
     [SerializeField] Image customCursor;
 
     [SerializeField] SpellCraftSlot[] slots;
+    [SerializeField] SpellCraftSlot resultSlot;
     [SerializeField] float maxCraftDistance;
+    [SerializeField] Recipe[] recipeList;
     void Update(){
         if (Input.GetMouseButtonUp(0))
         {
@@ -46,5 +49,31 @@ public class SpellCraftingManager : MonoBehaviour
             customCursor.gameObject.SetActive(true);
             customCursor.sprite = currentSpell.GetComponent<Image>().sprite;
         }
+    }
+    public void CraftSpell()
+    {
+        BaseSpell firstSpell = slots[0].currentSpell.spell;
+        BaseSpell secondSpell = slots[1].currentSpell.spell;
+        Debug.Log("firstspell: " + firstSpell + " secondspell: " + secondSpell);
+        if(firstSpell && secondSpell)
+        {
+            Debug.Log("Made it through spell null check");
+            foreach(Recipe recipe in recipeList)
+            {
+                BaseSpell resultSpell = recipe.CompareSpells(firstSpell, secondSpell);
+
+                if (resultSpell != null && resultSpell.getLevel() < 2)
+                {
+                    Debug.Log("Found resultSpell");
+                    resultSpell.enable();
+                    resultSlot.GetComponent<Image>().sprite = slots[0].GetComponent<Image>().sprite;
+                    foreach(SpellCraftSlot slot in slots)
+                    {
+                        //placeholder
+                    }
+                }
+            }
+        }
+
     }
 }
