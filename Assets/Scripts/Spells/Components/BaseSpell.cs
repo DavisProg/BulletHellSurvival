@@ -9,6 +9,7 @@ public abstract class BaseSpell : MonoBehaviour
     public Sprite spellIcon;
     public string spellName;
     public string spellDescription;
+    [SerializeField] bool addToSpellsKnown = true;
 
     protected ITarget targeting;
     protected ICast casting;
@@ -51,7 +52,10 @@ public abstract class BaseSpell : MonoBehaviour
         {
             level++;
             trigger.Enable();
-            GetComponent<Player>().learntSpells.Add(this);
+            if (addToSpellsKnown)
+            {
+                GetComponent<Player>().learntSpells.Add(this);
+            }
         }
         else if(level == 1)
         {

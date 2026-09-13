@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GetComponent<Pulse>().enable();
-        GetComponent<Dash>().enable();
+        //GetComponent<Dash>().enable();
         rb = GetComponent<Rigidbody2D>();
     }
 
