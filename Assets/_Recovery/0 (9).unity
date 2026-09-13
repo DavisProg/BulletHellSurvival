@@ -496,6 +496,114 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fec8f59f2c0ecf42b11d6cc52b559dd, type: 3}
+--- !u!1 &157329578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157329579}
+  - component: {fileID: 157329583}
+  - component: {fileID: 157329582}
+  - component: {fileID: 157329580}
+  - component: {fileID: 157329584}
+  m_Layer: 5
+  m_Name: Slot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &157329579
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157329578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325019441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -435.4, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &157329580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157329578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &157329582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157329578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &157329583
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157329578}
+  m_CullTransparentMesh: 1
+--- !u!114 &157329584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157329578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9916140f4596a4eadedb77621c0a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
+  currentSpell: {fileID: 0}
+  index: 1
 --- !u!1 &175046744
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -803,7 +911,6 @@ GameObject:
   m_Component:
   - component: {fileID: 232370485}
   - component: {fileID: 232370486}
-  - component: {fileID: 232370487}
   m_Layer: 5
   m_Name: SpellBlock (4)
   m_TagString: Untagged
@@ -846,35 +953,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 4
---- !u!114 &232370487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232370484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 232370486}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &278909386
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +963,6 @@ GameObject:
   m_Component:
   - component: {fileID: 278909387}
   - component: {fileID: 278909388}
-  - component: {fileID: 278909389}
   m_Layer: 5
   m_Name: SpellBlock
   m_TagString: Untagged
@@ -928,35 +1005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 0
---- !u!114 &278909389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278909386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 278909388}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &292792114
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +1015,6 @@ GameObject:
   m_Component:
   - component: {fileID: 292792115}
   - component: {fileID: 292792116}
-  - component: {fileID: 292792117}
   m_Layer: 5
   m_Name: SpellBlock (1)
   m_TagString: Untagged
@@ -1010,35 +1057,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 1
---- !u!114 &292792117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292792114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 292792116}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &349819727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 377463514}
   - component: {fileID: 377463515}
-  - component: {fileID: 377463516}
   m_Layer: 5
   m_Name: SpellBlock (5)
   m_TagString: Untagged
@@ -1208,7 +1225,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377463513}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1219,7 +1236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.4, y: -88.10001}
+  m_AnchoredPosition: {x: 40.4, y: -88.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377463515
@@ -1236,35 +1253,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 5
---- !u!114 &377463516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 377463513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 377463515}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &416907133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,7 +1655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1822,7 +1810,6 @@ GameObject:
   m_Component:
   - component: {fileID: 480446495}
   - component: {fileID: 480446496}
-  - component: {fileID: 480446497}
   m_Layer: 5
   m_Name: SpellBlock (7)
   m_TagString: Untagged
@@ -1865,35 +1852,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 7
---- !u!114 &480446497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480446494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 480446496}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2089,126 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1 &521159707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521159708}
+  - component: {fileID: 521159712}
+  - component: {fileID: 521159711}
+  - component: {fileID: 521159710}
+  - component: {fileID: 521159709}
+  m_Layer: 5
+  m_Name: Magic Missile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &521159708
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521159707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325019441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 512, y: 214}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &521159709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521159707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1325019445}
+          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
+          m_MethodName: OnMouseDownSpell
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 521159710}
+            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &521159710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521159707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a35706a746fd440b249dbbd150ed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
+  spell: {fileID: 1725769612}
+  index: 0
+--- !u!114 &521159711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521159707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1551367759599228311, guid: 50bdc692a6196854dbce8b5e3ef909eb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &521159712
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521159707}
+  m_CullTransparentMesh: 1
 --- !u!1 &556529799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,7 +6020,6 @@ GameObject:
   m_Component:
   - component: {fileID: 743965892}
   - component: {fileID: 743965893}
-  - component: {fileID: 743965894}
   m_Layer: 5
   m_Name: SpellBlock (6)
   m_TagString: Untagged
@@ -5985,35 +6062,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 6
---- !u!114 &743965894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743965891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 743965893}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &764929783
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,7 +6271,6 @@ GameObject:
   - component: {fileID: 825806046}
   - component: {fileID: 825806048}
   - component: {fileID: 825806047}
-  - component: {fileID: 825806049}
   m_Layer: 5
   m_Name: SpellBlockImage
   m_TagString: Untagged
@@ -6288,20 +6335,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825806045}
   m_CullTransparentMesh: 1
---- !u!114 &825806049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825806045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a35706a746fd440b249dbbd150ed3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
-  spell: {fileID: 0}
-  index: 0
 --- !u!1 &877702693
 GameObject:
   m_ObjectHideFlags: 0
@@ -39882,8 +39915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1231111252}
   - component: {fileID: 1231111253}
-  - component: {fileID: 1231111255}
-  - component: {fileID: 1231111254}
   m_Layer: 5
   m_Name: SpellBlock (2)
   m_TagString: Untagged
@@ -39926,48 +39957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 2
---- !u!114 &1231111254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231111251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1231111253}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1231111255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231111251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates: []
 --- !u!1 &1255066781
 GameObject:
   m_ObjectHideFlags: 0
@@ -40311,9 +40300,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1875700890}
+  - {fileID: 1444548610}
+  - {fileID: 157329579}
+  - {fileID: 521159708}
+  - {fileID: 1904595980}
+  - {fileID: 1881987419}
   - {fileID: 1454192751}
   - {fileID: 1597314403}
-  - {fileID: 1875700890}
   m_Father: {fileID: 2021411111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -40398,9 +40392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellCraftingManager
   customCursor: {fileID: 1875700887}
   slots:
-  - {fileID: 1268090334}
-  - {fileID: 782491626}
-  resultSlot: {fileID: 2079926704}
+  - {fileID: 0}
+  - {fileID: 157329584}
+  resultSlot: {fileID: 1881987422}
   maxCraftDistance: 100
   recipeList:
   - firstSpell: {fileID: 1725769612}
@@ -40443,7 +40437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 41}
+  m_AnchoredPosition: {x: 0, y: -86}
   m_SizeDelta: {x: -1160.5, y: -502.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329897284
@@ -41227,6 +41221,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1444548609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444548610}
+  - component: {fileID: 1444548613}
+  - component: {fileID: 1444548612}
+  m_Layer: 5
+  m_Name: Slot1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1444548610
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444548609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325019441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -591.9, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1444548612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444548609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1444548613
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444548609}
+  m_CullTransparentMesh: 1
 --- !u!1 &1448619846
 GameObject:
   m_ObjectHideFlags: 0
@@ -42098,7 +42167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -42492,8 +42561,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1654235264}
   - component: {fileID: 1654235265}
-  - component: {fileID: 1654235267}
-  - component: {fileID: 1654235266}
   m_Layer: 5
   m_Name: SpellBlock (3)
   m_TagString: Untagged
@@ -42536,48 +42603,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
   spell: {fileID: 0}
   index: 3
---- !u!114 &1654235266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654235263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1325019445}
-          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
-          m_MethodName: OnMouseDownSpell
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1654235265}
-            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1654235267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654235263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates: []
 --- !u!1 &1716821848
 GameObject:
   m_ObjectHideFlags: 0
@@ -42957,8 +42982,8 @@ MonoBehaviour:
   level: 0
   range: 5
   cooldown: 5
-  spellIcon: {fileID: -1034206217, guid: 62490cd15fde99b45b15b783b01b9685, type: 3}
-  spellName: Energy Explosion
+  spellIcon: {fileID: 0}
+  spellName: 
   spellDescription: 
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
   enemyLayer:
@@ -43038,8 +43063,8 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 2
-  spellIcon: {fileID: -546852098, guid: 62490cd15fde99b45b15b783b01b9685, type: 3}
-  spellName: Magic Missile
+  spellIcon: {fileID: 0}
+  spellName: 
   spellDescription: 
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   enemyLayer:
@@ -43439,7 +43464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: e55e36de984b7c3499ce80752b6887c1, type: 3}
+  m_Sprite: {fileID: -8349505779792255718, guid: 5416cd2efc8499b43a40d880a518cf4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43485,9 +43510,219 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 172.4, y: -15.7}
+  m_AnchoredPosition: {x: -18, y: -188}
   m_SizeDelta: {x: 99.999, y: 99.999}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1881987418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881987419}
+  - component: {fileID: 1881987421}
+  - component: {fileID: 1881987420}
+  - component: {fileID: 1881987422}
+  m_Layer: 5
+  m_Name: ResultSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1881987419
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881987418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325019441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -318, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1881987420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881987418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1881987421
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881987418}
+  m_CullTransparentMesh: 1
+--- !u!114 &1881987422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881987418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9916140f4596a4eadedb77621c0a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
+  currentSpell: {fileID: 0}
+  index: 0
+--- !u!1 &1904595979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904595980}
+  - component: {fileID: 1904595984}
+  - component: {fileID: 1904595983}
+  - component: {fileID: 1904595982}
+  - component: {fileID: 1904595981}
+  m_Layer: 5
+  m_Name: Energy Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1904595980
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904595979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325019441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 373, y: 214}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1904595981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904595979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1325019445}
+          m_TargetAssemblyTypeName: SpellCraftingManager, Assembly-CSharp
+          m_MethodName: OnMouseDownSpell
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1904595982}
+            m_ObjectArgumentAssemblyTypeName: SpellBlock, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1904595982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904595979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a35706a746fd440b249dbbd150ed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellBlock
+  spell: {fileID: 1725769609}
+  index: 0
+--- !u!114 &1904595983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904595979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5390cd326c6a1c34a850adc0b2a343ef, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1904595984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904595979}
+  m_CullTransparentMesh: 1
 --- !u!1 &1915699017
 GameObject:
   m_ObjectHideFlags: 0
@@ -44200,7 +44435,6 @@ MonoBehaviour:
   - {fileID: 377463515}
   - {fileID: 743965893}
   - {fileID: 480446496}
-  defaultSlot: {fileID: -2931758496153373174, guid: 7457a68262183ae4e9038c2843cc8fdf, type: 3}
   player: {fileID: 1725769603}
 --- !u!1 &2049502771
 GameObject:
@@ -44380,7 +44614,6 @@ GameObject:
   - component: {fileID: 2079926701}
   - component: {fileID: 2079926703}
   - component: {fileID: 2079926702}
-  - component: {fileID: 2079926704}
   m_Layer: 5
   m_Name: ResultSlot
   m_TagString: Untagged
@@ -44445,20 +44678,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079926700}
   m_CullTransparentMesh: 1
---- !u!114 &2079926704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079926700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9916140f4596a4eadedb77621c0a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
-  currentSpell: {fileID: 0}
-  index: 0
 --- !u!1 &2101769481
 GameObject:
   m_ObjectHideFlags: 0
@@ -44510,7 +44729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

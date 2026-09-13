@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +37,7 @@ public class SpellCraftingManager : MonoBehaviour
                 if (nearestSlot)
                 {
                     nearestSlot.gameObject.SetActive(true);
-                    nearestSlot.GetComponent<Image>().sprite = currentSpell.GetComponent<Image>().sprite;
+                    nearestSlot.GetComponent<Image>().sprite = currentSpell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite;
                     nearestSlot.currentSpell = currentSpell;
                 }
                 currentSpell = null;
@@ -54,7 +51,7 @@ public class SpellCraftingManager : MonoBehaviour
         {
             currentSpell = spell;
             customCursor.gameObject.SetActive(true);
-            customCursor.sprite = currentSpell.GetComponent<Image>().sprite;
+            customCursor.sprite = currentSpell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite;
         }
     }
     public void CraftSpell()
