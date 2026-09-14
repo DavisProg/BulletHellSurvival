@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class SpellCraftingManager : MonoBehaviour
@@ -57,6 +58,10 @@ public class SpellCraftingManager : MonoBehaviour
     public void CraftSpell()
     {
         Debug.Log(player.learntSpells);
+        if(slots[0].currentSpell.spell == null || slots[1].currentSpell.spell == null)
+        {
+            return;
+        }
         BaseSpell firstSpell = slots[0].currentSpell.spell;
         BaseSpell secondSpell = slots[1].currentSpell.spell;
         Debug.Log("firstspell: " + firstSpell + " secondspell: " + secondSpell);
