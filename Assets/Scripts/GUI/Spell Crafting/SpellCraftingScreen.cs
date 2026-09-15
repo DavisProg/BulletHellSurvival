@@ -33,7 +33,10 @@ SpellCraftingManager craftingManager;
             {
                 if(player.learntSpells != null)
                 {
-                    Debug.Log(player.learntSpells[spell.index]);
+                    if (spell.index >= player.learntSpells.Count)
+                    {
+                        break;
+                    }
                     if (player.learntSpells[spell.index].spellIcon != null)
                     {
                         spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = player.learntSpells[spell.index].spellIcon;

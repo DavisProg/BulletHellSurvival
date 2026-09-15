@@ -9,12 +9,10 @@ public class MagicOrb : BaseSpell
     [SerializeField] float size;
     [SerializeField] float speed;
     [SerializeField] int pierce;
-    [SerializeField] BaseSpell childSpell;
 
     void Awake()
     {
         targeting = new NearestTarget(enemyLayer);
-        childSpell.enable();
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
