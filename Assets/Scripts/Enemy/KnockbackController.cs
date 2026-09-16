@@ -30,19 +30,10 @@ public class KnockbackController : MonoBehaviour
         }
         StartCoroutine(Freeze(0.6f));
     }
-    private IEnumerator Reset(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        StartCoroutine(Freeze(0.4f));
-    }
     private IEnumerator Freeze(float duration)
     {
         rb.linearVelocity = new Vector2(0, 0);
         yield return new WaitForSeconds(duration);
         enemy.enableMovement();
-    }
-    void Update()
-    {
-        
     }
 }

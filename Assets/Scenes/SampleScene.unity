@@ -39388,7 +39388,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1850d26d94fa3e94ab2a32076df36491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 2
+  speed: 8
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5037069
+      value: -0.15030815
+      inSlope: 0.15806337
+      outSlope: 0.15806337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.05238397
+      outWeight: 0.084471755
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.3177195
+      outSlope: 3.3177195
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.056160107
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerationSpeed: 0.5
 --- !u!58 &1002840533
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -43329,7 +43363,7 @@ Transform:
   m_GameObject: {fileID: 1725769599}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89, y: -1.83, z: 0}
+  m_LocalPosition: {x: -0.92, y: -2.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

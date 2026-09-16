@@ -5,7 +5,10 @@ using UnityEngine.Animations;
 public class PickupRange : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] private AnimationCurve curve;
+    [SerializeField] private float accelerationSpeed;
     private List<Collider2D> colList = new List<Collider2D>();
+    private List<Collider2D> updatedColList = new List<Collider2D>();
     private Rigidbody2D player;
 
     void Start()
@@ -17,17 +20,14 @@ public class PickupRange : MonoBehaviour
     {
         if (collision.CompareTag("Pickup"))
         {
-            colList.Add(collision);
-        }if (collision.CompareTag("Pickup"))
-        {
-            colList.Add(collision);
+            updatedColList.Add(collision);
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Pickup"))
         {
-            colList.Remove(collision);
+            updatedColList.Remove(collision);
         }
     }
     void FixedUpdate()
@@ -37,8 +37,12 @@ public class PickupRange : MonoBehaviour
             foreach(Collider2D xp in colList)
             {
                 Vector3 direction = (player.transform.position - xp.transform.position).normalized;
-                xp.transform.position += direction * speed * Time.deltaTime;
+                Pickup pickup = xp.GetComponent<Pickup>();
+                pickup.time += Time.fixedDeltaTime;
+                float strength = curve.Evaluate(pickup.time / accelerationSpeed);
+                xp.transform.position += direction * speed * strength * Time.fixedDeltaTime;
             }
         }
+        colList = updatedColList;
     }
 }

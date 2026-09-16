@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 
 public class Pickup : MonoBehaviour
 {
+    public float time;
     void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("pp");
