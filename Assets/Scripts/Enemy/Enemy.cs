@@ -91,7 +91,7 @@ public abstract class Enemy : MonoBehaviour
         Vector2 separation = Vector2.zero;
 
         Collider2D[] overlappingEnemies = new Collider2D[10];
-        int overlappingEnemyCount =Physics2D.OverlapCircleNonAlloc(transform.position, separationDistance, overlappingEnemies, 1 << gameObject.layer);
+        int overlappingEnemyCount = Physics2D.OverlapCircleNonAlloc(transform.position, separationDistance, overlappingEnemies, 1 << gameObject.layer);
 
         for(int i = 0; i < overlappingEnemyCount; i++)
         {
