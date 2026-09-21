@@ -28,9 +28,10 @@ public class EnemySpawning : MonoBehaviour
         int spawnedEnemyAmount = 0;
         while (canSpawn)
         {
+            float futureAmount = enemyList.Count + wave.enemiesSpawnedPerSpawn;
             for(int i = 0; i < wave.enemiesSpawnedPerSpawn; i++)
             {
-                if(enemyList.Count + wave.enemiesSpawnedPerSpawn < maxEnemyCount)
+                if(futureAmount <= maxEnemyCount)
                 {
                     Vector2 randomPoint = Random.insideUnitCircle * radius;
                     Vector3 spawnPoint = transform.position + (Vector3)randomPoint;
