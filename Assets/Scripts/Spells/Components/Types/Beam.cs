@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Beam : MonoBehaviour
 {
+
     IEffect[] effects;
     Collider2D col;
 

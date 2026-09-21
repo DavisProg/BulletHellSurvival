@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class MushroomEnemy : Enemy
 {
     [SerializeField] float detectionRange;
     [SerializeField] GameObject enemyProjectile;
+    [SerializeField] float attackInterval;
+    [SerializeField] float projectileSpeed;
+    [SerializeField] float projectileSize;
     private bool inGround = false;
     void Start()
     {
@@ -40,6 +44,17 @@ public class MushroomEnemy : Enemy
         {
             inGround = true;
             rb.linearVelocity = new Vector2(0, 0);
+            StartCoroutine(attack());
+        }
+    }
+    IEnumerator attack()
+    {
+        while (inGround)
+        {
+            Debug.Log("Got to attacking");
+            GameObject proj  = Instantiate(enemyProjectile, transform.position, Quaternion.identity);
+            proj.GetComponent<EnemyProjectile>().Init(target.transform.position, gameObject.transform, projectileSpeed, projectileSize);
+            yield return new WaitForSeconds(attackInterval);
         }
     }
 }
