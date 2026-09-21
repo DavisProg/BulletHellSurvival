@@ -78,10 +78,12 @@ public abstract class Enemy : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().takeDamage(1);
         }
     }
+    /*
     private void FixedUpdate()
     {
         move();
     }
+    */
     private void OnDrawGizmosSelected()
 {
     Gizmos.DrawWireSphere(transform.position, separationDistance);
