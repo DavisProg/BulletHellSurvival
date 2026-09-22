@@ -28,6 +28,10 @@ public class Beam : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision){
+        if (collision.isTrigger)
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Enemy")){
 		    if (collision.TryGetComponent(out Enemy enemy)){
                 foreach (var eff in effects)
