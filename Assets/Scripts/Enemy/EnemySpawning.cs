@@ -9,8 +9,9 @@ public class EnemySpawning : MonoBehaviour
     public List<GameObject> enemyList = new List<GameObject>();
     private int currentWave = 0;
     private int maxEnemyCount = 300;
-    public GameObject enemy;
-    public float radius;
+    [SerializeField] List<GameObject> enemyTypes = new List<GameObject>();
+    List<GameObject> enemyCurrentTypes;
+    [SerializeField] float radius;
     public bool canSpawn = true;
 
     bool isPointVisible(Vector3 point)
@@ -25,7 +26,13 @@ public class EnemySpawning : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
         Wave wave = waveList[currentWave - 1];
-        int spawnedEnemyAmount = 0;
+        enemyCurrentTypes = new List<GameObject>(enemyTypes);
+        while (enemyCurrentTypes.Count > wave.enemyData.Count)
+        {       
+            enemyCurrentTypes.RemoveAt(enemyCurrentTypes.Count - 1);
+        }
+        
+        
         while (canSpawn)
         {
             float futureAmount = enemyList.Count + wave.enemiesSpawnedPerSpawn;
@@ -35,27 +42,51 @@ public class EnemySpawning : MonoBehaviour
                 {
                     Vector2 randomPoint = Random.insideUnitCircle * radius;
                     Vector3 spawnPoint = transform.position + (Vector3)randomPoint;
+                    int randomIndex = Random.Range(0, wave.enemyData.Count);
+                    Debug.Log("Index generated: " + randomIndex);
+                    if(wave.enemyData[randomIndex].totalEnemies == 0)
+                    {
+                        wave.enemyData.RemoveAt(randomIndex);
+                        enemyCurrentTypes.RemoveAt(randomIndex);
+                        i--;
+                        continue;
+                    }
                     if (isPointVisible(spawnPoint))
                     {
                         i--;
                         continue;
                     }
-                    GameObject spawnedEnemy = Instantiate(enemy, spawnPoint, Quaternion.identity);
-                    enemyList.Add(spawnedEnemy);
-                    spawnedEnemyAmount++;
-                    if (spawnedEnemyAmount >= wave.totalEnemies)
+                    Debug.Log(
+                    "Random Index: " + randomIndex + "\n" +
+                    "Current Enemy Types: " );
+                    foreach(GameObject enemy in enemyCurrentTypes)
                     {
-                        break;
+                        Debug.Log(enemy + "\n");
+                    }
+                    GameObject spawnedEnemy = Instantiate(enemyCurrentTypes[randomIndex], spawnPoint, Quaternion.identity);
+                    spawnedEnemy.GetComponent<Enemy>().health = wave.enemyData[randomIndex].totalHealth;
+                    wave.enemyData[randomIndex].enemiesSpawned++;
+                    enemyList.Add(spawnedEnemy);
+                
+                    if (wave.enemyData[randomIndex].enemiesSpawned >= wave.enemyData[randomIndex].totalEnemies)
+                    {
+                        wave.enemyData.RemoveAt(randomIndex);
+                        enemyCurrentTypes.RemoveAt(randomIndex); 
+                        if(wave.enemyData.Count == 0)
+                        {
+                            break;
+                        }
                     }
                 }
                 else
                 {
                     i--;
+                    yield return new WaitForSeconds(wave.spawnInterval); 
                     continue;
                 }
             }
             yield return new WaitForSeconds(wave.spawnInterval); 
-            if(spawnedEnemyAmount >= wave.totalEnemies )
+            if(wave.enemyData.Count == 0)
             {
                 break;
             }

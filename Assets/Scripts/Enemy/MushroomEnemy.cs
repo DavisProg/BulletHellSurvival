@@ -39,7 +39,6 @@ public class MushroomEnemy : Enemy
     void checkForPlayer()
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);
-        Debug.Log("Distance: " + distance);
         if (distance <= detectionRange)
         {
             inGround = true;
@@ -51,7 +50,6 @@ public class MushroomEnemy : Enemy
     {
         while (inGround)
         {
-            Debug.Log("Got to attacking");
             GameObject proj  = Instantiate(enemyProjectile, transform.position, Quaternion.identity);
             proj.GetComponent<EnemyProjectile>().Init(target.transform.position, gameObject.transform, projectileSpeed, projectileSize);
             yield return new WaitForSeconds(attackInterval);
