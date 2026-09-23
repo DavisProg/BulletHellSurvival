@@ -1,14 +1,15 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class MagicMissile : BaseSpell
+public class Snowball : BaseSpell
 {
-    [SerializeField] GameObject projectilePrefab;
+   [SerializeField] GameObject projectilePrefab;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float damage;
     [SerializeField] float size;
     [SerializeField] float speed;
     [SerializeField] int pierce;
+    [SerializeField] float slowPercentage;
+    [SerializeField] float slowDuration;
 
     void Awake()
     {
@@ -26,7 +27,8 @@ public class MagicMissile : BaseSpell
             size,
             new IEffect[]
             {
-                new DamageEffect(damage, this)
+                new DamageEffect(damage, this),
+                new SlowEffect(slowPercentage, slowDuration)
             }
         );
     }

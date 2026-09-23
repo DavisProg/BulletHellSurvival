@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Projectile : MonoBehaviour
     Rigidbody2D rb;
     Renderer m_Renderer;
     Collider2D col;
+    float maxLifeTime = 5;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger)
@@ -50,6 +52,7 @@ public class Projectile : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         rb.rotation = angle;
         col.enabled = true;
+        StartCoroutine(lifeTime());
     }
     void FixedUpdate()
     {
@@ -60,9 +63,16 @@ public class Projectile : MonoBehaviour
         "Direction: " + direction);
         */
         rb.linearVelocity = direction * speed;
+        /*
         if (!m_Renderer.isVisible)
         {
             Destroy(gameObject);
         }
+        */
+    }
+    IEnumerator lifeTime()
+    {
+        yield return new WaitForSeconds(maxLifeTime);
+        Destroy(gameObject);
     }
 }
