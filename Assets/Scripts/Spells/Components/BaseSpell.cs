@@ -30,15 +30,21 @@ public abstract class BaseSpell : MonoBehaviour
     {
         if (level > 0)
         {
-            if(targeting.GetTarget(transform, range, out Vector2 target)){
-                    casting.Cast(transform, target);
+            if(targeting.GetTarget(transform, range, out Vector2[] target)){
+                foreach(Vector2 targetPos in target)
+                {
+                    casting.Cast(transform, targetPos);
+                } 
             }
         }
     }
     public void quickCast()
     {
-        if(targeting.GetTarget(transform, range, out Vector2 target)){
-            casting.Cast(transform, target);
+        if(targeting.GetTarget(transform, range, out Vector2[] target)){
+            foreach(Vector2 targetPos in target)
+            {
+                casting.Cast(transform, targetPos);
+            } 
         }
     }
     public int getLevel()

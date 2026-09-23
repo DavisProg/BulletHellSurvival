@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public interface ITarget
 {
-    bool GetTarget(Transform caster, float range, out Vector2 position);
+    bool GetTarget(Transform caster, float range, out Vector2[] position);
 }
 public interface ICast
 {

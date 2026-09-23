@@ -10,10 +10,11 @@ public class Snowball : BaseSpell
     [SerializeField] int pierce;
     [SerializeField] float slowPercentage;
     [SerializeField] float slowDuration;
+    [SerializeField] int amount;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer);
+        targeting = new NearestTarget(enemyLayer, amount);
 
         defineCast();
         setTrigger(new onLoop(this, cooldown));

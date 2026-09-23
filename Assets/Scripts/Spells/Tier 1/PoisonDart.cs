@@ -10,10 +10,11 @@ public class PoisonDart : BaseSpell
     [SerializeField] int pierce;
     [SerializeField] float damagePerInterval;
     [SerializeField] float damageDuration;
+    [SerializeField] int amount;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer);
+        targeting = new NearestTarget(enemyLayer, amount);
 
         defineCast();
         setTrigger(new onLoop(this, cooldown));

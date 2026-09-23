@@ -8,10 +8,11 @@ public class EyeRay : BaseSpell
     [SerializeField] float height;
     [SerializeField] float width;
     [SerializeField] float duration;
+    [SerializeField] int amount;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer);
+        targeting = new NearestTarget(enemyLayer, amount);
 
         defineCast();
         setTrigger(new onLoop(this, cooldown));

@@ -13,8 +13,11 @@ public class RepeatEffect : IEffect
 
     public void Apply(GameObject target)
     {
-        if (targeting.GetTarget(target.transform, range, out Vector2 nextTarget)){
-            spell.Cast(target.transform, nextTarget);
+        if (targeting.GetTarget(target.transform, range, out Vector2[] nextTarget)){
+            foreach(Vector2 targetPos in nextTarget)
+            {
+                spell.Cast(target.transform, targetPos);
+            } 
         }
     }
 }

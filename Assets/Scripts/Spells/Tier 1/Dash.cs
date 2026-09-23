@@ -30,8 +30,11 @@ public class Dash : BaseSpell
                 Vector2 playerInput = gameObject.GetComponent<Player>().input;
                 direction.setAngle(Mathf.Atan2(playerInput.x, playerInput.y));
             }
-            if(targeting.GetTarget(transform, range, out Vector2 target)){
-                    casting.Cast(transform, target);
+            if(targeting.GetTarget(transform, range, out Vector2[] target)){
+                    foreach(Vector2 targetPos in target)
+                    {
+                        casting.Cast(transform, targetPos);
+                    } 
                     Debug.Log("Dash casted");
             }
         }

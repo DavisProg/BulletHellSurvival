@@ -7,10 +7,11 @@ public class MagicMissile : BaseSpell
     [SerializeField] float size;
     [SerializeField] float speed;
     [SerializeField] int pierce;
+    [SerializeField] int missileAmount;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer);
+        targeting = new NearestTarget(enemyLayer, missileAmount);
 
         defineCast();
         setTrigger(new onLoop(this, cooldown));

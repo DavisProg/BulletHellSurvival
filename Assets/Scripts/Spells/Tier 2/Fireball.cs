@@ -10,10 +10,11 @@ public class Fireball : BaseSpell
     [SerializeField] float explosionSize;
     [SerializeField] float speed;
     [SerializeField] float duration;
+    [SerializeField] int amount;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer);
+        targeting = new NearestTarget(enemyLayer, amount);
 
         defineCast();
         setTrigger(new onLoop(this, cooldown));

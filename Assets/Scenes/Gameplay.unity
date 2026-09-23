@@ -43402,6 +43402,7 @@ MonoBehaviour:
   pierce: 1
   damagePerInterval: 1
   damageDuration: 1
+  amount: 1
 --- !u!114 &1725769611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43429,6 +43430,7 @@ MonoBehaviour:
   size: 5
   speed: 2
   pierce: 100
+  amount: 1
 --- !u!114 &1725769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43456,6 +43458,7 @@ MonoBehaviour:
   size: 0.3
   speed: 6
   pierce: 1
+  missileAmount: 5
 --- !u!114 &1725769613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43551,6 +43554,7 @@ MonoBehaviour:
   height: 7
   width: 0.05
   duration: 0.5
+  amount: 2
 --- !u!114 &1725769617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43607,6 +43611,7 @@ MonoBehaviour:
   explosionSize: 4
   speed: 7
   duration: 1
+  amount: 1
 --- !u!114 &1725769619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43636,6 +43641,7 @@ MonoBehaviour:
   pierce: 1
   slowPercentage: 80
   slowDuration: 1
+  amount: 1
 --- !u!114 &1725769620
 MonoBehaviour:
   m_ObjectHideFlags: 0
