@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         nextLevelUp = levelRequirements[level - 1];
-        GetComponent<Pulse>().enable();
+        GetComponent<PlayerDamageKnockback>().enable();
         //GetComponent<Dash>().enable();
         rb = GetComponent<Rigidbody2D>();
     }

@@ -27,7 +27,7 @@ public class Fireball : BaseSpell
             projectileSize,
             new IEffect[]
             {
-                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new RandomPoint(enemyLayer))
+                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())
             }
         );
     }

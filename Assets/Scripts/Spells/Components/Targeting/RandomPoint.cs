@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class RandomPoint : ITarget
 {
-    LayerMask enemyLayer;
-    Collider2D[] arr = new Collider2D[20];
-
-    public RandomPoint(LayerMask enemyLayer)
+    public RandomPoint()
     {
-        this.enemyLayer = enemyLayer;
     }
     public bool GetTarget(Transform caster, float range, out Vector2 position)
     {

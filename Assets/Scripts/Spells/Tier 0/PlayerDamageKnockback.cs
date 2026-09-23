@@ -1,30 +1,26 @@
 using UnityEngine;
 
-public class EnergyExplosion : BaseSpell
+public class PlayerDamageKnockback : BaseSpell
 {
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] LayerMask enemyLayer;
-    [SerializeField] float damage;
     [SerializeField] float size;
     [SerializeField] float duration;
-    [SerializeField] BaseSpell parentSpell;
-
+    [SerializeField] float strength;
+    [SerializeField] float delay;
     void Awake()
     {
-        targeting = new RandomPoint();
-
+        targeting = new PlayerCenter();
         defineCast();
-        setTrigger(new onEnemyDeath(parentSpell));
+        setTrigger(new onPlayerDamage(gameObject.GetComponent<Player>()));
     }
     protected void defineCast()
     {
-        casting = new CastArea(
+        casting =  new CastArea(
             explosionPrefab,
             size,
             duration,
-            new IEffect[]{
-            new DamageEffect(damage, this)
-            }
+            new KnockbackEffect(strength, delay, gameObject.transform)
         );
     }
 }

@@ -43119,6 +43119,7 @@ GameObject:
   - component: {fileID: 1725769617}
   - component: {fileID: 1725769618}
   - component: {fileID: 1725769619}
+  - component: {fileID: 1725769620}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -43328,14 +43329,14 @@ MonoBehaviour:
     spawnInterval: 0
   - waveNumber: 3
     enemyData:
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
     - totalEnemies: 50
-      totalHealth: 50
+      totalHealth: 2
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
       enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 10
     spawnInterval: 10
@@ -43477,6 +43478,7 @@ MonoBehaviour:
   - {fileID: 1725769616}
   - {fileID: 1725769618}
   - {fileID: 1725769619}
+  - {fileID: 1725769620}
   btn1: {fileID: 1401323011}
   btn2: {fileID: 478832965}
   btn3: {fileID: 1024868554}
@@ -43508,7 +43510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pulse
   level: 0
-  range: 0.001
+  range: 0
   cooldown: 0.0001
   spellIcon: {fileID: 0}
   spellName: 
@@ -43634,6 +43636,33 @@ MonoBehaviour:
   pierce: 1
   slowPercentage: 80
   slowDuration: 1
+--- !u!114 &1725769620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783b5d27c28e80b42970e4645a5930bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pulse
+  level: 0
+  range: 3
+  cooldown: 10
+  spellIcon: {fileID: 0}
+  spellName: Pulse
+  spellDescription: 
+  addToSpellsKnown: 1
+  explosionPrefab: {fileID: 467577717174556695, guid: 9158889a6c61cff4cb05db6bd8e99344, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  size: 7
+  duration: 0.1
+  strength: 25
+  delay: 1
 --- !u!1 &1755965282
 GameObject:
   m_ObjectHideFlags: 0

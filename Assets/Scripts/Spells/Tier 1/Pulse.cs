@@ -8,11 +8,12 @@ public class Pulse : BaseSpell
     [SerializeField] float duration;
     [SerializeField] float strength;
     [SerializeField] float delay;
+
     void Awake()
     {
-        targeting = new RandomPoint(enemyLayer);
+        targeting = new PlayerCenter();
         defineCast();
-        setTrigger(new onPlayerDamage(gameObject.GetComponent<Player>()));
+        setTrigger(new onEnterRange(this, cooldown, gameObject.transform, range, enemyLayer));
     }
     protected void defineCast()
     {
@@ -23,4 +24,9 @@ public class Pulse : BaseSpell
             new KnockbackEffect(strength, delay, gameObject.transform)
         );
     }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, range);
+    }
 }
+
