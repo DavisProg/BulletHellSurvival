@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     IEffect[] effects;
     Vector2 direction;
     Rigidbody2D rb;
-    Renderer m_Renderer;
+    //Renderer m_Renderer;
     Collider2D col;
     float maxLifeTime = 5;
     void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        m_Renderer = GetComponent<Renderer>();
+        //m_Renderer = GetComponent<Renderer>();
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
     }
