@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5111359}
   m_AnchorMax: {x: 0.5, y: 0.5111359}
-  m_AnchoredPosition: {x: -406.3, y: 170}
+  m_AnchoredPosition: {x: 135.8, y: 96.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28618100
@@ -43245,6 +43245,8 @@ MonoBehaviour:
   health: 9
   learntSpells: []
   xp: 0
+  level: 1
+  levelRequirements: 0a00000032000000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -43331,10 +43333,10 @@ MonoBehaviour:
     - totalEnemies: 0
       totalHealth: 0
       enemiesSpawned: 0
-    - totalEnemies: 5
+    - totalEnemies: 50
       totalHealth: 50
       enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 2
+    enemiesSpawnedPerSpawn: 10
     spawnInterval: 10
   enemyList: []
   enemyTypes:

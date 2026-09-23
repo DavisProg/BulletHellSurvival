@@ -6,15 +6,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 2.5f;
-    public float nextLevelUp = 3;
-    public float maxHealth = 10;
-    public float health = 9;
+    public int nextLevelUp = 3;
+    public int maxHealth = 10;
+    public int health = 9;
     private float iFramesTime = 0.5f;
 
     private bool canDamage = true;
     public List<BaseSpell> learntSpells = new List<BaseSpell>();
 
     public int xp = 0;
+    public int level = 1;
+    [SerializeField] int[] levelRequirements;
     private Rigidbody2D rb;
     public Vector2 input;
     public event Action PlayerDamaged;
@@ -30,18 +32,19 @@ public class Player : MonoBehaviour
     }
     public void levelUp()
     {
-        if (xp == nextLevelUp)
+        if (xp >= nextLevelUp)
         {
             Debug.Log("Level Up");
-            xp = 0;
+            xp = xp - nextLevelUp;
+            level++;
+            if(level <= levelRequirements.Length)
+            {
+                nextLevelUp = levelRequirements[level - 1];
+            }
             GetComponent<SpellSelection>().showSpellSelectionMenu();
         }
-        else
-        {
-            Debug.Log("Cunt");
-        }
     }
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
         Debug.Log("Hello");
         if (canDamage)
@@ -63,6 +66,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        nextLevelUp = levelRequirements[level - 1];
         GetComponent<Pulse>().enable();
         //GetComponent<Dash>().enable();
         rb = GetComponent<Rigidbody2D>();
