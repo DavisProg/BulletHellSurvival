@@ -23,7 +23,6 @@ public class NearestTarget : ITarget
                 nearestDistance = distance;
                 nearestObject = arr[i];
             }
-            Debug.Log(distance);
         }
         if (nearestObject == null){
             position = default;

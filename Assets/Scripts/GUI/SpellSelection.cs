@@ -8,20 +8,21 @@ public class SpellSelection : MonoBehaviour
 {
     public GameObject spellSelectionMenu;
     public List<BaseSpell> availableSpells;
+    Player playerScript;
     BaseSpell[] chosenSpellList;
+    [SerializeField] float maxSpellRefundPercentage;
     public Button btn1, btn2, btn3;
     private bool btn1Enabled = true;
     private bool btn2Enabled;
     private bool btn3Enabled;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //I forgor, I think I had an error cause the array started off as empty 
         chosenSpellList = new BaseSpell[]{
             availableSpells[Random.Range(0, availableSpells.Count)],
             availableSpells[Random.Range(0, availableSpells.Count)],
             availableSpells[Random.Range(0, availableSpells.Count)]
-    };
+        };
+        playerScript = gameObject.GetComponent<Player>();
     }
 
     public void showSpellSelectionMenu()
@@ -29,12 +30,32 @@ public class SpellSelection : MonoBehaviour
         initMenu();
         for(int i = 1; i <= 3; i++)
         {
-            int randomSpell = Random.Range(0, availableSpells.Count);
-            BaseSpell chosenSpell = availableSpells[randomSpell];
-
             TMP_Text titleText = spellSelectionMenu.transform
             .Find($"Canvas/Choice{i}/Title")
             .GetComponent<TMP_Text>();
+            if (playerScript.learntSpells.Count >= 8)
+            {
+                spellSelectionMenu.transform.Find($"Canvas/Choice{1}/Title").GetComponent<TMP_Text>().text = "Refund";
+                spellSelectionMenu.transform.Find($"Canvas/Choice{2}/Title").GetComponent<TMP_Text>().text = "Refund";
+                spellSelectionMenu.transform.Find($"Canvas/Choice{3}/Title").GetComponent<TMP_Text>().text = "Refund";
+
+                btn1.onClick.AddListener(() =>
+                {
+                    Refund(maxSpellRefundPercentage);
+                });
+                btn2.onClick.AddListener(() =>
+                {
+                    Refund(maxSpellRefundPercentage);
+                });
+                btn3.onClick.AddListener(() =>
+                {
+                    Refund(maxSpellRefundPercentage);
+                });
+
+                break;
+            }
+            int randomSpell = Random.Range(0, availableSpells.Count);
+            BaseSpell chosenSpell = availableSpells[randomSpell];
             
             if (chosenSpell.getLevel() == 2)
             {
@@ -109,6 +130,21 @@ public class SpellSelection : MonoBehaviour
             Time.timeScale = 1;
         }
         chosenSpell.enable();
+        spellSelectionMenu.SetActive(false);
+    }
+    void Refund(float percentage)
+    {
+        int totalXp;
+        if(playerScript.levelRequirements.Length <= playerScript.level)
+        {
+            totalXp = playerScript.levelRequirements[playerScript.levelRequirements.Length - 1];
+        }
+        else
+        {
+            totalXp = playerScript.levelRequirements[playerScript.level - 1];
+        }
+        playerScript.xp += (int)(totalXp * (percentage / 100));
+        Time.timeScale = 1;
         spellSelectionMenu.SetActive(false);
     }
     void initMenu()

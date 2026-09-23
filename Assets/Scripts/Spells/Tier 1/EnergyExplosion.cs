@@ -7,14 +7,13 @@ public class EnergyExplosion : BaseSpell
     [SerializeField] float damage;
     [SerializeField] float size;
     [SerializeField] float duration;
-    [SerializeField] BaseSpell parentSpell;
 
     void Awake()
     {
         targeting = new RandomPoint();
 
         defineCast();
-        setTrigger(new onEnemyDeath(parentSpell));
+        setTrigger(new onLoop(this, cooldown));
     }
     protected void defineCast()
     {

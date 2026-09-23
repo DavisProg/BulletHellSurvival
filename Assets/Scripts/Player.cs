@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     public int xp = 0;
     public int level = 1;
-    [SerializeField] int[] levelRequirements;
+    public int[] levelRequirements;
     private Rigidbody2D rb;
     public Vector2 input;
     public event Action PlayerDamaged;
