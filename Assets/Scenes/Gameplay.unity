@@ -43248,7 +43248,7 @@ MonoBehaviour:
   learntSpells: []
   xp: 0
   level: 1
-  levelRequirements: 0500000002000000
+  levelRequirements: 050000000500000032000000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -43373,7 +43373,6 @@ MonoBehaviour:
   damage: 1
   size: 3
   duration: 1
-  parentSpell: {fileID: 0}
 --- !u!114 &1725769610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43479,6 +43478,7 @@ MonoBehaviour:
   - {fileID: 1725769618}
   - {fileID: 1725769619}
   - {fileID: 1725769620}
+  maxSpellRefundPercentage: 70
   btn1: {fileID: 1401323011}
   btn2: {fileID: 478832965}
   btn3: {fileID: 1024868554}
@@ -43543,7 +43543,7 @@ MonoBehaviour:
   spellName: 
   spellDescription: 
   addToSpellsKnown: 1
-  beamPrefab: {fileID: 0}
+  beamPrefab: {fileID: 8301100496807205825, guid: 8d9f5c0f3c2cdd041abf3d69ba6ccf4a, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
