@@ -1,9 +1,4 @@
-using System;
 using UnityEngine;
-using System.Collections;
-using Unity.VisualScripting;
-
-
 public class Pickup : MonoBehaviour
 {
     public float time;

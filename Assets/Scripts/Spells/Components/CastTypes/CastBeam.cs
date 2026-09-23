@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-
 public class CastBeam : ICast
 {
     private GameObject prefab;

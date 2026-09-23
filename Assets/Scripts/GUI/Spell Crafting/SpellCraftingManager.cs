@@ -97,6 +97,7 @@ public class SpellCraftingManager : MonoBehaviour
                 {
                     slot.GetComponent<Image>().sprite = null;
                     slot.currentSpell.spell.disable();
+                    player.learntSpells.Remove(currentSpell.spell);
                     slot.currentSpell = null;
                     displayCraftError("");
                 }

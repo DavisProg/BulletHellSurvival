@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 public class CustomCursor : MonoBehaviour
 {
     private void Awake()

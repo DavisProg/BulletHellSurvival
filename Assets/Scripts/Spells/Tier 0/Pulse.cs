@@ -1,5 +1,3 @@
-using System.Drawing;
-using NUnit.Framework;
 using UnityEngine;
 
 public class Pulse : BaseSpell

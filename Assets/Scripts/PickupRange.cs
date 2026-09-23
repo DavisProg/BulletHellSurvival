@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
-
 public class PickupRange : MonoBehaviour
 {
     [SerializeField] float speed;

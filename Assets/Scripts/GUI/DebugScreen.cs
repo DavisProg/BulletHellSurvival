@@ -1,10 +1,6 @@
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using System;
 
 public class DebugScreen : MonoBehaviour
 {

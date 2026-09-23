@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem;
 
 public class onKeyboardButtonPress : ITrigger
 {

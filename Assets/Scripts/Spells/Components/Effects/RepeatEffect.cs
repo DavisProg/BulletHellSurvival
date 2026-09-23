@@ -1,7 +1,4 @@
-using UnityEditor;
 using UnityEngine;
-using System.Collections;
-
 public class RepeatEffect : IEffect
 {
     ICast spell;

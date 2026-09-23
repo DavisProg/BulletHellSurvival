@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal.Commands;
 using UnityEngine;
 
 public class Splash : MonoBehaviour

@@ -1,6 +1,4 @@
- using System;
-using System.Collections;
-using System.Linq;
+using System;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
