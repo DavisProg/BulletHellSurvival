@@ -7,7 +7,6 @@ public class onEnterRange : ITrigger
     public event Action Triggered;
     private MonoBehaviour owner;
     private float cooldown;
-    private bool canCast = true;
     Transform caster;
     private Coroutine routine;
     float range;
