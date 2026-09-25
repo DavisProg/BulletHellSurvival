@@ -7,10 +7,21 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float duration;
     [SerializeField] private float intensity;
     [SerializeField] private AnimationCurve curve;
+    private Coroutine process;
 
     public void startCameraShake()
     {
-        StartCoroutine(Shake());
+        process = StartCoroutine(Shake());
+    }
+    void Update()
+    {
+        if(Time.timeScale == 0)
+        {
+            if (process != null)
+            {
+                StopAllCoroutines();
+            }
+        }
     }
     private IEnumerator Shake()
     {
