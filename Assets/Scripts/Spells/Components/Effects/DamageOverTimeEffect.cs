@@ -23,8 +23,6 @@ public class DamageOverTimeEffect : IEffect
         {
             enemy.takeDamage(damagePerInterval, source);
             damageLeft = damageLeft - damagePerInterval;
-            Debug.Log("Damage left to make: " + damageLeft);
-            Debug.Log("Enemy health: " + enemy.health);
             yield return new WaitForSeconds(intervalCooldown);
         }
     }

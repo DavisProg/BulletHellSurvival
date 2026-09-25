@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     private bool canDamage = true;
     public List<BaseSpell> learntSpells = new List<BaseSpell>();
+    [SerializeField] private GameOverScreenManager gameOverScreen;
 
     public int xp = 0;
     public int level = 1;
@@ -56,7 +57,15 @@ public class Player : MonoBehaviour
             //GetComponent<Pulse>().quickCast();
             camera.GetComponent<CameraShake>().startCameraShake();
             StartCoroutine(IFrames(iFramesTime));
+            if (health <= 0)
+            {
+                die();
+            }
         }
+    }
+    private void die()
+    {
+        gameOverScreen.initGameOverScreen();
     }
 
     public IEnumerator IFrames(float time)

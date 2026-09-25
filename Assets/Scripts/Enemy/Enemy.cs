@@ -4,12 +4,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] public float speed = 1.5f;
-    [SerializeField] public float health = 7;
     [SerializeField] protected float separationDistance = 1.5f;
     [SerializeField] protected float separationStrength = 2f;
     [SerializeField] protected float seperationWeight = 0.5f;
-    public event Action<Enemy, BaseSpell> onDeath;
-    [SerializeField] protected bool isRegisteredForDeath = false;
 
     public GameObject xp;
     bool canMove = true;
@@ -17,6 +14,10 @@ public abstract class Enemy : MonoBehaviour
     protected Vector2 moveDirection;
     protected Transform target;
     protected bool facingRight = true;
+
+    public float health = 7;
+    public event Action<Enemy, BaseSpell> onDeath;
+    [SerializeField] protected bool isRegisteredForDeath = false;
 
     void die(BaseSpell source)
     {
