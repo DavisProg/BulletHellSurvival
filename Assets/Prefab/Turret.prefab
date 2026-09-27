@@ -233,3 +233,4 @@ MonoBehaviour:
   speed: 8
   pierce: 1
   missileAmount: 1
+  projectileLifeTime: 6

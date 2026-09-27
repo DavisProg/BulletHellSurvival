@@ -3693,7 +3693,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1961812248}
         m_TargetAssemblyTypeName: SettingsMenuScreen, Assembly-CSharp
-        m_MethodName: initDebugScreen
+        m_MethodName: InitSettingsScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
