@@ -9,6 +9,7 @@ public class MagicOrb : BaseSpell
     [SerializeField] float speed;
     [SerializeField] int pierce;
     [SerializeField] int amount;
+    [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class MagicOrb : BaseSpell
             speed,
             pierce,
             size,
+            projectileLifeTime,
             new DamageEffect(damage, this)
         );
     }

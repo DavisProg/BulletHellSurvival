@@ -46211,6 +46211,7 @@ GameObject:
   - component: {fileID: 1725769620}
   - component: {fileID: 1725769621}
   - component: {fileID: 1725769622}
+  - component: {fileID: 1725769623}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -46478,6 +46479,7 @@ MonoBehaviour:
   damagePerInterval: 1
   damageDuration: 1
   amount: 1
+  projectileLifeTime: 0
 --- !u!114 &1725769611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46506,6 +46508,7 @@ MonoBehaviour:
   speed: 2
   pierce: 100
   amount: 1
+  projectileLifeTime: 0
 --- !u!114 &1725769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46534,6 +46537,7 @@ MonoBehaviour:
   speed: 6
   pierce: 1
   missileAmount: 5
+  projectileLifeTime: 0
 --- !u!114 &1725769613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46558,6 +46562,7 @@ MonoBehaviour:
   - {fileID: 1725769610}
   - {fileID: 1725769621}
   - {fileID: 1725769622}
+  - {fileID: 1725769623}
   maxSpellRefundPercentage: 70
   btn1: {fileID: 1401323011}
   btn2: {fileID: 478832965}
@@ -46689,6 +46694,7 @@ MonoBehaviour:
   speed: 7
   duration: 1
   amount: 1
+  projectileLifeTime: 0
 --- !u!114 &1725769619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46719,6 +46725,7 @@ MonoBehaviour:
   slowPercentage: 80
   slowDuration: 1
   amount: 1
+  projectileLifeTime: 0
 --- !u!114 &1725769620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46797,6 +46804,35 @@ MonoBehaviour:
   size: 1
   interval: 1
   duration: 8
+--- !u!114 &1725769623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8689ceef9ddffaa45986aa4b5fed4603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Geobrah
+  level: 0
+  range: 3
+  cooldown: 5
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
+  addToSpellsKnown: 1
+  projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  speed: 6
+  size: 1
+  pierce: 20
+  projectileCount: 2
+  damage: 5
+  projectileLifeTime: 0.5
 --- !u!1 &1755965282
 GameObject:
   m_ObjectHideFlags: 0

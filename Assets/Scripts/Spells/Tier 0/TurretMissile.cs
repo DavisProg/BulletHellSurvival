@@ -10,6 +10,7 @@ public class TurretMissile : BaseSpell
     [SerializeField] float speed;
     [SerializeField] int pierce;
     [SerializeField] int missileAmount;
+    [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class TurretMissile : BaseSpell
             speed,
             pierce,
             size,
+            projectileLifeTime,
             new IEffect[]
             {
                 new DamageEffect(damage, this)

@@ -11,6 +11,7 @@ public class Fireball : BaseSpell
     [SerializeField] float speed;
     [SerializeField] float duration;
     [SerializeField] int amount;
+    [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Fireball : BaseSpell
             speed,
             1,
             projectileSize,
+            projectileLifeTime,
             new IEffect[]
             {
                 new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())

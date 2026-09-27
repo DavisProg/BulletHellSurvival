@@ -1,21 +1,21 @@
 using UnityEngine;
-public class MagicMissile : BaseSpell
+
+public class Geobrah : BaseSpell
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] LayerMask enemyLayer;
-    [SerializeField] float damage;
-    [SerializeField] float size;
     [SerializeField] float speed;
+    [SerializeField] float size;
     [SerializeField] int pierce;
-    [SerializeField] int missileAmount;
+    [SerializeField] int projectileCount;
+    [SerializeField] float damage;
     [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, missileAmount);
-
+        targeting = new NearestTarget(enemyLayer, projectileCount);
         defineCast();
-        setTrigger(new onLoop(this, cooldown));
+        setTrigger(new onEnterRange(this, cooldown, gameObject.transform, range, enemyLayer));
     }
     protected void defineCast()
     {
@@ -25,10 +25,7 @@ public class MagicMissile : BaseSpell
             pierce,
             size,
             projectileLifeTime,
-            new IEffect[]
-            {
-                new DamageEffect(damage, this)
-            }
+            new DamageEffect(damage, this)
         );
     }
 }

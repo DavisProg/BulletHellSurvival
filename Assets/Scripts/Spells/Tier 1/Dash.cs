@@ -41,11 +41,13 @@ public class Dash : BaseSpell
     }
     protected void defineCast()
     {
+        /*
         casting =  new CastProjectile(
             projectilePrefab,
             speed,
             pierce,
             size,
+            
             new IEffect[]
             {
                 new DamageEffect(damage, this),
@@ -53,6 +55,7 @@ public class Dash : BaseSpell
                 new KnockbackEffect(3, 0.1f, gameObject.transform)
             }
         );
+        */
     }
     void Update()
     {

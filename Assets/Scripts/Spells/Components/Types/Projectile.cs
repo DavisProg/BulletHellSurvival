@@ -38,11 +38,12 @@ public class Projectile : MonoBehaviour
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
     }
-    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, IEffect[] effects)
+    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, float maxLifeTime, IEffect[] effects)
     {
         this.speed = speed;
         this.pierce = pierce;
         this.effects = effects;
+        this.maxLifeTime = maxLifeTime;
 
         Vector2 playerLocation = caster.position;
         direction = (target - playerLocation).normalized;

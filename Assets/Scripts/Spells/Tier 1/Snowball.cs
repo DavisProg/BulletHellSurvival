@@ -11,6 +11,7 @@ public class Snowball : BaseSpell
     [SerializeField] float slowPercentage;
     [SerializeField] float slowDuration;
     [SerializeField] int amount;
+    [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class Snowball : BaseSpell
             speed,
             pierce,
             size,
+            projectileLifeTime,
             new IEffect[]
             {
                 new DamageEffect(damage, this),

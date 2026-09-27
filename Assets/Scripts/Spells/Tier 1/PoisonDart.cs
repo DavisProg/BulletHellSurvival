@@ -11,6 +11,7 @@ public class PoisonDart : BaseSpell
     [SerializeField] float damagePerInterval;
     [SerializeField] float damageDuration;
     [SerializeField] int amount;
+    [SerializeField] float projectileLifeTime;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class PoisonDart : BaseSpell
             speed,
             pierce,
             size,
+            projectileLifeTime,
             new DamageOverTimeEffect(damage, damagePerInterval, damageDuration, this)
         );
     }
