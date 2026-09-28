@@ -46819,7 +46819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummonTurret
   level: 0
-  range: 8
+  range: 10
   cooldown: 10
   spellIcon: {fileID: 0}
   spellName: 

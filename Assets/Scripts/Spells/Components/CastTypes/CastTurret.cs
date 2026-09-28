@@ -18,7 +18,7 @@ public class CastTurret : ICast
     }
     public void Cast(Transform caster, Vector2 target)
     {
-        GameObject turret  = Object.Instantiate(prefab, caster.position, Quaternion.identity);
+        GameObject turret  = Object.Instantiate(prefab, target, Quaternion.identity);
         turret.GetComponent<Turret>().Init(size, duration, damage, cooldown);
     }
 }
