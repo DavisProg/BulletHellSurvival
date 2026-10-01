@@ -48,7 +48,7 @@ public abstract class Enemy : MonoBehaviour
         if (damageDisplay)
         {
             GameObject text = Instantiate(damageDisplay, transform.position, Quaternion.identity);
-            text.GetComponent<DamageDisplay>().SetNumber(damage, 0.2f);
+            text.GetComponent<DamageDisplay>().SetNumber(damage, 0.3f);
         }
     }
     public void move()

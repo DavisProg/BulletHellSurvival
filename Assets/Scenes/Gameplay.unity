@@ -49300,6 +49300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1558131721449843889, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
+      propertyPath: damageDisplay
+      value: 
+      objectReference: {fileID: 8265365144937469105, guid: a66e068043699004a96347d9e6196e48, type: 3}
     - target: {fileID: 1774154210496172125, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
       propertyPath: m_Name
       value: MushroomEnemy

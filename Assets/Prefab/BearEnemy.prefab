@@ -227,12 +227,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
   speed: 0.5
-  health: 15
   separationDistance: 0.4
   separationStrength: 0.4
   seperationWeight: 0.3
-  isRegisteredForDeath: 0
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
+  health: 15
+  damageDisplay: {fileID: 8265365144937469105, guid: a66e068043699004a96347d9e6196e48, type: 3}
+  isRegisteredForDeath: 0
 --- !u!95 &7674664439643491359
 Animator:
   serializedVersion: 7
