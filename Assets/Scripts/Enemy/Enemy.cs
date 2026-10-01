@@ -3,12 +3,12 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] public float speed = 1.5f;
+    public float speed = 1.5f;
     [SerializeField] protected float separationDistance = 1.5f;
     [SerializeField] protected float separationStrength = 2f;
     [SerializeField] protected float seperationWeight = 0.5f;
 
-    public GameObject xp;
+    [SerializeField] GameObject xp;
     bool canMove = true;
     protected Rigidbody2D rb;
     protected Vector2 moveDirection;
@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour
     protected bool facingRight = true;
 
     public float health = 7;
+    [SerializeField] private GameObject damageDisplay;
     public event Action<Enemy, BaseSpell> onDeath;
     [SerializeField] protected bool isRegisteredForDeath = false;
 
@@ -29,6 +30,7 @@ public abstract class Enemy : MonoBehaviour
     public void takeDamage(float damage, BaseSpell source)
     {
         health -= damage;
+        displayDamage(damage);
         Debug.Log("Took damage from " + source);
         if (!isRegisteredForDeath)
         {
@@ -38,6 +40,15 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             die(source);
+        }
+    }
+    private void displayDamage(float damage)
+    {
+        Debug.Log(damageDisplay);
+        if (damageDisplay)
+        {
+            GameObject text = Instantiate(damageDisplay, transform.position, Quaternion.identity);
+            text.GetComponent<DamageDisplay>().SetNumber(damage, 0.2f);
         }
     }
     public void move()

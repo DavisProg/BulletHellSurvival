@@ -38,11 +38,19 @@ public class AreaLinger : MonoBehaviour
     }
     IEnumerator OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision)
+        {
+            yield return null;
+        }
         if (collision.isTrigger)
         {
             yield return null;
         }
         yield return new WaitForSeconds(interval);
+        if (!collision)
+        {
+            yield return null;
+        }
         if (collision.gameObject.CompareTag("Enemy")){
 		    if (collision.TryGetComponent(out Enemy enemy)){
                 foreach (var eff in effects)
