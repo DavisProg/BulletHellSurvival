@@ -46405,7 +46405,7 @@ MonoBehaviour:
   waveList:
   - waveNumber: 1
     enemyData:
-    - totalEnemies: 300
+    - totalEnemies: 50
       totalHealth: 5
       enemiesSpawned: 0
     - totalEnemies: 0
@@ -46849,16 +46849,16 @@ MonoBehaviour:
   spellName: 
   spellDescription: 
   addToSpellsKnown: 1
-  projectilePrefab: {fileID: 8741784812815763690, guid: 588288df700e4044793facd613d15639, type: 3}
+  projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  speed: 14
+  speed: 6
   size: 1
   pierce: 20
   projectileCount: 2
   damage: 5
-  projectileLifeTime: 0.25
+  projectileLifeTime: 0.5
 --- !u!1 &1755965282
 GameObject:
   m_ObjectHideFlags: 0
