@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawning : MonoBehaviour
@@ -8,10 +9,11 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] Wave[] waveList;
     public List<GameObject> enemyList = new List<GameObject>();
     private int currentWave = 0;
-    private int maxEnemyCount = 300;
+    private int maxEnemyCount = 800;
     [SerializeField] List<GameObject> enemyTypes = new List<GameObject>();
     List<GameObject> enemyCurrentTypes;
     [SerializeField] float radius;
+    [SerializeField] TMP_Text debugText;
     public bool canSpawn = true;
 
     bool isPointVisible(Vector3 point)
@@ -106,6 +108,10 @@ public class EnemySpawning : MonoBehaviour
     void Start()
     {
         startNewWave();
+    }
+    void Update()
+    {
+        debugText.text = "Enemy count: " + enemyList.Count();
     }
     private void OnDrawGizmosSelected()
 {

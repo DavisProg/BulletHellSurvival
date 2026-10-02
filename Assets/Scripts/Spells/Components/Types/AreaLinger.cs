@@ -38,11 +38,7 @@ public class AreaLinger : MonoBehaviour
     }
     IEnumerator OnTriggerStay2D(Collider2D collision)
     {
-        if (!collision)
-        {
-            yield return null;
-        }
-        if (collision.isTrigger)
+        if (collision && collision.isTrigger)
         {
             yield return null;
         }
