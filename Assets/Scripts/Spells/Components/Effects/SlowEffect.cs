@@ -18,7 +18,7 @@ public class SlowEffect : IEffect
         yield return new WaitForSeconds(duration);
         enemy.speed = startingSpeed;
     }
-    public void Apply(GameObject target)
+    public void Apply(GameObject target, GameObject origin = default)
     {
         Enemy enemy = target.GetComponent<Enemy>();
         enemy.StartCoroutine(Slow(enemy));

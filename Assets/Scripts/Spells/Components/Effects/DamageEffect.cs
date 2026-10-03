@@ -11,7 +11,7 @@ public class DamageEffect : IEffect
         this.source = source;
     }
 
-    public void Apply(GameObject target)
+    public void Apply(GameObject target, GameObject origin = default)
     {
         if (target.TryGetComponent(out Enemy enemy))
         {

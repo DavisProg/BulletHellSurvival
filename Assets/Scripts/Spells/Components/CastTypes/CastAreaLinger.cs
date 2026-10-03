@@ -7,6 +7,9 @@ public class CastAreaLinger : ICast
     IEffect[] effects;
     float duration;
     float interval;
+    float speed = 0f;
+    bool stationary = true;
+
 
     public CastAreaLinger(GameObject prefab, float size, float duration, float interval, params IEffect[] effects)
     {
@@ -16,10 +19,16 @@ public class CastAreaLinger : ICast
         this.effects = effects;
         this.interval = interval;
     }
+    public CastAreaLinger SetMovement(float speed)
+    {
+        this.speed = speed;
+        stationary = false;
+        return this;
+    }
     public void Cast(Transform caster, Vector2 target)
     {
         GameObject area  = Object.Instantiate(prefab, target, Quaternion.identity);
         AreaLinger linger = area.GetComponent<AreaLinger>();
-        linger.Init(size, effects, duration, interval);
+        linger.Init(size, effects, duration, interval, stationary, speed, caster, target);
     }   
 }

@@ -12,7 +12,7 @@ public class KnockbackEffect : IEffect
         this.delay = delay;
         this.caster = caster;
     }
-    public void Apply(GameObject target)
+    public void Apply(GameObject target, GameObject origin = default)
     {
         if (target.TryGetComponent(out KnockbackController kb))
         {

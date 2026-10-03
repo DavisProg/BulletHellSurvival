@@ -46349,6 +46349,7 @@ GameObject:
   - component: {fileID: 1725769621}
   - component: {fileID: 1725769622}
   - component: {fileID: 1725769623}
+  - component: {fileID: 1725769624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -46478,7 +46479,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 431025586}
   xp: 0
   level: 1
-  levelRequirements: 050000000500000032000000
+  levelRequirements: 050000000500000032000000bc020000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -46542,7 +46543,7 @@ MonoBehaviour:
   waveList:
   - waveNumber: 1
     enemyData:
-    - totalEnemies: 1000
+    - totalEnemies: 20
       totalHealth: 5
       enemiesSpawned: 0
     - totalEnemies: 0
@@ -46552,7 +46553,7 @@ MonoBehaviour:
       totalHealth: 0
       enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 5
-    spawnInterval: 0.1
+    spawnInterval: 5
   - waveNumber: 2
     enemyData:
     - totalEnemies: 0
@@ -46727,6 +46728,7 @@ MonoBehaviour:
   - {fileID: 1725769621}
   - {fileID: 1725769622}
   - {fileID: 1725769623}
+  - {fileID: 1725769624}
   maxSpellRefundPercentage: 70
   btn1: {fileID: 1401323011}
   btn2: {fileID: 478832965}
@@ -46997,6 +46999,36 @@ MonoBehaviour:
   projectileCount: 2
   damage: 5
   projectileLifeTime: 0.25
+--- !u!114 &1725769624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb10bf200edcd24e83f3dd005b13cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlackHole
+  level: 0
+  range: 10
+  cooldown: 6
+  spellIcon: {fileID: 0}
+  spellName: 
+  spellDescription: 
+  addToSpellsKnown: 1
+  explosionPrefab: {fileID: 8587402645744302506, guid: cfafb53f90a41c844a78ac98fd63f1c7, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  damage: 1
+  size: 4
+  speed: 3
+  pullStrength: 6
+  pullInterval: 0.1
+  interval: 3
+  duration: 8
 --- !u!1 &1755965282
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class DamageOverTimeEffect : IEffect
             yield return new WaitForSeconds(intervalCooldown);
         }
     }
-    public void Apply(GameObject target)
+    public void Apply(GameObject target, GameObject origin = default)
     {
         target.GetComponent<Enemy>().StartCoroutine(damageOverTime(target, source));
     }

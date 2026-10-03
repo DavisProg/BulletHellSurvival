@@ -35,6 +35,7 @@ public class Splash : MonoBehaviour
             }
         }   
     }
+
     IEnumerator Stay(float duration){
         yield return new WaitForSeconds(duration);
         Destroy(gameObject);

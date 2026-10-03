@@ -11,7 +11,7 @@ public class RepeatEffect : IEffect
         this.targeting = targeting;
     }
 
-    public void Apply(GameObject target)
+    public void Apply(GameObject target, GameObject origin = default)
     {
         if (targeting.GetTarget(target.transform, range, out Vector2[] nextTarget)){
             foreach(Vector2 targetPos in nextTarget)

@@ -10,7 +10,7 @@ public interface ICast
 }
 public interface IEffect
 {
-    void Apply(GameObject target);
+    void Apply(GameObject target, GameObject origin = default);
 }
 public interface ITrigger
 {
