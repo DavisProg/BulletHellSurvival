@@ -7,14 +7,22 @@ public class AreaLinger : MonoBehaviour
     Collider2D col;
     float interval;
     bool stationary;
+    float duration;
     Rigidbody2D rb;
     Vector2 direction;
     float speed;
+    Animator animator;
     Dictionary<Collider2D, float> timers = new Dictionary<Collider2D, float>();
+    [SerializeField] AudioClip[] soundFX;
     void Awake()
     {
+        animator = GetComponent<Animator>();
         col = GetComponent<CircleCollider2D>();
         col.enabled = false;
+        if(soundFX.Length > 0)
+        {
+            SoundFXManager.instance.playSoundEffect(soundFX, transform, 1f);
+        }
     }
 
     public void Init(float size, IEffect[] effects, float duration, float interval, bool stationary = true, float speed = 0f, Transform caster = default, Vector2 target = default){
@@ -22,6 +30,7 @@ public class AreaLinger : MonoBehaviour
         this.interval = interval;
         this.stationary = stationary;
         this.speed = speed;
+        this.duration = duration;
         rb = GetComponent<Rigidbody2D>();
         if (!stationary)
         {
@@ -30,9 +39,6 @@ public class AreaLinger : MonoBehaviour
         }
         float scale = size * 2f;
         gameObject.transform.localScale = new Vector3(scale, scale, 1f);
-
-        col.enabled = true;
-        StartCoroutine(Stay(duration));
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -80,6 +86,16 @@ public class AreaLinger : MonoBehaviour
                 timers[enemy] = interval;
             }
         }
+        if (col.enabled == false)
+        {
+            float animTime = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            if(animTime >= 1.0f)
+            {
+                Debug.Log("Area linger animation finished");
+                col.enabled = true;
+                StartCoroutine(Stay(duration));
+            }
+        }
     }
     void FixedUpdate()
     {
@@ -90,6 +106,9 @@ public class AreaLinger : MonoBehaviour
     }
     IEnumerator Stay(float duration){
         yield return new WaitForSeconds(duration);
-        Destroy(gameObject);
+        col.enabled = false;
+        animator.SetBool("isLeavingScene", true);
+        yield return null;
+        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 }

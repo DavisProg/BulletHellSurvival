@@ -8,6 +8,7 @@ public class Lava : BaseSpell
     [SerializeField] float size;
     [SerializeField] float interval;
     [SerializeField] float duration;
+    
 
     void Awake()
     {

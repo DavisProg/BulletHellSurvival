@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
     {
         xp = xp + incXP;
         levelUp();
-        Debug.Log(xp);
     }
     public void levelUp()
     {

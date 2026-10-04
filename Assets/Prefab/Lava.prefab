@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4973609010937243920}
   - component: {fileID: 2543236911112075296}
   - component: {fileID: 1290789214340790007}
+  - component: {fileID: 8724814236813002091}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.441, y: -5.149, z: 0}
-  m_LocalScale: {x: 2.534614, y: 2.479712, z: 2.2781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2833246252606183768, guid: 3beaf5b9603651f408b243322397ce58, type: 3}
-  m_Color: {r: 0.7056604, g: 0, b: 0.35878935, a: 1}
+  m_Sprite: {fileID: -1610637840925315062, guid: ad29ee8b34113f7459f824f223410a70, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.42, y: 1.42}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,8 +128,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.003673334, y: 0}
-  m_Radius: 0.66532195
+  m_Offset: {x: 0.004721403, y: 0}
+  m_Radius: 1.5047929
 --- !u!114 &1290789214340790007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +142,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1631ba168aabebf47b06052f9ca90cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaLinger
+  soundFX:
+  - {fileID: 8300000, guid: 1aeafebc9159ada4da7c30ff3f4452e8, type: 3}
+  - {fileID: 8300000, guid: 5abee5c89c6a0824a87cfeef689e292d, type: 3}
+  - {fileID: 8300000, guid: bf5411f509bf0f245a8a4c4431431a5a, type: 3}
+--- !u!95 &8724814236813002091
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906477184599646929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3935a1a2a3c8d644aac423667072ae6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
