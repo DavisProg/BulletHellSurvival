@@ -11,7 +11,7 @@ public class SpellSelection : MonoBehaviour
     Player playerScript;
     BaseSpell[] chosenSpellList;
     [SerializeField] float maxSpellRefundPercentage;
-    public Button btn1, btn2, btn3;
+    [SerializeField] Button[] buttons;
     private bool btn1Enabled = true;
     private bool btn2Enabled;
     private bool btn3Enabled;
@@ -28,30 +28,30 @@ public class SpellSelection : MonoBehaviour
     public void showSpellSelectionMenu()
     {
         initMenu();
-        for(int i = 1; i <= 3; i++)
+        for(int i = 0; i < buttons.Length; i++)
         {
-            TMP_Text titleText = spellSelectionMenu.transform
-            .Find($"Canvas/Choice{i}/Title")
-            .GetComponent<TMP_Text>();
+            Image spellIcon = buttons[i].gameObject.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+            TMP_Text titleText = buttons[i].gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
+            TMP_Text descriptionText = buttons[i].gameObject.transform.GetChild(4).GetComponent<TMP_Text>();
             if (playerScript.learntSpells.Count >= 8)
             {
                 spellSelectionMenu.transform.Find($"Canvas/Choice{1}/Title").GetComponent<TMP_Text>().text = "Refund";
                 spellSelectionMenu.transform.Find($"Canvas/Choice{2}/Title").GetComponent<TMP_Text>().text = "Refund";
                 spellSelectionMenu.transform.Find($"Canvas/Choice{3}/Title").GetComponent<TMP_Text>().text = "Refund";
+                foreach(Button button in buttons)
+                {
+                    Image refundIcon = button.gameObject.transform.GetChild(2).GetChild(0).GetComponent<Image>();
+                    TMP_Text refundTitleText = button.gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
+                    TMP_Text refundDescriptionText = button.gameObject.transform.GetChild(4).GetComponent<TMP_Text>();
 
-                btn1.onClick.AddListener(() =>
-                {
-                    Refund(maxSpellRefundPercentage);
-                });
-                btn2.onClick.AddListener(() =>
-                {
-                    Refund(maxSpellRefundPercentage);
-                });
-                btn3.onClick.AddListener(() =>
-                {
-                    Refund(maxSpellRefundPercentage);
-                });
+                    refundTitleText.text = "Refund";
+                    refundDescriptionText.text = "Regain " + maxSpellRefundPercentage + "% XP"; 
 
+                    button.onClick.AddListener(() =>
+                {
+                    Refund(maxSpellRefundPercentage);
+                });
+                }
                 break;
             }
             int randomSpell = Random.Range(0, availableSpells.Count);
@@ -63,7 +63,7 @@ public class SpellSelection : MonoBehaviour
                 i--;
                 continue;
             }
-            if (availableSpells.Count < 3){}
+            if (availableSpells.Count < 2){}
             else if (i > 1 && (chosenSpell == chosenSpellList[0] || chosenSpell == chosenSpellList[1]))
             {
                 i--;
@@ -72,13 +72,13 @@ public class SpellSelection : MonoBehaviour
 
             Debug.Log(chosenSpellList.Length + " " + availableSpells.Count);
             // Empty buttons when not enough spells
-            if (availableSpells.Count < 3)
+            if (availableSpells.Count < 2)
             {
-                if (availableSpells.Count == 2 && i == 3)
+                if (availableSpells.Count == 2 && i == 2)
                 {
                     titleText.text = "";
                 }
-                else if (availableSpells.Count == 1 && i == 2)
+                else if (availableSpells.Count == 1 && i == 1)
                 {
                     titleText.text = "";
                 }
@@ -94,29 +94,34 @@ public class SpellSelection : MonoBehaviour
             }
             else
             {
-                chosenSpellList[i - 1] = chosenSpell;
+                chosenSpellList[i] = chosenSpell;
 
-                titleText.text = availableSpells[randomSpell].GetType().Name;
+                titleText.text = availableSpells[randomSpell].spellName;
+                descriptionText.text = availableSpells[randomSpell].spellDescription;
+                if (availableSpells[randomSpell].spellIcon)
+                {
+                    spellIcon.sprite = availableSpells[randomSpell].spellIcon;
+                }
             }
             
         }
         if (btn1Enabled && chosenSpellList[0])
         {
-            btn1.onClick.AddListener(() =>
+            buttons[0].onClick.AddListener(() =>
             {
                 Select(chosenSpellList[0]);
             });
         }
         if (btn2Enabled && chosenSpellList[1])
         {
-            btn2.onClick.AddListener(() =>
+            buttons[1].onClick.AddListener(() =>
             {
                 Select(chosenSpellList[1]);
             });
         }
         if (btn3Enabled && chosenSpellList[2])
         {
-            btn3.onClick.AddListener(() =>
+            buttons[2].onClick.AddListener(() =>
             {
                 Select(chosenSpellList[2]);
             });
@@ -149,9 +154,9 @@ public class SpellSelection : MonoBehaviour
     }
     void initMenu()
     {
-        btn1.onClick.RemoveAllListeners();
-        btn2.onClick.RemoveAllListeners();
-        btn3.onClick.RemoveAllListeners();
+        buttons[0].onClick.RemoveAllListeners();
+        buttons[1].onClick.RemoveAllListeners();
+        buttons[2].onClick.RemoveAllListeners();
         btn1Enabled = true;
         btn2Enabled = true;
         btn3Enabled = true;
