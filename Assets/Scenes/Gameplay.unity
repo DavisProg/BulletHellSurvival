@@ -47590,6 +47590,7 @@ GameObject:
   - component: {fileID: 1725769623}
   - component: {fileID: 1725769624}
   - component: {fileID: 1725769625}
+  - component: {fileID: 1725769626}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -47986,6 +47987,7 @@ MonoBehaviour:
   - {fileID: 1725769623}
   - {fileID: 1725769624}
   - {fileID: 1725769625}
+  - {fileID: 1725769626}
   maxSpellRefundPercentage: 70
   buttons:
   - {fileID: 1880933875}
@@ -48225,9 +48227,9 @@ MonoBehaviour:
   secondPathDescription: 
   addToSpellsKnown: 1
   turretPrefab: {fileID: 4851765560420636932, guid: 330897cacc4fe514c90411dea74faf23, type: 3}
-  damage: 1
+  damage: 3
   size: 1
-  interval: 0
+  interval: 2
   duration: 8
 --- !u!114 &1725769623
 MonoBehaviour:
@@ -48332,6 +48334,34 @@ MonoBehaviour:
   splitAmount: 5
   deviationAngle: 15
   projectileLifeTime: 4
+--- !u!114 &1725769626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725769599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53a7787795fbb94786526d15b98d6a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tank
+  level: 0
+  range: 7
+  cooldown: 12
+  spellIcon: {fileID: 0}
+  spellName: Tank
+  spellDescription: Kablooey
+  firstPathName: 
+  firstPathDescription: 
+  secondPathName: 
+  secondPathDescription: 
+  addToSpellsKnown: 1
+  turretPrefab: {fileID: 5267376594411464435, guid: f532b046f86527e48b9f17dd19e0d741, type: 3}
+  damage: 5
+  size: 1
+  interval: 1
+  duration: 8
 --- !u!1 &1742833894
 GameObject:
   m_ObjectHideFlags: 0

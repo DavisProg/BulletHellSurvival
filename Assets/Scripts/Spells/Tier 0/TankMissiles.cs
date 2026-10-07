@@ -1,22 +1,16 @@
 using UnityEngine;
 
-public class TurretMissile : BaseSpell
+public class TankMissiles : TurretMissile
 {
-    public GameObject projectilePrefab;
-    public LayerMask enemyLayer;
-    public float damage;
-    public float newCooldown;
-    public float size;
-    public float speed;
-    public int pierce;
-    public int missileAmount;
-    public float projectileLifeTime;
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] float explosionSize;
+    [SerializeField] float duration;
 
     void Awake()
     {
         targeting = new NearestTarget(enemyLayer, missileAmount);
     }
-    public virtual void defineCast()
+    public override void defineCast()
     {
         casting =  new CastProjectile(
             projectilePrefab,
@@ -26,7 +20,7 @@ public class TurretMissile : BaseSpell
             projectileLifeTime,
             new IEffect[]
             {
-                new DamageEffect(damage, this)
+                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())
             }
         );
         setTrigger(new onLoop(this, newCooldown));
