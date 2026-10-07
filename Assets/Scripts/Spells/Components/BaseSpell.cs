@@ -8,6 +8,7 @@ public abstract class BaseSpell : MonoBehaviour
     public Sprite spellIcon;
     public string spellName;
     public string spellDescription;
+    public string firstPathName, firstPathDescription, secondPathName, secondPathDescription;
     [SerializeField] bool addToSpellsKnown = true;
 
     protected ITarget targeting;

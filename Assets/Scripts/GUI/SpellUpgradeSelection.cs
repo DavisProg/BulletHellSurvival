@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class SpellUpgrade : MonoBehaviour
 {
     public GameObject spellUpgradeMenu;
@@ -12,6 +13,16 @@ public class SpellUpgrade : MonoBehaviour
         spellUpgradeMenu.SetActive(true);
         btn1.onClick.RemoveAllListeners();
         btn2.onClick.RemoveAllListeners();
+
+        TMP_Text firstButtonTitleText = btn1.gameObject.transform.GetChild(2).GetComponent<TMP_Text>();
+        TMP_Text firstButtonDescriptionText = btn1.gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
+        TMP_Text secondButtonTitleText = btn2.gameObject.transform.GetChild(2).GetComponent<TMP_Text>();
+        TMP_Text secondButtonDescriptionText = btn2.gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
+
+        firstButtonTitleText.text = spell.firstPathName;
+        secondButtonTitleText.text = spell.secondPathName;
+        firstButtonDescriptionText.text = spell.firstPathDescription;
+        secondButtonDescriptionText.text = spell.secondPathDescription;
 
         btn1.onClick.AddListener(() =>
             {

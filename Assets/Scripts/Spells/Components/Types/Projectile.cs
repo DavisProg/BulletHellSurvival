@@ -9,9 +9,10 @@ public class Projectile : MonoBehaviour
     IEffect[] effects;
     Vector2 direction;
     Rigidbody2D rb;
-    //Renderer m_Renderer;
     Collider2D col;
     float maxLifeTime = 5;
+    [SerializeField] private float immunityTime = 0.01f;
+    private bool canCollide = false;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger)
@@ -20,21 +21,24 @@ public class Projectile : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Enemy")){
             if (collision.TryGetComponent(out Enemy component)){
-                foreach(var eff in effects)
+                if (canCollide)
+                {
+                    foreach(var eff in effects)
                 {
                    eff.Apply(collision.gameObject);
                 }
                 pierce -= 1;
                 if (pierce <= 0){
                     Destroy(gameObject);
-                }   
+                }
+                }
+                   
 	        }
         }
     }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        //m_Renderer = GetComponent<Renderer>();
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
     }
@@ -53,26 +57,20 @@ public class Projectile : MonoBehaviour
         rb.rotation = angle;
         col.enabled = true;
         StartCoroutine(lifeTime());
+        StartCoroutine(immunityTimer());
     }
     void FixedUpdate()
     {
-        /*
-        Debug.Log(
-        "Damage: " + damage + 
-        "Speed: " + speed + 
-        "Direction: " + direction);
-        */
         rb.linearVelocity = direction * speed;
-        /*
-        if (!m_Renderer.isVisible)
-        {
-            Destroy(gameObject);
-        }
-        */
     }
     IEnumerator lifeTime()
     {
         yield return new WaitForSeconds(maxLifeTime);
         Destroy(gameObject);
+    }
+    IEnumerator immunityTimer()
+    {
+        yield return new WaitForSeconds(immunityTime);
+        canCollide = true;
     }
 }

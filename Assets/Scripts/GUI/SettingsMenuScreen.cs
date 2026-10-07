@@ -20,7 +20,7 @@ public class SettingsMenuScreen : MonoBehaviour
     Resolution[] resolutions;
     void Start()
     {
-        path = Path.Combine(Application.persistentDataPath, "text.txt");
+        path = Path.Combine(Application.persistentDataPath, "settings.json");
 
         defaultSettings.resolutionWidth = 1920;
         defaultSettings.resolutionHeight = 1080;

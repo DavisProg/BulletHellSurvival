@@ -8,7 +8,6 @@ public class FreezeRay : BaseSpell
     [SerializeField] float height;
     [SerializeField] float width;
     [SerializeField] float duration;
-    [SerializeField] float reducePercentage;
     [SerializeField] float slowDuration;
     [SerializeField] int amount;
 
@@ -29,7 +28,7 @@ public class FreezeRay : BaseSpell
             new IEffect[]
             {
                 new DamageEffect(damage, this),
-                new SlowEffect(reducePercentage, slowDuration)
+                new SlowEffect(100, slowDuration)
             }
         );
     }

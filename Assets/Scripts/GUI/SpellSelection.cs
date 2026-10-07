@@ -71,7 +71,7 @@ public class SpellSelection : MonoBehaviour
             }
 
             Debug.Log(chosenSpellList.Length + " " + availableSpells.Count);
-            // Empty buttons when not enough spells
+
             if (availableSpells.Count < 2)
             {
                 if (availableSpells.Count == 2 && i == 2)

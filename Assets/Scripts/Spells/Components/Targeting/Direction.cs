@@ -5,7 +5,7 @@ public class Direction : ITarget
 {
     private float angle;
 
-    public void setAngle(float angle)
+    public Direction(float angle)
     {
         this.angle = angle;
     }
