@@ -86,7 +86,10 @@ public abstract class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("Player").GetComponent<Player>().takeDamage(1);
+            if(TryGetComponent(out Player player))
+            {
+                player.takeDamage(1);
+            }
         }
     }
     private Vector2 getSeperationForce()
