@@ -25,6 +25,7 @@ public class SpellUpgrade : MonoBehaviour
         secondButtonDescriptionText.text = spell.secondPathDescription;
 
         btn1.onClick.AddListener(() =>
+        
             {
                 spell.firstPathEnable();
                 Select();

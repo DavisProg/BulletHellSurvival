@@ -7,7 +7,7 @@ public class SpellCraftingManager : MonoBehaviour
     private SpellBlock currentSpell;
     [SerializeField] Image customCursor;
 
-    [SerializeField] SpellCraftSlot[] slots;
+    [SerializeField] SpellCraftSlot[] slots = new SpellCraftSlot[2];
     [SerializeField] SpellCraftSlot resultSlot;
     [SerializeField] float maxCraftDistance;
     [SerializeField] Recipe[] recipeList;
@@ -91,16 +91,17 @@ public class SpellCraftingManager : MonoBehaviour
                 }
                 Debug.Log("Found resultSpell");
                 foundRecipe = true;
-                resultSpell.enable();
-                resultSlot.GetComponent<Image>().sprite = resultSpell.spellIcon;
                 foreach(SpellCraftSlot slot in slots)
                 {
                     slot.GetComponent<Image>().sprite = null;
                     slot.currentSpell.spell.disable();
-                    player.learntSpells.Remove(currentSpell.spell);
                     slot.currentSpell = null;
                     displayCraftError("");
                 }
+                resultSpell.enable();
+                resultSlot.GetComponent<Image>().sprite = resultSpell.spellIcon;
+                resultSlot.currentSpell = new SpellBlock{spell = resultSpell, index = 0};
+                break;
             }
         }
         if (!foundRecipe)
@@ -112,7 +113,7 @@ public class SpellCraftingManager : MonoBehaviour
     }
     public void displayCraftError(string text)
     {
-        msg.GetComponent<TMPro.TextMeshProUGUI>().text = text;
+        msg.GetComponent<TextMeshProUGUI>().text = text;
     }
     public void Clear()
     {
