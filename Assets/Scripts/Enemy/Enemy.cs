@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public float speed = 1.5f;
+    public float maxSpeed = 1.5f;
     [SerializeField] protected float separationDistance = 1.5f;
     [SerializeField] protected float separationStrength = 2f;
     [SerializeField] protected float seperationWeight = 0.5f;

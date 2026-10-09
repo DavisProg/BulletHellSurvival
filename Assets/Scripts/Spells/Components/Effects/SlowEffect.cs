@@ -13,10 +13,10 @@ public class SlowEffect : IEffect
     }
     IEnumerator Slow(Enemy enemy)
     {
-        float startingSpeed = enemy.speed;
-        enemy.speed -= startingSpeed * reducePercentage;
+        float resultDifference = enemy.maxSpeed * reducePercentage;
+        enemy.speed -= resultDifference;
         yield return new WaitForSeconds(duration);
-        enemy.speed = startingSpeed;
+        enemy.speed += resultDifference;
     }
     public void Apply(GameObject target, GameObject origin = default)
     {
