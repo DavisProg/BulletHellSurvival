@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawning : MonoBehaviour
@@ -9,6 +10,7 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] Wave[] waveList;
     public List<GameObject> enemyList = new List<GameObject>();
     private int currentWave = 0;
+    private Wave wave;
     private int maxEnemyCount = 800;
     [SerializeField] List<GameObject> enemyTypes = new List<GameObject>();
     List<GameObject> enemyCurrentTypes;
@@ -27,7 +29,6 @@ public class EnemySpawning : MonoBehaviour
     }
     IEnumerator SpawnEnemy()
     {
-        Wave wave = waveList[currentWave - 1];
         enemyCurrentTypes = new List<GameObject>(enemyTypes);
         while (enemyCurrentTypes.Count > wave.enemyData.Count)
         {       
@@ -101,6 +102,7 @@ public class EnemySpawning : MonoBehaviour
         if(currentWave + 1 <= waveList.Count() && canSpawn)
         {
             currentWave++;
+            wave = waveList[currentWave - 1].Clone();
             Debug.Log("Starting Wave " + waveList[currentWave - 1].waveNumber);
             StartCoroutine(SpawnEnemy());
         }
