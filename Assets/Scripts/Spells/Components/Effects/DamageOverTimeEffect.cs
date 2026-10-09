@@ -21,8 +21,16 @@ public class DamageOverTimeEffect : IEffect
         Enemy enemy = target.GetComponent<Enemy>();
         while(damageLeft > 0)
         {
-            enemy.takeDamage(damagePerInterval, source);
-            damageLeft = damageLeft - damagePerInterval;
+            if(damageLeft >= damagePerInterval)
+            {
+                enemy.takeDamage(damagePerInterval, source);
+                damageLeft = damageLeft - damagePerInterval;
+            }
+            else
+            {
+                enemy.takeDamage(damageLeft, source);
+                damageLeft = 0;
+            }
             yield return new WaitForSeconds(intervalCooldown);
         }
     }
