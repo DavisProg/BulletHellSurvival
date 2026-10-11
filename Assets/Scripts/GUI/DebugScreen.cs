@@ -31,9 +31,11 @@ public class DebugScreen : MonoBehaviour
     {
         if(debugScreen.activeSelf == false)
         {
-            debugScreen.SetActive(true);
-            debugMenuScreen.SetActive(true);
-            Time.timeScale = 0;
+            if(Time.timeScale !=0){
+                debugScreen.SetActive(true);
+                debugMenuScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
         else if (debugScreen.activeSelf == true)
         {

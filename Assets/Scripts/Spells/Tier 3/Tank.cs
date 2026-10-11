@@ -30,7 +30,6 @@ public class Tank : BaseSpell
                             completedSuccesfully = false;
                             break;
                         }
-                        Debug.Log("Distance: " + Vector2.Distance(targetPos, gameObject.transform.position));
                         casting.Cast(transform, targetPos);
                     }
                     if (completedSuccesfully)

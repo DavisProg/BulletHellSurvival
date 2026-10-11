@@ -86,7 +86,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(TryGetComponent(out Player player))
+            if(collision.gameObject.TryGetComponent(out Player player))
             {
                 player.takeDamage(1);
             }

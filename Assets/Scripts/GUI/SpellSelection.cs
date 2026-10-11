@@ -27,6 +27,11 @@ public class SpellSelection : MonoBehaviour
 
     public void showSpellSelectionMenu()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         initMenu();
         for(int i = 0; i < buttons.Length; i++)
         {

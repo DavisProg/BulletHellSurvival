@@ -26,21 +26,24 @@ SpellCraftingManager craftingManager;
     {
         if(spellCraftingScreen.activeSelf == false)
         {
-            spellCraftingScreen.SetActive(true);
-            Time.timeScale = 0;
-
-            foreach(SpellBlock spell in spellBlocks)
+            if (Time.timeScale != 0)
             {
-                if(player.learntSpells != null)
+                spellCraftingScreen.SetActive(true);
+                Time.timeScale = 0;
+
+                foreach(SpellBlock spell in spellBlocks)
                 {
-                    if (spell.index >= player.learntSpells.Count)
+                    if(player.learntSpells != null)
                     {
-                        break;
-                    }
-                    if (player.learntSpells[spell.index].spellIcon != null)
-                    {
-                        spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = player.learntSpells[spell.index].spellIcon;
-                        spell.spell = player.learntSpells[spell.index];
+                        if (spell.index >= player.learntSpells.Count)
+                        {
+                            break;
+                        }
+                        if (player.learntSpells[spell.index].spellIcon != null)
+                        {
+                            spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = player.learntSpells[spell.index].spellIcon;
+                            spell.spell = player.learntSpells[spell.index];
+                        }
                     }
                 }
             }

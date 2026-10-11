@@ -64,8 +64,11 @@ public class SettingsMenuScreen : MonoBehaviour
     {
         if(settingsMenu.activeSelf == false)
         {
-            settingsMenu.SetActive(true);
-            Time.timeScale = 0;
+            if (Time.timeScale != 0)
+            {
+                settingsMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
         else if (settingsMenu.activeSelf == true)
         {
