@@ -2066,7 +2066,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 244981965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2021411118}
+        m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
+        m_MethodName: hideMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2021411118}
+        m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
+        m_MethodName: resumeTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &244981965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2081,7 +2105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -175056,7 +175080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1369354724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -177815,6 +177839,7 @@ GameObject:
   - component: {fileID: 1695400555}
   - component: {fileID: 1695400557}
   - component: {fileID: 1695400556}
+  - component: {fileID: 1695400558}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -177856,7 +177881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -177880,6 +177905,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695400554}
   m_CullTransparentMesh: 1
+--- !u!114 &1695400558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695400554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1695400556}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2021411118}
+        m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
+        m_MethodName: exitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1707403918
 GameObject:
   m_ObjectHideFlags: 0
@@ -178377,7 +178458,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 431025586}
   xp: 0
   level: 1
-  levelRequirements: 05000000050000003200000064000000
+  levelRequirements: 0a0000000f00000014000000190000002300000032000000410000005000000064000000780000008c000000b4000000dc000000180100005401000090010000f401000058020000bc02000052030000e8030000e2040000dc050000d6060000c4090000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -178441,34 +178522,34 @@ MonoBehaviour:
   waveList:
   - waveNumber: 1
     enemyData:
-    - totalEnemies: 20
-      totalHealth: 5
+    - totalEnemies: 10
+      totalHealth: 2
       enemiesSpawned: 0
     - totalEnemies: 0
       totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 5
-    spawnInterval: 5
-  - waveNumber: 2
-    enemyData:
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 5
-      totalHealth: 15
       enemiesSpawned: 0
     - totalEnemies: 0
       totalHealth: 0
       enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 1
-    spawnInterval: 5
+    spawnInterval: 6
+  - waveNumber: 2
+    enemyData:
+    - totalEnemies: 20
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 2
+    spawnInterval: 6
   - waveNumber: 3
     enemyData:
-    - totalEnemies: 50
-      totalHealth: 4
+    - totalEnemies: 30
+      totalHealth: 3
       enemiesSpawned: 0
     - totalEnemies: 0
       totalHealth: 0
@@ -178476,8 +178557,229 @@ MonoBehaviour:
     - totalEnemies: 2
       totalHealth: 2
       enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 3
+    spawnInterval: 6
+  - waveNumber: 4
+    enemyData:
+    - totalEnemies: 29
+      totalHealth: 5
+      enemiesSpawned: 0
+    - totalEnemies: 1
+      totalHealth: 15
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 3
+    spawnInterval: 6
+  - waveNumber: 4
+    enemyData:
+    - totalEnemies: 55
+      totalHealth: 5
+      enemiesSpawned: 0
+    - totalEnemies: 5
+      totalHealth: 15
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 1
+    spawnInterval: 1
+  - waveNumber: 5
+    enemyData:
+    - totalEnemies: 100
+      totalHealth: 7
+      enemiesSpawned: 0
+    - totalEnemies: 20
+      totalHealth: 20
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 2
+    spawnInterval: 1
+  - waveNumber: 7
+    enemyData:
+    - totalEnemies: 100
+      totalHealth: 7
+      enemiesSpawned: 0
+    - totalEnemies: 60
+      totalHealth: 20
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 1
+    spawnInterval: 1
+  - waveNumber: 8
+    enemyData:
+    - totalEnemies: 150
+      totalHealth: 7
+      enemiesSpawned: 0
+    - totalEnemies: 30
+      totalHealth: 20
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 3
+    spawnInterval: 1
+  - waveNumber: 9
+    enemyData:
+    - totalEnemies: 200
+      totalHealth: 10
+      enemiesSpawned: 0
+    - totalEnemies: 40
+      totalHealth: 25
+      enemiesSpawned: 0
+    - totalEnemies: 2
+      totalHealth: 2
+      enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 4
-    spawnInterval: 5
+    spawnInterval: 1
+  - waveNumber: 10
+    enemyData:
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 95
+      totalHealth: 25
+      enemiesSpawned: 0
+    - totalEnemies: 5
+      totalHealth: 5
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 10
+    spawnInterval: 6
+  - waveNumber: 11
+    enemyData:
+    - totalEnemies: 400
+      totalHealth: 10
+      enemiesSpawned: 0
+    - totalEnemies: 25
+      totalHealth: 25
+      enemiesSpawned: 0
+    - totalEnemies: 5
+      totalHealth: 5
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 43
+    spawnInterval: 6
+  - waveNumber: 12
+    enemyData:
+    - totalEnemies: 800
+      totalHealth: 10
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 25
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 40
+    spawnInterval: 3
+  - waveNumber: 12
+    enemyData:
+    - totalEnemies: 0
+      totalHealth: 10
+      enemiesSpawned: 0
+    - totalEnemies: 500
+      totalHealth: 35
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 10
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 40
+    spawnInterval: 3
+  - waveNumber: 14
+    enemyData:
+    - totalEnemies: 750
+      totalHealth: 15
+      enemiesSpawned: 0
+    - totalEnemies: 40
+      totalHealth: 50
+      enemiesSpawned: 0
+    - totalEnemies: 10
+      totalHealth: 13
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 40
+    spawnInterval: 3
+  - waveNumber: 15
+    enemyData:
+    - totalEnemies: 1000
+      totalHealth: 20
+      enemiesSpawned: 0
+    - totalEnemies: 180
+      totalHealth: 50
+      enemiesSpawned: 0
+    - totalEnemies: 20
+      totalHealth: 15
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 20
+    spawnInterval: 1
+  - waveNumber: 16
+    enemyData:
+    - totalEnemies: 1500
+      totalHealth: 25
+      enemiesSpawned: 0
+    - totalEnemies: 250
+      totalHealth: 60
+      enemiesSpawned: 0
+    - totalEnemies: 50
+      totalHealth: 20
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 30
+    spawnInterval: 1
+  - waveNumber: 16
+    enemyData:
+    - totalEnemies: 2000
+      totalHealth: 30
+      enemiesSpawned: 0
+    - totalEnemies: 300
+      totalHealth: 80
+      enemiesSpawned: 0
+    - totalEnemies: 100
+      totalHealth: 25
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 30
+    spawnInterval: 1
+  - waveNumber: 18
+    enemyData:
+    - totalEnemies: 6000
+      totalHealth: 40
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 100
+    spawnInterval: 1
+  - waveNumber: 18
+    enemyData:
+    - totalEnemies: 3000
+      totalHealth: 50
+      enemiesSpawned: 0
+    - totalEnemies: 1000
+      totalHealth: 150
+      enemiesSpawned: 0
+    - totalEnemies: 1000
+      totalHealth: 30
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 100
+    spawnInterval: 1
+  - waveNumber: 18
+    enemyData:
+    - totalEnemies: 7000
+      totalHealth: 70
+      enemiesSpawned: 0
+    - totalEnemies: 1500
+      totalHealth: 300
+      enemiesSpawned: 0
+    - totalEnemies: 1500
+      totalHealth: 55
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 100
+    spawnInterval: 1
   enemyList: []
   enemyTypes:
   - {fileID: 7906689853839711279, guid: 6fec8f59f2c0ecf42b11d6cc52b559dd, type: 3}
@@ -178499,8 +178801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnergyExplosion
   level: 0
-  range: 5
-  cooldown: 5
+  range: 7
+  cooldown: 10
   spellIcon: {fileID: 2382995276365238260, guid: 4cd033665c731f1499369a9c519bcd2a, type: 3}
   spellName: Energy Explosion
   spellDescription: Unleash a small explosion of pure energy in a random location
@@ -178515,7 +178817,7 @@ MonoBehaviour:
     m_Bits: 8
   damage: 1
   size: 3
-  duration: 1
+  duration: 0.5
 --- !u!114 &1725769610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178530,7 +178832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PoisonDart
   level: 0
   range: 8
-  cooldown: 3
+  cooldown: 4
   spellIcon: {fileID: 3539708246896572786, guid: a563bbb3570ebca4c93790be72899593, type: 3}
   spellName: Poison Dart
   spellDescription: Throw a poisoned dart dealing damage over time
@@ -178545,7 +178847,7 @@ MonoBehaviour:
     m_Bits: 8
   damage: 3
   size: 1
-  speed: 3.5
+  speed: 7
   pierce: 1
   damagePerInterval: 1
   damageDuration: 1
@@ -178579,11 +178881,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 5
-  size: 5
+  size: 1
   speed: 2
   pierce: 100
   amount: 1
-  projectileLifeTime: 5
+  projectileLifeTime: 15
 --- !u!114 &1725769612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178598,10 +178900,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicMissile
   level: 0
   range: 8
-  cooldown: 2
+  cooldown: 1
   spellIcon: {fileID: 8686965604848408839, guid: e7d31cb6ceb85b14999fecab236dde96, type: 3}
   spellName: Magic Missile
-  spellDescription: Pew pew pew
+  spellDescription: Weak, but quick firing darts of pure magic.
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178612,8 +178914,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 1
-  size: 0.3
-  speed: 6
+  size: 0.5
+  speed: 9
   pierce: 1
   missileAmount: 5
   projectileLifeTime: 5
@@ -178711,10 +179013,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EyeRay
   level: 0
   range: 8
-  cooldown: 2
+  cooldown: 5
   spellIcon: {fileID: 3683501341025058369, guid: 6410fcd3d91868e44b9c4e357a1a64dd, type: 3}
   spellName: Eye Ray
-  spellDescription: bwooom
+  spellDescription: Fire a long beam from your eye dealing moderate amount of damage.
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178725,10 +179027,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 2
-  height: 7
-  width: 0.05
+  height: 30
+  width: 1
   duration: 0.5
-  amount: 2
+  amount: 1
 --- !u!114 &1725769618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178743,10 +179045,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
   level: 0
   range: 8
-  cooldown: 3
+  cooldown: 10
   spellIcon: {fileID: -8309186502313713784, guid: eb92a12e58c2a8945a4f79847fe65f8f, type: 3}
   spellName: Fireball
-  spellDescription: Kaboom
+  spellDescription: Fire a fireball that explodes on contact dealing large amount
+    of damage
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178758,7 +179061,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damage: 10
-  projectileSize: 0.3
+  projectileSize: 1
   explosionSize: 4
   speed: 7
   duration: 1
@@ -178780,9 +179083,10 @@ MonoBehaviour:
   range: 8
   cooldown: 2
   spellIcon: {fileID: 6956357645303378007, guid: 8fa052ef17c490b49b952db31014313e, type: 3}
-  spellName: Snowball
+  spellName: Snowballs
   spellDescription: Ball
-  firstPathName: 
+  firstPathName: Throw snowballs at nearby enemies deling low damage, but also slowing
+    them down
   firstPathDescription: 
   secondPathName: 
   secondPathDescription: 
@@ -178797,7 +179101,7 @@ MonoBehaviour:
   pierce: 1
   slowPercentage: 35
   slowDuration: 1
-  amount: 1
+  amount: 3
   projectileLifeTime: 5
 --- !u!114 &1725769620
 MonoBehaviour:
@@ -178813,10 +179117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pulse
   level: 0
   range: 3
-  cooldown: 10
-  spellIcon: {fileID: 0}
+  cooldown: 20
+  spellIcon: {fileID: -2600438884717832431, guid: c4f92d2d396b0204daa0187cf3b772eb, type: 3}
   spellName: Pulse
-  spellDescription: Bouncy
+  spellDescription: Knockback enemies that get too close
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178826,7 +179130,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  size: 7
+  size: 10
   duration: 0.1
   strength: 25
   delay: 1
@@ -178847,7 +179151,8 @@ MonoBehaviour:
   cooldown: 8
   spellIcon: {fileID: -4444424855515611798, guid: 937e33f4d68f452428f96ca05ec3907a, type: 3}
   spellName: Lava
-  spellDescription: Melt
+  spellDescription: Create an area in which enemies get injured while they remain
+    inside.
   firstPathName: Increased Duration
   firstPathDescription: Increases duration by uhm erm maybe
   secondPathName: Increase Damage
@@ -178857,7 +179162,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  damage: 1
+  damage: 8
   size: 1
   interval: 2
   duration: 5
@@ -178875,19 +179180,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SummonTurret
   level: 0
   range: 8
-  cooldown: 8
+  cooldown: 15
   spellIcon: {fileID: 2700299273534751474, guid: 1c5c74bbdb6ec0f419a799048daaf980, type: 3}
   spellName: Turret
-  spellDescription: KAPEW KAPEW KAPEW
+  spellDescription: Summon a turret that shoots a large amount of projectiles at
+    nearby enemies
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
   secondPathDescription: 
   addToSpellsKnown: 1
   turretPrefab: {fileID: 4851765560420636932, guid: 330897cacc4fe514c90411dea74faf23, type: 3}
-  damage: 3
+  damage: 5
   size: 1
-  interval: 2
+  interval: 0.5
   duration: 8
 --- !u!114 &1725769623
 MonoBehaviour:
@@ -178906,7 +179212,8 @@ MonoBehaviour:
   cooldown: 5
   spellIcon: {fileID: 7388670789782328744, guid: 95d81a606e8a95e448b5d062aa0fcd65, type: 3}
   spellName: Geobrah
-  spellDescription: Punch
+  spellDescription: Have a little companion that protects you from harm! IF enemies
+    get too close Geobrah will punch them
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178920,7 +179227,7 @@ MonoBehaviour:
   size: 1
   pierce: 20
   projectileCount: 2
-  damage: 5
+  damage: 25
   projectileLifeTime: 0.25
 --- !u!114 &1725769624
 MonoBehaviour:
@@ -178936,10 +179243,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlackHole
   level: 0
   range: 10
-  cooldown: 6
+  cooldown: 20
   spellIcon: {fileID: -9198727197668600086, guid: bed638e6f18f7754189ec42c8f1d4876, type: 3}
   spellName: Black Hole
-  spellDescription: Absorb
+  spellDescription: Large area that pulls enemies in and damages them while theyre
+    inside
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178949,10 +179257,10 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  damage: 1
+  damage: 30
   size: 4
-  speed: 3
-  pullStrength: 6
+  speed: 2
+  pullStrength: 8
   pullInterval: 0.1
   interval: 3
   duration: 8
@@ -178970,10 +179278,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fireworks
   level: 0
   range: 7
-  cooldown: 4
+  cooldown: 7
   spellIcon: {fileID: 6211236889780218577, guid: d8dd3a01311f553419380a1c0d72ae67, type: 3}
   spellName: Fireworks
-  spellDescription: Fireworks
+  spellDescription: Create a rocket that explodes into additional rockets!
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -178984,11 +179292,11 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  damage: 5
+  damage: 25
   projectileSize: 1
   explosionSize: 1
-  speed: 4
-  duration: 2
+  speed: 7
+  duration: 0.5
   splitAmount: 5
   deviationAngle: 15
   projectileLifeTime: 4
@@ -179006,19 +179314,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tank
   level: 0
   range: 7
-  cooldown: 12
+  cooldown: 20
   spellIcon: {fileID: -6542641648370038683, guid: 8df3e6c609eff3949b007f44d9278228, type: 3}
   spellName: Tank
-  spellDescription: Kablooey
+  spellDescription: Summon a tank that shoots explosive shells at enemies
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
   secondPathDescription: 
   addToSpellsKnown: 1
   turretPrefab: {fileID: 5267376594411464435, guid: f532b046f86527e48b9f17dd19e0d741, type: 3}
-  damage: 5
+  damage: 50
   size: 1
-  interval: 1
+  interval: 2
   duration: 8
 --- !u!114 &1725769627
 MonoBehaviour:
@@ -179034,10 +179342,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FreezeRay
   level: 0
   range: 7
-  cooldown: 5
+  cooldown: 7
   spellIcon: {fileID: -3530005942709035417, guid: d1a24dfcf82e84d419117745464f091d, type: 3}
   spellName: Freeze Ray
-  spellDescription: Freeze
+  spellDescription: Large and wide beam that freezes enemies that touch it
   firstPathName: 
   firstPathDescription: 
   secondPathName: 
@@ -181110,8 +181418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.7275, y: 21.360893}
-  m_SizeDelta: {x: 47.8279, y: 124.4165}
+  m_AnchoredPosition: {x: -5.7275, y: 20.287386}
+  m_SizeDelta: {x: 47.8279, y: 126.8843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984826878
 MonoBehaviour:
@@ -182457,25 +182765,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2021411118}
+        m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
+        m_MethodName: hideMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2021411117}
+        m_TargetAssemblyTypeName: SettingsMenuScreen, Assembly-CSharp
+        m_MethodName: InitSettingsScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -182495,7 +182803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -182771,124 +183079,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129080219}
   m_CullTransparentMesh: 1
---- !u!1001 &8073691296778707046
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2356072437432273701, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_Name
-      value: BearEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3891518255627734730, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dccb931fe3d6a1b43ad93890880cec8a, type: 3}
---- !u!1001 &8243201282258004096
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1558131721449843889, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: damageDisplay
-      value: 
-      objectReference: {fileID: 8265365144937469105, guid: a66e068043699004a96347d9e6196e48, type: 3}
-    - target: {fileID: 1774154210496172125, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_Name
-      value: MushroomEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.32629848
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911331152767508022, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 92a1f451f2f22024aafc158a266c3af4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -182900,5 +183090,3 @@ SceneRoots:
   - {fileID: 1481780616}
   - {fileID: 1170283565}
   - {fileID: 519420032}
-  - {fileID: 8073691296778707046}
-  - {fileID: 8243201282258004096}

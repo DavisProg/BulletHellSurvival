@@ -14,7 +14,14 @@ public class SlowEffect : IEffect
     IEnumerator Slow(Enemy enemy)
     {
         float resultDifference = enemy.maxSpeed * reducePercentage;
-        enemy.speed -= resultDifference;
+        if(enemy.speed - resultDifference < 0)
+        {
+            enemy.speed = 0;
+        }
+        else
+        {
+            enemy.speed -= resultDifference;
+        }
         yield return new WaitForSeconds(duration);
         enemy.speed += resultDifference;
     }
