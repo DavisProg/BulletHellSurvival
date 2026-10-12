@@ -4,9 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] string gameScreen;
-    void Awake()
-    {
-    }
+    
 
     public void StartGame()
     {

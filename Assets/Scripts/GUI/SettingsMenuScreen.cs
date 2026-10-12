@@ -55,27 +55,22 @@ public class SettingsMenuScreen : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && settingsMenu.activeSelf == true)
         {
             InitSettingsScreen();
         }
     }
     public void InitSettingsScreen()
     {
-        if(settingsMenu.activeSelf == false)
-        {
-            if (Time.timeScale != 0)
-            {
-                settingsMenu.SetActive(true);
-                Time.timeScale = 0;
-            }
-        }
-        else if (settingsMenu.activeSelf == true)
+        if (settingsMenu.activeSelf == true)
         {
             settingsMenu.SetActive(false);
             SaveSettings();
             Time.timeScale = 1;
+            return;
         }
+        settingsMenu.SetActive(true);
+        Time.timeScale = 0;
     }
     public void SetResolution(int resolutionIndex)
     {
