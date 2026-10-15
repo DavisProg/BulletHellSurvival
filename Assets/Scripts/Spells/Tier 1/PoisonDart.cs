@@ -15,13 +15,12 @@ public class PoisonDart : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, amount);
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, amount);
         casting = new CastProjectile(
             projectilePrefab,
             speed,

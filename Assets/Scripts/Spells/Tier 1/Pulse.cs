@@ -11,12 +11,12 @@ public class Pulse : BaseSpell
 
     void Awake()
     {
-        targeting = new PlayerCenter();
         defineCast();
         setTrigger(new onEnterRange(this, cooldown, gameObject.transform, range, enemyLayer));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new PlayerCenter();
         casting =  new CastArea(
             explosionPrefab,
             size,

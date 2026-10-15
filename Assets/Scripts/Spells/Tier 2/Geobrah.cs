@@ -13,12 +13,12 @@ public class Geobrah : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, projectileCount);
         defineCast();
         setTrigger(new onEnterRange(this, cooldown, gameObject.transform, range, enemyLayer));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, projectileCount);
         casting =  new CastProjectile(
             projectilePrefab,
             speed,

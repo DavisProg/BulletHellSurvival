@@ -18,13 +18,12 @@ public class Fireworks : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, 1);
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, 1);
         float currentAngle = 0;
         effectList.Add(new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter()));
         for(int i = 0; i < splitAmount; i++)

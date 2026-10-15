@@ -14,13 +14,12 @@ public class BlackHole : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, 1);
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, 1);
         casting = new CastAreaLinger(
             explosionPrefab,
             size,

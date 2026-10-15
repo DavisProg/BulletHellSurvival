@@ -12,12 +12,9 @@ public class TurretMissile : BaseSpell
     public int missileAmount;
     public float projectileLifeTime;
 
-    void Awake()
+    public override void defineCast()
     {
         targeting = new NearestTarget(enemyLayer, missileAmount);
-    }
-    public virtual void defineCast()
-    {
         casting =  new CastProjectile(
             projectilePrefab,
             speed,

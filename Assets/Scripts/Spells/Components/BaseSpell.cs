@@ -101,7 +101,9 @@ public abstract class BaseSpell : MonoBehaviour
         {
             entry.Key.SetValue(this, entry.Value);
         }
+        defineCast();
     }
+    public virtual void defineCast() { }
     public virtual void firstPathEnable(){}
     public virtual void secondPathEnable(){}
 }

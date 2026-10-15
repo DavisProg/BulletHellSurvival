@@ -10,13 +10,12 @@ public class EnergyExplosion : BaseSpell
 
     void Awake()
     {
-        targeting = new RandomPoint();
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new RandomPoint();
         casting = new CastArea(
             explosionPrefab,
             size,

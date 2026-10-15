@@ -10,12 +10,12 @@ public class PlayerDamageKnockback : BaseSpell
     [SerializeField] float delay;
     void Awake()
     {
-        targeting = new PlayerCenter();
         defineCast();
         setTrigger(new onPlayerDamage(gameObject.GetComponent<Player>()));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new PlayerCenter();
         casting =  new CastArea(
             explosionPrefab,
             size,

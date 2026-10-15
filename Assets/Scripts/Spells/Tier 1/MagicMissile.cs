@@ -12,14 +12,13 @@ public class MagicMissile : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, missileAmount);
-
         defineCast();
         defineStartingValues();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, missileAmount);
         casting =  new CastProjectile(
             projectilePrefab,
             speed,
@@ -40,7 +39,6 @@ public class MagicMissile : BaseSpell
     public override void secondPathEnable()
     {
         missileAmount = 3;
-        targeting = new NearestTarget(enemyLayer, missileAmount);
         defineCast();
     }
 }

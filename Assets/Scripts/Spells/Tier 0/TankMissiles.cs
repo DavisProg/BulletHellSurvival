@@ -6,12 +6,9 @@ public class TankMissiles : TurretMissile
     [SerializeField] float explosionSize;
     [SerializeField] float duration;
 
-    void Awake()
-    {
-        targeting = new NearestTarget(enemyLayer, missileAmount);
-    }
     public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, missileAmount);
         casting =  new CastProjectile(
             projectilePrefab,
             speed,

@@ -12,13 +12,12 @@ public class Lava : BaseSpell
 
     void Awake()
     {
-        targeting = new RandomPoint();
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new RandomPoint();
         casting = new CastAreaLinger(
             explosionPrefab,
             size,
@@ -46,5 +45,6 @@ public class Lava : BaseSpell
             new SlowEffect(25, duration)
             }
         );
+        cooldown = 7;
     }
 }

@@ -10,8 +10,6 @@ public class Tank : BaseSpell
 
     void Awake()
     {
-        targeting = new RandomPoint();
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
@@ -40,8 +38,9 @@ public class Tank : BaseSpell
             }
         }
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new RandomPoint();
         casting = new CastTurret(
             turretPrefab,
             duration,

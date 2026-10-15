@@ -12,13 +12,12 @@ public class EyeRay : BaseSpell
 
     void Awake()
     {
-        targeting = new NearestTarget(enemyLayer, amount);
-
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    protected void defineCast()
+    public override void defineCast()
     {
+        targeting = new NearestTarget(enemyLayer, amount);
         casting =  new CastBeam(
             beamPrefab,
             width,
@@ -33,7 +32,6 @@ public class EyeRay : BaseSpell
     public override void firstPathEnable()
     {
         amount = 2;
-        targeting = new NearestTarget(enemyLayer, amount);
         defineCast();
     }
     public override void secondPathEnable()
