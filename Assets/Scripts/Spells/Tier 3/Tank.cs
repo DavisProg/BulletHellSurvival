@@ -50,4 +50,14 @@ public class Tank : BaseSpell
             size
         );
     }
+    public override void firstPathEnable()
+    {
+        cooldown = 5;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        damage = 150;
+        defineCast();
+    }
 }

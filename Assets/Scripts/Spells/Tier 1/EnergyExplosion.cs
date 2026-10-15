@@ -26,4 +26,14 @@ public class EnergyExplosion : BaseSpell
             }
         );
     }
+    public override void firstPathEnable()
+    {
+        damage = 5;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        cooldown = 7;
+        defineCast();
+    }
 }

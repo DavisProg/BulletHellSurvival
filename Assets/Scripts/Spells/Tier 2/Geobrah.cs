@@ -28,4 +28,15 @@ public class Geobrah : BaseSpell
             new DamageEffect(damage, this)
         );
     }
+    public override void firstPathEnable()
+    {
+        range = 5;
+        projectileLifeTime = 0.4f;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        projectileCount = 4;
+        defineCast();
+    }
 }

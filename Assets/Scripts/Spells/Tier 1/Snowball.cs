@@ -35,4 +35,14 @@ public class Snowball : BaseSpell
             }
         );
     }
+    public override void firstPathEnable()
+    {
+        amount = 5;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        slowPercentage = 50;
+        defineCast();
+    }
 }

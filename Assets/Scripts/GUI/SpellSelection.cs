@@ -8,8 +8,9 @@ public class SpellSelection : MonoBehaviour
 {
     public GameObject spellSelectionMenu;
     public List<BaseSpell> availableSpells;
+    private List<BaseSpell> spellsTempList = new List<BaseSpell>();
     Player playerScript;
-    BaseSpell[] chosenSpellList;
+    BaseSpell[] chosenSpellList = new BaseSpell[3];
     [SerializeField] float maxSpellRefundPercentage;
     [SerializeField] Button[] buttons;
     private bool btn1Enabled = true;
@@ -17,11 +18,13 @@ public class SpellSelection : MonoBehaviour
     private bool btn3Enabled;
     void Start()
     {
+        /*
         chosenSpellList = new BaseSpell[]{
-            availableSpells[Random.Range(0, availableSpells.Count)],
-            availableSpells[Random.Range(0, availableSpells.Count)],
-            availableSpells[Random.Range(0, availableSpells.Count)]
+            spellsTempList[Random.Range(0, spellsTempList.Count)],
+            spellsTempList[Random.Range(0, spellsTempList.Count)],
+            spellsTempList[Random.Range(0, spellsTempList.Count)]
         };
+        */
         playerScript = gameObject.GetComponent<Player>();
     }
 
@@ -30,6 +33,10 @@ public class SpellSelection : MonoBehaviour
         if (Time.timeScale == 0)
         {
             return;
+        }
+        foreach(BaseSpell spell in availableSpells)
+        {
+            spellsTempList.Add(spell);
         }
 
         initMenu();
@@ -59,40 +66,40 @@ public class SpellSelection : MonoBehaviour
                 }
                 break;
             }
-            int randomSpell = Random.Range(0, availableSpells.Count);
-            BaseSpell chosenSpell = availableSpells[randomSpell];
+            int randomSpell = Random.Range(0, spellsTempList.Count);
+            BaseSpell chosenSpell = spellsTempList[randomSpell];
             
             if (chosenSpell.getLevel() == 2)
             {
-                availableSpells.Remove(chosenSpell);
+                spellsTempList.Remove(chosenSpell);
                 i--;
                 continue;
             }
-            if (availableSpells.Count < 2){}
+            if (spellsTempList.Count < 2){}
             else if (i > 1 && (chosenSpell == chosenSpellList[0] || chosenSpell == chosenSpellList[1]))
             {
                 i--;
                 continue;
             }
 
-            Debug.Log(chosenSpellList.Length + " " + availableSpells.Count);
+            Debug.Log(chosenSpellList.Length + " " + spellsTempList.Count);
 
-            if (availableSpells.Count < 2)
+            if (spellsTempList.Count < 2)
             {
-                if (availableSpells.Count == 2 && i == 2)
+                if (spellsTempList.Count == 2 && i == 2)
                 {
                     titleText.text = "";
                 }
-                else if (availableSpells.Count == 1 && i == 1)
+                else if (spellsTempList.Count == 1 && i == 1)
                 {
                     titleText.text = "";
                 }
-                if(availableSpells.Count == 1)
+                if(spellsTempList.Count == 1)
                 {
                     btn2Enabled = false;
                     btn3Enabled = false;
                 }
-                else if(availableSpells.Count == 2)
+                else if(spellsTempList.Count == 2)
                 {
                     btn3Enabled = false;
                 }
@@ -101,11 +108,11 @@ public class SpellSelection : MonoBehaviour
             {
                 chosenSpellList[i] = chosenSpell;
 
-                titleText.text = availableSpells[randomSpell].spellName;
-                descriptionText.text = availableSpells[randomSpell].spellDescription;
-                if (availableSpells[randomSpell].spellIcon)
+                titleText.text = spellsTempList[randomSpell].spellName;
+                descriptionText.text = spellsTempList[randomSpell].spellDescription;
+                if (spellsTempList[randomSpell].spellIcon)
                 {
-                    spellIcon.sprite = availableSpells[randomSpell].spellIcon;
+                    spellIcon.sprite = spellsTempList[randomSpell].spellIcon;
                 }
             }
             

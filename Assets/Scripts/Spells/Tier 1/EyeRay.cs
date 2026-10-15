@@ -30,4 +30,15 @@ public class EyeRay : BaseSpell
             }
         );
     }
+    public override void firstPathEnable()
+    {
+        amount = 2;
+        targeting = new NearestTarget(enemyLayer, amount);
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        damage = 5;
+        defineCast();
+    }
 }

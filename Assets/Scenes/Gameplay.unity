@@ -12450,7 +12450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
   currentSpell: {fileID: 0}
-  index: 0
 --- !u!1 &825806045
 GameObject:
   m_ObjectHideFlags: 0
@@ -174000,7 +173999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
   currentSpell: {fileID: 0}
-  index: 0
 --- !u!1 &1268510800
 GameObject:
   m_ObjectHideFlags: 0
@@ -178458,7 +178456,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 431025586}
   xp: 0
   level: 1
-  levelRequirements: 0a0000000f00000014000000190000002300000032000000410000005000000064000000780000008c000000b4000000dc000000180100005401000090010000f401000058020000bc02000052030000e8030000e2040000dc050000d6060000c4090000
+  levelRequirements: 070000000b0000000f000000120000001a00000025000000300000003c0000004b0000005a0000006900000087000000a5000000d2000000ff0000002c01000077010000c20100000d0200007d020000ee020000a9030000650400002005000053070000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -178522,69 +178520,69 @@ MonoBehaviour:
   waveList:
   - waveNumber: 1
     enemyData:
-    - totalEnemies: 10
-      totalHealth: 2
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 1
-    spawnInterval: 6
-  - waveNumber: 2
-    enemyData:
-    - totalEnemies: 20
-      totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    - totalEnemies: 0
-      totalHealth: 0
-      enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 2
-    spawnInterval: 6
-  - waveNumber: 3
-    enemyData:
     - totalEnemies: 30
       totalHealth: 3
       enemiesSpawned: 0
     - totalEnemies: 0
       totalHealth: 0
       enemiesSpawned: 0
-    - totalEnemies: 2
-      totalHealth: 2
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 1
+    spawnInterval: 2
+  - waveNumber: 2
+    enemyData:
+    - totalEnemies: 60
+      totalHealth: 3
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
       enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 3
-    spawnInterval: 6
-  - waveNumber: 4
+    spawnInterval: 2
+  - waveNumber: 3
     enemyData:
-    - totalEnemies: 29
-      totalHealth: 5
-      enemiesSpawned: 0
-    - totalEnemies: 1
-      totalHealth: 15
-      enemiesSpawned: 0
-    - totalEnemies: 2
-      totalHealth: 2
-      enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 3
-    spawnInterval: 6
-  - waveNumber: 4
-    enemyData:
-    - totalEnemies: 55
-      totalHealth: 5
+    - totalEnemies: 75
+      totalHealth: 4
       enemiesSpawned: 0
     - totalEnemies: 5
       totalHealth: 15
       enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 4
+    spawnInterval: 3
+  - waveNumber: 4
+    enemyData:
+    - totalEnemies: 80
+      totalHealth: 5
+      enemiesSpawned: 0
+    - totalEnemies: 18
+      totalHealth: 15
+      enemiesSpawned: 0
     - totalEnemies: 2
       totalHealth: 2
       enemiesSpawned: 0
-    enemiesSpawnedPerSpawn: 1
-    spawnInterval: 1
+    enemiesSpawnedPerSpawn: 5
+    spawnInterval: 3
+  - waveNumber: 4
+    enemyData:
+    - totalEnemies: 100
+      totalHealth: 5
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 15
+      enemiesSpawned: 0
+    - totalEnemies: 0
+      totalHealth: 0
+      enemiesSpawned: 0
+    enemiesSpawnedPerSpawn: 10
+    spawnInterval: 6
   - waveNumber: 5
     enemyData:
     - totalEnemies: 100
@@ -178593,8 +178591,8 @@ MonoBehaviour:
     - totalEnemies: 20
       totalHealth: 20
       enemiesSpawned: 0
-    - totalEnemies: 2
-      totalHealth: 2
+    - totalEnemies: 0
+      totalHealth: 0
       enemiesSpawned: 0
     enemiesSpawnedPerSpawn: 2
     spawnInterval: 1
@@ -178806,10 +178804,10 @@ MonoBehaviour:
   spellIcon: {fileID: 2382995276365238260, guid: 4cd033665c731f1499369a9c519bcd2a, type: 3}
   spellName: Energy Explosion
   spellDescription: Unleash a small explosion of pure energy in a random location
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Increased Damage
+  firstPathDescription: Increase damage to 5
+  secondPathName: Decreased cooldown
+  secondPathDescription: Decrease cooldown to 7 seconds
   addToSpellsKnown: 1
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
   enemyLayer:
@@ -178836,10 +178834,10 @@ MonoBehaviour:
   spellIcon: {fileID: 3539708246896572786, guid: a563bbb3570ebca4c93790be72899593, type: 3}
   spellName: Poison Dart
   spellDescription: Throw a poisoned dart dealing damage over time
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Increased damage
+  firstPathDescription: Increase total damage to 10
+  secondPathName: Increased Pierce
+  secondPathDescription: Increase pierce to 3
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 5096605751458326597, guid: 360693723021ab648a78e2e8b0ff5152, type: 3}
   enemyLayer:
@@ -178871,10 +178869,10 @@ MonoBehaviour:
   spellIcon: {fileID: 6615574979551437053, guid: d4df31de7595c944da0eb32c1e601abb, type: 3}
   spellName: Magic Orb
   spellDescription: Create a slow moving magical orb dealing high damage
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Increased Damage
+  firstPathDescription: Increase damage to 10
+  secondPathName: Increased Speed
+  secondPathDescription: Increase Magic Orb travel speed
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 4660098579384437625, guid: 6a0712a7cbaf24d4aa04dd89a5ddfce7, type: 3}
   enemyLayer:
@@ -178904,10 +178902,10 @@ MonoBehaviour:
   spellIcon: {fileID: 8686965604848408839, guid: e7d31cb6ceb85b14999fecab236dde96, type: 3}
   spellName: Magic Missile
   spellDescription: Weak, but quick firing darts of pure magic.
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Increased Damage
+  firstPathDescription: Increase damage to 3
+  secondPathName: Increased Missile Count
+  secondPathDescription: Increase Magic Missile proectiles to 3
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   enemyLayer:
@@ -178917,7 +178915,7 @@ MonoBehaviour:
   size: 0.5
   speed: 9
   pierce: 1
-  missileAmount: 5
+  missileAmount: 1
   projectileLifeTime: 5
 --- !u!114 &1725769613
 MonoBehaviour:
@@ -178938,16 +178936,8 @@ MonoBehaviour:
   - {fileID: 1725769611}
   - {fileID: 1725769620}
   - {fileID: 1725769616}
-  - {fileID: 1725769618}
   - {fileID: 1725769619}
   - {fileID: 1725769610}
-  - {fileID: 1725769621}
-  - {fileID: 1725769622}
-  - {fileID: 1725769623}
-  - {fileID: 1725769624}
-  - {fileID: 1725769625}
-  - {fileID: 1725769626}
-  - {fileID: 1725769627}
   maxSpellRefundPercentage: 70
   buttons:
   - {fileID: 1880933875}
@@ -179017,10 +179007,10 @@ MonoBehaviour:
   spellIcon: {fileID: 3683501341025058369, guid: 6410fcd3d91868e44b9c4e357a1a64dd, type: 3}
   spellName: Eye Ray
   spellDescription: Fire a long beam from your eye dealing moderate amount of damage.
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Dual Eyes
+  firstPathDescription: Create 2 Eye Beams instead of 1
+  secondPathName: Potent Energy
+  secondPathDescription: Increase damage to 5
   addToSpellsKnown: 1
   beamPrefab: {fileID: 8301100496807205825, guid: 8d9f5c0f3c2cdd041abf3d69ba6ccf4a, type: 3}
   enemyLayer:
@@ -179050,10 +179040,10 @@ MonoBehaviour:
   spellName: Fireball
   spellDescription: Fire a fireball that explodes on contact dealing large amount
     of damage
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Scorching Flames
+  firstPathDescription: Increase the damage of the explosion to 30
+  secondPathName: Destructive Nature
+  secondPathDescription: Decrease cooldown to 7 seconds
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
@@ -179082,14 +179072,14 @@ MonoBehaviour:
   level: 0
   range: 8
   cooldown: 2
-  spellIcon: {fileID: 6956357645303378007, guid: 8fa052ef17c490b49b952db31014313e, type: 3}
+  spellIcon: {fileID: 6092322570101477529, guid: b98faf0d4519c0a468192e36dc9dde1f, type: 3}
   spellName: Snowballs
-  spellDescription: Ball
-  firstPathName: Throw snowballs at nearby enemies deling low damage, but also slowing
-    them down
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  spellDescription: Throw snowballs at nearby enemies deling low damage, but also
+    slowing them down
+  firstPathName: Volley!
+  firstPathDescription: Increases projectile count to 5
+  secondPathName: Chils
+  secondPathDescription: Increases slow percentage to 50%
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 8774352630088072063, guid: 9fb68cb2dfc864945b48d239f48bc625, type: 3}
   enemyLayer:
@@ -179121,10 +179111,10 @@ MonoBehaviour:
   spellIcon: {fileID: -2600438884717832431, guid: c4f92d2d396b0204daa0187cf3b772eb, type: 3}
   spellName: Pulse
   spellDescription: Knockback enemies that get too close
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Shove
+  firstPathDescription: Increases strength considerably
+  secondPathName: Social Distancing
+  secondPathDescription: Increases range of activation
   addToSpellsKnown: 1
   explosionPrefab: {fileID: 467577717174556695, guid: 9158889a6c61cff4cb05db6bd8e99344, type: 3}
   enemyLayer:
@@ -179185,13 +179175,13 @@ MonoBehaviour:
   spellName: Turret
   spellDescription: Summon a turret that shoots a large amount of projectiles at
     nearby enemies
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Machine Gun
+  firstPathDescription: Double the fire rate on your turret
+  secondPathName: Twins
+  secondPathDescription: Create a second turret to be your first turrets friend
   addToSpellsKnown: 1
   turretPrefab: {fileID: 4851765560420636932, guid: 330897cacc4fe514c90411dea74faf23, type: 3}
-  damage: 5
+  damage: 10
   size: 1
   interval: 0.5
   duration: 8
@@ -179214,10 +179204,10 @@ MonoBehaviour:
   spellName: Geobrah
   spellDescription: Have a little companion that protects you from harm! IF enemies
     get too close Geobrah will punch them
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Guardian
+  firstPathDescription: Increase the range of Geobrah's activation
+  secondPathName: Extra Pair of Hands
+  secondPathDescription: Increase projectile amount to 4
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 8741784812815763690, guid: 588288df700e4044793facd613d15639, type: 3}
   enemyLayer:
@@ -179248,10 +179238,10 @@ MonoBehaviour:
   spellName: Black Hole
   spellDescription: Large area that pulls enemies in and damages them while theyre
     inside
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Super Massive Blackhole
+  firstPathDescription: Increases the damage and speed of your black holes
+  secondPathName: Black Hole Sun
+  secondPathDescription: Half the cooldown of black holes
   addToSpellsKnown: 1
   explosionPrefab: {fileID: 8587402645744302506, guid: cfafb53f90a41c844a78ac98fd63f1c7, type: 3}
   enemyLayer:
@@ -179282,10 +179272,11 @@ MonoBehaviour:
   spellIcon: {fileID: 6211236889780218577, guid: d8dd3a01311f553419380a1c0d72ae67, type: 3}
   spellName: Fireworks
   spellDescription: Create a rocket that explodes into additional rockets!
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: New Years Celebration
+  firstPathDescription: Increase split off amount and damage
+  secondPathName: After Burn
+  secondPathDescription: Enemies hit by fireworks take large amounts of damage over
+    time
   addToSpellsKnown: 1
   projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
@@ -179318,10 +179309,10 @@ MonoBehaviour:
   spellIcon: {fileID: -6542641648370038683, guid: 8df3e6c609eff3949b007f44d9278228, type: 3}
   spellName: Tank
   spellDescription: Summon a tank that shoots explosive shells at enemies
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Invasion
+  firstPathDescription: Have up to 4 tanks at a time
+  secondPathName: Armageddon
+  secondPathDescription: Deal 150 damage per tank blast
   addToSpellsKnown: 1
   turretPrefab: {fileID: 5267376594411464435, guid: f532b046f86527e48b9f17dd19e0d741, type: 3}
   damage: 50
@@ -179346,18 +179337,18 @@ MonoBehaviour:
   spellIcon: {fileID: -3530005942709035417, guid: d1a24dfcf82e84d419117745464f091d, type: 3}
   spellName: Freeze Ray
   spellDescription: Large and wide beam that freezes enemies that touch it
-  firstPathName: 
-  firstPathDescription: 
-  secondPathName: 
-  secondPathDescription: 
+  firstPathName: Ice Age
+  firstPathDescription: Increase the width of your beam dramatically
+  secondPathName: Deep Freeze
+  secondPathDescription: Increase the duration of freeze by 10 seconds
   addToSpellsKnown: 1
   beamPrefab: {fileID: 8301100496807205825, guid: 8d9f5c0f3c2cdd041abf3d69ba6ccf4a, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  damage: 1
+  damage: 5
   height: 15
-  width: 3
+  width: 5
   duration: 1
   slowDuration: 5
   amount: 1
@@ -182469,7 +182460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellCraftSlot
   currentSpell: {fileID: 0}
-  index: 0
 --- !u!1 &2085302670
 GameObject:
   m_ObjectHideFlags: 0

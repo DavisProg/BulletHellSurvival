@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Reflection;
 
 public abstract class BaseSpell : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public abstract class BaseSpell : MonoBehaviour
     public string spellDescription;
     public string firstPathName, firstPathDescription, secondPathName, secondPathDescription;
     [SerializeField] bool addToSpellsKnown = true;
+    Dictionary<FieldInfo, object> startingValues = new();
 
     protected ITarget targeting;
     protected ICast casting;
@@ -71,10 +74,33 @@ public abstract class BaseSpell : MonoBehaviour
     }
     public void disable()
     {
-        trigger.Triggered -= tryCast;
         trigger.Disable();
         level = 0;
         GetComponent<Player>().learntSpells.Remove(this);
+        if(startingValues.Count != 0)
+        {
+            restoreValues();
+        }
+    }
+    public void defineStartingValues()
+    {
+        foreach (FieldInfo field in GetType().GetFields(
+            BindingFlags.Instance |
+            BindingFlags.Public |
+            BindingFlags.NonPublic))
+        {
+            if (field.IsDefined(typeof(SerializeField), true))
+            {
+                startingValues[field] = field.GetValue(this);
+            }
+        }
+    }
+    public void restoreValues()
+    {
+        foreach (var entry in startingValues)
+        {
+            entry.Key.SetValue(this, entry.Value);
+        }
     }
     public virtual void firstPathEnable(){}
     public virtual void secondPathEnable(){}

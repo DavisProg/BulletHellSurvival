@@ -17,16 +17,6 @@ public class MagicOrb : BaseSpell
         defineCast();
         setTrigger(new onLoop(this, cooldown));
     }
-    public override void firstPathEnable()
-    {
-        pierce += 3;
-        defineCast();
-    }
-    public override void secondPathEnable()
-    {
-        speed += 3;
-        defineCast();
-    }
     protected void defineCast()
     {
         casting =  new CastProjectile(
@@ -37,5 +27,15 @@ public class MagicOrb : BaseSpell
             projectileLifeTime,
             new DamageEffect(damage, this)
         );
+    }
+    public override void firstPathEnable()
+    {
+        damage = 10;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        speed = 5;
+        defineCast();
     }
 }

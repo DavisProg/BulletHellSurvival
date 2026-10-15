@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -44,6 +45,13 @@ public class Player : MonoBehaviour
             GetComponent<SpellSelection>().showSpellSelectionMenu();
         }
     }
+    public void increaseXPRequirement(float percentage)
+    {
+        for(int i = 0; i < levelRequirements.Length; i++)
+        {
+            levelRequirements[i] = (int)(levelRequirements[i] * percentage);
+        }
+    }
     public void takeDamage(int damage)
     {
         Debug.Log("Hello");
@@ -76,7 +84,7 @@ public class Player : MonoBehaviour
     {
         nextLevelUp = levelRequirements[level - 1];
         GetComponent<PlayerDamageKnockback>().enable();
-        //GetComponent<Dash>().enable();
+        GetComponent<MagicMissile>().enable();
         rb = GetComponent<Rigidbody2D>();
     }
 

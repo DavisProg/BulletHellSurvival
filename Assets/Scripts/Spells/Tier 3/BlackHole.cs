@@ -32,4 +32,14 @@ public class BlackHole : BaseSpell
             }
         ).SetMovement(speed);
     }
+    public override void firstPathEnable()
+    {
+        speed = 4;
+        damage = 60;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        cooldown = 10;
+    }
 }

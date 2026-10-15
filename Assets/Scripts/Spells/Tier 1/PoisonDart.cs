@@ -31,4 +31,14 @@ public class PoisonDart : BaseSpell
             new DamageOverTimeEffect(damage, damagePerInterval, damageDuration, this)
         );
     }
+    public override void firstPathEnable()
+    {
+        damage = 10;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        pierce = 3;
+        defineCast();
+    }
 }

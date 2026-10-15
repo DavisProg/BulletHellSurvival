@@ -15,6 +15,7 @@ public class MagicMissile : BaseSpell
         targeting = new NearestTarget(enemyLayer, missileAmount);
 
         defineCast();
+        defineStartingValues();
         setTrigger(new onLoop(this, cooldown));
     }
     protected void defineCast()
@@ -30,5 +31,16 @@ public class MagicMissile : BaseSpell
                 new DamageEffect(damage, this)
             }
         );
+    }
+    public override void firstPathEnable()
+    {
+        damage = 3;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        missileAmount = 3;
+        targeting = new NearestTarget(enemyLayer, missileAmount);
+        defineCast();
     }
 }

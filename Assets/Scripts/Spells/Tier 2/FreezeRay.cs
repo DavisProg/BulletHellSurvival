@@ -32,4 +32,14 @@ public class FreezeRay : BaseSpell
             }
         );
     }
+    public override void firstPathEnable()
+    {
+        width = 10;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        slowDuration = 10;
+        defineCast();
+    }
 }

@@ -50,4 +50,14 @@ public class SummonTurret : BaseSpell
             size
         );
     }
+    public override void firstPathEnable()
+    {
+        interval = 0.25f;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        cooldown = 4;
+        defineCast();
+    }
 }

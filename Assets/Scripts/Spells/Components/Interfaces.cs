@@ -3,7 +3,7 @@ using UnityEngine;
 public interface ITarget
 {
     bool GetTarget(Transform caster, float range, out Vector2[] position);
-}
+} 
 public interface ICast
 {
     void Cast(Transform caster, Vector2 target);
@@ -19,4 +19,3 @@ public interface ITrigger
     void Enable();
     void Disable();
 }
-

@@ -24,9 +24,15 @@ public class Pulse : BaseSpell
             new KnockbackEffect(strength, delay, gameObject.transform)
         );
     }
-    private void OnDrawGizmosSelected()
+    public override void firstPathEnable()
     {
-        Gizmos.DrawWireSphere(gameObject.transform.position, range);
+        strength = 50;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        range = 5;
+        defineCast();
     }
 }
 

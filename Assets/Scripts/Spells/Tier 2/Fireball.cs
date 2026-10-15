@@ -34,4 +34,14 @@ public class Fireball : BaseSpell
             }
         );
     }
+    public override void firstPathEnable()
+    {
+        damage = 30;
+        defineCast();
+    }
+    public override void secondPathEnable()
+    {
+        cooldown = 7;
+        defineCast();
+    }
 }
