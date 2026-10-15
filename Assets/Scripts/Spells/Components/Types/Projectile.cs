@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     Collider2D col;
     float maxLifeTime = 5;
     [SerializeField] private float immunityTime = 0.01f;
+    [SerializeField] AudioClip[] soundFX;
     private bool canCollide = false;
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,6 +42,10 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
+        if(soundFX.Length > 0)
+        {
+            SoundFXManager.instance.playSoundEffect(soundFX, transform, 1f);
+        }
     }
     public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, float maxLifeTime, IEffect[] effects)
     {

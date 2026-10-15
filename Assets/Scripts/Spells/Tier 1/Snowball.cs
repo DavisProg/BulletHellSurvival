@@ -38,6 +38,7 @@ public class Snowball : BaseSpell
     public override void firstPathEnable()
     {
         amount = 5;
+        targeting = new NearestTarget(enemyLayer, amount);
         defineCast();
     }
     public override void secondPathEnable()

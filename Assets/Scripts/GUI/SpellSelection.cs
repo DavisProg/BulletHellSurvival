@@ -10,12 +10,8 @@ public class SpellSelection : MonoBehaviour
     public List<BaseSpell> availableSpells;
     private List<BaseSpell> spellsTempList = new List<BaseSpell>();
     Player playerScript;
-    BaseSpell[] chosenSpellList = new BaseSpell[3];
     [SerializeField] float maxSpellRefundPercentage;
     [SerializeField] Button[] buttons;
-    private bool btn1Enabled = true;
-    private bool btn2Enabled;
-    private bool btn3Enabled;
     void Start()
     {
         /*
@@ -34,111 +30,50 @@ public class SpellSelection : MonoBehaviour
         {
             return;
         }
+        spellsTempList.Clear();
         foreach(BaseSpell spell in availableSpells)
         {
-            spellsTempList.Add(spell);
+            if (spell.getLevel() < 2 && !playerScript.learntSpells.Contains(spell))
+            {
+                spellsTempList.Add(spell);
+            }
         }
 
         initMenu();
-        for(int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             Image spellIcon = buttons[i].gameObject.transform.GetChild(2).GetChild(0).GetComponent<Image>();
             TMP_Text titleText = buttons[i].gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
             TMP_Text descriptionText = buttons[i].gameObject.transform.GetChild(4).GetComponent<TMP_Text>();
-            if (playerScript.learntSpells.Count >= 8)
+            spellIcon.sprite = null;
+            titleText.text = "";
+            descriptionText.text = "";
+
+            if (playerScript.learntSpells.Count >= 8 || spellsTempList.Count == 0)
             {
-                spellSelectionMenu.transform.Find($"Canvas/Choice{1}/Title").GetComponent<TMP_Text>().text = "Refund";
-                spellSelectionMenu.transform.Find($"Canvas/Choice{2}/Title").GetComponent<TMP_Text>().text = "Refund";
-                spellSelectionMenu.transform.Find($"Canvas/Choice{3}/Title").GetComponent<TMP_Text>().text = "Refund";
-                foreach(Button button in buttons)
-                {
-                    Image refundIcon = button.gameObject.transform.GetChild(2).GetChild(0).GetComponent<Image>();
-                    TMP_Text refundTitleText = button.gameObject.transform.GetChild(3).GetComponent<TMP_Text>();
-                    TMP_Text refundDescriptionText = button.gameObject.transform.GetChild(4).GetComponent<TMP_Text>();
-
-                    refundTitleText.text = "Refund";
-                    refundDescriptionText.text = "Regain " + maxSpellRefundPercentage + "% XP"; 
-
-                    button.onClick.AddListener(() =>
-                {
-                    Refund(maxSpellRefundPercentage);
-                });
-                }
-                break;
+                SetRefundButton(buttons[i], titleText, descriptionText);
+                continue;
             }
+
             int randomSpell = Random.Range(0, spellsTempList.Count);
             BaseSpell chosenSpell = spellsTempList[randomSpell];
-            
-            if (chosenSpell.getLevel() == 2)
-            {
-                spellsTempList.Remove(chosenSpell);
-                i--;
-                continue;
-            }
-            if (spellsTempList.Count < 2){}
-            else if (i > 1 && (chosenSpell == chosenSpellList[0] || chosenSpell == chosenSpellList[1]))
-            {
-                i--;
-                continue;
-            }
+            spellsTempList.Remove(chosenSpell);
 
-            Debug.Log(chosenSpellList.Length + " " + spellsTempList.Count);
-
-            if (spellsTempList.Count < 2)
+            titleText.text = chosenSpell.spellName;
+            descriptionText.text = chosenSpell.spellDescription;
+            spellIcon.sprite = chosenSpell.spellIcon;
+            buttons[i].onClick.AddListener(() =>
             {
-                if (spellsTempList.Count == 2 && i == 2)
-                {
-                    titleText.text = "";
-                }
-                else if (spellsTempList.Count == 1 && i == 1)
-                {
-                    titleText.text = "";
-                }
-                if(spellsTempList.Count == 1)
-                {
-                    btn2Enabled = false;
-                    btn3Enabled = false;
-                }
-                else if(spellsTempList.Count == 2)
-                {
-                    btn3Enabled = false;
-                }
-            }
-            else
-            {
-                chosenSpellList[i] = chosenSpell;
-
-                titleText.text = spellsTempList[randomSpell].spellName;
-                descriptionText.text = spellsTempList[randomSpell].spellDescription;
-                if (spellsTempList[randomSpell].spellIcon)
-                {
-                    spellIcon.sprite = spellsTempList[randomSpell].spellIcon;
-                }
-            }
-            
-        }
-        if (btn1Enabled && chosenSpellList[0])
-        {
-            buttons[0].onClick.AddListener(() =>
-            {
-                Select(chosenSpellList[0]);
+                Select(chosenSpell);
             });
         }
-        if (btn2Enabled && chosenSpellList[1])
-        {
-            buttons[1].onClick.AddListener(() =>
-            {
-                Select(chosenSpellList[1]);
-            });
-        }
-        if (btn3Enabled && chosenSpellList[2])
-        {
-            buttons[2].onClick.AddListener(() =>
-            {
-                Select(chosenSpellList[2]);
-            });
-        }
-        
+    }
+
+    void SetRefundButton(Button button, TMP_Text titleText, TMP_Text descriptionText)
+    {
+        titleText.text = "Refund";
+        descriptionText.text = "Regain " + maxSpellRefundPercentage + "% XP";
+        button.onClick.AddListener(() => Refund(maxSpellRefundPercentage));
     }
     void Select(BaseSpell chosenSpell)
     {
@@ -169,9 +104,6 @@ public class SpellSelection : MonoBehaviour
         buttons[0].onClick.RemoveAllListeners();
         buttons[1].onClick.RemoveAllListeners();
         buttons[2].onClick.RemoveAllListeners();
-        btn1Enabled = true;
-        btn2Enabled = true;
-        btn3Enabled = true;
         Time.timeScale = 0;
         spellSelectionMenu.SetActive(true);
     }
