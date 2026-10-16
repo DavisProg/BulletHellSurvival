@@ -222,15 +222,19 @@ MonoBehaviour:
   spellIcon: {fileID: 0}
   spellName: 
   spellDescription: 
+  firstPathName: 
+  firstPathDescription: 
+  secondPathName: 
+  secondPathDescription: 
   addToSpellsKnown: 0
-  projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
+  projectilePrefab: {fileID: 4342555610731623213, guid: 34edc0e64b1a60047ab1c22fb0211d67, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
   damage: 0
   newCooldown: 0
-  size: 0.6
-  speed: 8
-  pierce: 1
+  size: 1
+  speed: 10
+  pierce: 2
   missileAmount: 1
   projectileLifeTime: 6

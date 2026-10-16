@@ -33,7 +33,7 @@ public class SpellSelection : MonoBehaviour
         spellsTempList.Clear();
         foreach(BaseSpell spell in availableSpells)
         {
-            if (spell.getLevel() < 2 && !playerScript.learntSpells.Contains(spell))
+            if (spell.getLevel() < 2)
             {
                 spellsTempList.Add(spell);
             }

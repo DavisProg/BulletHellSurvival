@@ -178800,7 +178800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnergyExplosion
   level: 0
   range: 7
-  cooldown: 10
+  cooldown: 5
   spellIcon: {fileID: 2382995276365238260, guid: 4cd033665c731f1499369a9c519bcd2a, type: 3}
   spellName: Energy Explosion
   spellDescription: Unleash a small explosion of pure energy in a random location
@@ -178809,13 +178809,13 @@ MonoBehaviour:
   secondPathName: Decreased cooldown
   secondPathDescription: Decrease cooldown to 7 seconds
   addToSpellsKnown: 1
-  explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
+  explosionPrefab: {fileID: 801824402340587866, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
   damage: 1
-  size: 3
-  duration: 0.5
+  size: 1
+  duration: 6
 --- !u!114 &1725769610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179045,7 +179045,7 @@ MonoBehaviour:
   secondPathName: Destructive Nature
   secondPathDescription: Decrease cooldown to 7 seconds
   addToSpellsKnown: 1
-  projectilePrefab: {fileID: 1388417063084585264, guid: b57593be092439c4388911803aba38ec, type: 3}
+  projectilePrefab: {fileID: 7267526377196154826, guid: 6c4c35c8f3c488f43aed728e65adad4a, type: 3}
   explosionPrefab: {fileID: 6924478656996253214, guid: 8af956def16c1f2448a4516877d90a0d, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -183069,6 +183069,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129080219}
   m_CullTransparentMesh: 1
+--- !u!1001 &765806577548175170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 801824402340587866, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_Name
+      value: EnergyExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496728664154535644, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ed77857f3782b54b8793c6604c4c587, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -183080,3 +183137,4 @@ SceneRoots:
   - {fileID: 1481780616}
   - {fileID: 1170283565}
   - {fileID: 519420032}
+  - {fileID: 765806577548175170}

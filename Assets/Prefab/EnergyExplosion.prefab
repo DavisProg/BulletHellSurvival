@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6924478656996253214
+--- !u!1 &801824402340587866
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2314145446456226256}
-  - component: {fileID: 7756453262407528353}
-  - component: {fileID: 5014419691870431159}
-  - component: {fileID: 2372406182274194433}
+  - component: {fileID: 4496728664154535644}
+  - component: {fileID: 4046932795205083977}
+  - component: {fileID: 775072204617781762}
+  - component: {fileID: 3704179847669041020}
+  - component: {fileID: 2512585279183846692}
   m_Layer: 0
   m_Name: EnergyExplosion
   m_TagString: Untagged
@@ -19,29 +20,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2314145446456226256
+--- !u!4 &4496728664154535644
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6924478656996253214}
+  m_GameObject: {fileID: 801824402340587866}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6791, y: -3.3909, z: 0}
-  m_LocalScale: {x: 2.2781, y: 2.2781, z: 2.2781}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7756453262407528353
+--- !u!212 &4046932795205083977
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6924478656996253214}
+  m_GameObject: {fileID: 801824402340587866}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,11 +81,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -75621195
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2833246252606183768, guid: 3beaf5b9603651f408b243322397ce58, type: 3}
-  m_Color: {r: 0.003011704, g: 0.5320754, b: 0.5320754, a: 1}
+  m_Sprite: {fileID: 3402404357782198640, guid: 07ba1b0fe0e884e4aa28210c201953f3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,13 +94,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &5014419691870431159
+--- !u!58 &775072204617781762
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6924478656996253214}
+  m_GameObject: {fileID: 801824402340587866}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -127,17 +128,43 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &2372406182274194433
+  m_Offset: {x: 0, y: 2.0196018}
+  m_Radius: 2
+--- !u!114 &3704179847669041020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6924478656996253214}
+  m_GameObject: {fileID: 801824402340587866}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca6bfded28b36ed45b03c6e858e7f145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Splash
+  soundFX:
+  - {fileID: 8300000, guid: 025ce39a7d9ed514191999007bcfe6a3, type: 3}
+  - {fileID: 8300000, guid: e7bd61ebeddf8ea4188e06bccab89623, type: 3}
+  - {fileID: 8300000, guid: 0c8c9857466139e42ad3d21bd12acf38, type: 3}
+--- !u!95 &2512585279183846692
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801824402340587866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4a0389c3256bff4c8a37251273ff097, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
