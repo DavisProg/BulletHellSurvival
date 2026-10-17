@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Splash : MonoBehaviour
@@ -7,6 +8,7 @@ public class Splash : MonoBehaviour
     Animator animator;
     bool colliderActivated = false;
     [SerializeField] AudioClip[] soundFX;
+    [SerializeField] float pitch = 1f;
     void Awake()
     {
         col = GetComponent<CircleCollider2D>();
@@ -14,7 +16,7 @@ public class Splash : MonoBehaviour
         animator = GetComponent<Animator>();
         if(soundFX.Length > 0)
         {
-            SoundFXManager.instance.playSoundEffect(soundFX, transform, 1f);
+            SoundFXManager.instance.playSoundEffect(soundFX, transform, 1f, pitch);
         }
     }
 

@@ -153,6 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   immunityTime: 0.1
+  soundFX:
+  - {fileID: 8300000, guid: de0a5451df6bac24a9259e09aabfdf12, type: 3}
+  - {fileID: 8300000, guid: 6ca0270764c903645b3cb4a4c50c6a5a, type: 3}
+  - {fileID: 8300000, guid: 774125b8d66780c489c84ad9db688450, type: 3}
+  pitch: 2
+  volume: 1.5
 --- !u!50 &1730373530988823687
 Rigidbody2D:
   serializedVersion: 5

@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   immunityTime: 0.01
   soundFX:
-  - {fileID: 8300000, guid: 505de891ae54d534a8f746d7f2c71af2, type: 3}
-  - {fileID: 8300000, guid: 037a2c99f1e775241861368f009e8f95, type: 3}
-  - {fileID: 8300000, guid: faa0690fb0de3e842965cd726adf80d0, type: 3}
-  - {fileID: 8300000, guid: 8c2a4bbf126e58a4584a95e4bf3c3c10, type: 3}
-  - {fileID: 8300000, guid: a60b7d28ec0561744882efbfc727e7e4, type: 3}
+  - {fileID: 8300000, guid: 3dfe74225592c8d4581c1d1a225ecea9, type: 3}
+  - {fileID: 8300000, guid: 0f84343b3104e204682b8ed4237a6955, type: 3}
+  - {fileID: 8300000, guid: 32ae31c9ddfdfdf4983b47b87e7f823f, type: 3}
+  pitch: 7
+  volume: 30
 --- !u!50 &2792939438378043795
 Rigidbody2D:
   serializedVersion: 5
