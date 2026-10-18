@@ -12,6 +12,7 @@ public class SummonTurret : BaseSpell
     {
         defineCast();
         setTrigger(new onLoop(this, cooldown));
+
     }
     public override void tryCast()
     {
@@ -56,7 +57,9 @@ public class SummonTurret : BaseSpell
     }
     public override void secondPathEnable()
     {
-        cooldown = 4;
+        cooldown = 4f;
+        trigger = null;
+        setTrigger(new onLoop(this, cooldown));
         defineCast();
     }
 }

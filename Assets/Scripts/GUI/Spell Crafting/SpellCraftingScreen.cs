@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,12 +38,14 @@ SpellCraftingManager craftingManager;
                     {
                         if (spell.index >= player.learntSpells.Count)
                         {
-                            break;
+                            spell.gameObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "";
+                            continue;
                         }
                         if (player.learntSpells[spell.index].spellIcon != null)
                         {
                             spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = player.learntSpells[spell.index].spellIcon;
                             spell.spell = player.learntSpells[spell.index];
+                            spell.gameObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "Lvl." + spell.spell.getLevel();
                         }
                     }
                 }
