@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SpellCraftingScreen : MonoBehaviour
 {
 [SerializeField] private GameObject spellCraftingScreen;
 SpellCraftingManager craftingManager;
-[SerializeField] private SpellBlock[] spellBlocks;
+[SerializeField] GameObject spellBlockPrefab;
+[SerializeField] GameObject spellBlockParent;
 [SerializeField] private Sprite defaultSlot;
+List<GameObject> spellBlockList = new List<GameObject>();
 [SerializeField] Player player;
 
     void Awake()
@@ -31,23 +35,9 @@ SpellCraftingManager craftingManager;
             {
                 spellCraftingScreen.SetActive(true);
                 Time.timeScale = 0;
-
-                foreach(SpellBlock spell in spellBlocks)
+                foreach(BaseSpell spell in player.learntSpells)
                 {
-                    if(player.learntSpells != null)
-                    {
-                        if (spell.index >= player.learntSpells.Count)
-                        {
-                            spell.gameObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "";
-                            continue;
-                        }
-                        if (player.learntSpells[spell.index].spellIcon != null)
-                        {
-                            spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = player.learntSpells[spell.index].spellIcon;
-                            spell.spell = player.learntSpells[spell.index];
-                            spell.gameObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "Lvl." + spell.spell.getLevel();
-                        }
-                    }
+                    CreateSpellBlock(spell);
                 }
             }
         }
@@ -55,11 +45,42 @@ SpellCraftingManager craftingManager;
         {
             spellCraftingScreen.SetActive(false);
             craftingManager.Clear();
-            foreach(SpellBlock spell in spellBlocks)
+            foreach(GameObject spell in spellBlockList)
             {
-                spell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite = defaultSlot;
+                if (spell)
+                {
+                    Destroy(spell);
+                }
             }
             Time.timeScale = 1;
         }
+    }
+    public void CreateSpellBlock(BaseSpell spell, bool addToList = true, Vector3 position = default)
+    {
+        GameObject spellObj;
+        if (addToList)
+        {
+            spellObj = Instantiate(spellBlockPrefab, spellBlockParent.transform);
+        }
+        else
+        {
+            spellObj = Instantiate(spellBlockPrefab, position, Quaternion.identity, spellBlockParent.transform.parent);
+        }
+        SpellBlock spellBlock = spellObj.GetComponent<SpellBlock>();
+        spellBlockList.Add(spellObj);
+
+        spellObj.transform.GetChild(0).GetComponent<Image>().sprite = spell.spellIcon;
+        spellBlock.spell = spell;
+        spellBlock.gameObject.transform.GetChild(2).GetComponent<TMP_Text>().text = "Lvl." + spell.getLevel();
+
+        EventTrigger trigger = spellObj.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+
+        entry.callback.AddListener(
+            (eventData) => craftingManager.OnMouseDownSpell(spellBlock)
+        );
+
+        trigger.triggers.Add(entry);
     }
 }

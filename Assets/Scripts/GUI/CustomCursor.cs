@@ -1,12 +1,12 @@
 using UnityEngine;
 public class CustomCursor : MonoBehaviour
 {
-    private void Awake()
-    {
-        transform.position = Input.mousePosition;
-    }
+    public GameObject currentObject;
     private void Update()
     {
-        transform.position = Input.mousePosition;
+        if (currentObject)
+        {
+            currentObject.transform.position = Input.mousePosition;
+        }
     }
 }

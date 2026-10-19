@@ -5,10 +5,12 @@ using UnityEngine.UI;
 public class SpellCraftingManager : MonoBehaviour
 {
     private SpellBlock currentSpell;
-    [SerializeField] Image customCursor;
+    [SerializeField] CustomCursor cursor;
+    [SerializeField] GameObject spellBlockParent;
 
     [SerializeField] SpellCraftSlot[] slots = new SpellCraftSlot[2];
     [SerializeField] SpellCraftSlot resultSlot;
+    [SerializeField] SpellCraftingScreen spellCraftingScreen;
     [SerializeField] float maxCraftDistance;
     [SerializeField] Recipe[] recipeList;
     [SerializeField] TMP_Text msg;
@@ -22,7 +24,6 @@ public class SpellCraftingManager : MonoBehaviour
         {
             if(currentSpell != null)
             {
-                customCursor.gameObject.SetActive(false);
                 SpellCraftSlot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
 
@@ -39,9 +40,15 @@ public class SpellCraftingManager : MonoBehaviour
                 if (nearestSlot)
                 {
                     nearestSlot.gameObject.SetActive(true);
-                    nearestSlot.GetComponent<Image>().sprite = currentSpell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite;
+                    cursor.currentObject.transform.position = nearestSlot.transform.position;
                     nearestSlot.currentSpell = currentSpell;
                 }
+                else
+                {
+                    cursor.currentObject.transform.parent = spellBlockParent.transform;
+                    cursor.currentObject.transform.SetSiblingIndex(0);
+                }
+                cursor.currentObject = null;
                 currentSpell = null;
             }
 
@@ -56,8 +63,9 @@ public class SpellCraftingManager : MonoBehaviour
                 return;
             }
             currentSpell = spell;
-            customCursor.gameObject.SetActive(true);
-            customCursor.sprite = currentSpell.gameObject.transform.GetChild(0).GetComponent<Image>().sprite;
+            cursor.gameObject.SetActive(true);
+            currentSpell.transform.SetParent(gameObject.transform);
+            cursor.currentObject = currentSpell.gameObject;
         }
     }
     public void CraftSpell()
@@ -95,12 +103,12 @@ public class SpellCraftingManager : MonoBehaviour
                 {
                     slot.GetComponent<Image>().sprite = null;
                     slot.currentSpell.spell.disable();
+                    Destroy(slot.currentSpell.gameObject);
                     slot.currentSpell = null;
                     displayCraftError("");
                 }
                 resultSpell.enable();
-                resultSlot.GetComponent<Image>().sprite = resultSpell.spellIcon;
-                resultSlot.currentSpell = new SpellBlock{spell = resultSpell, index = 0};
+                spellCraftingScreen.CreateSpellBlock(resultSpell, false, resultSlot.transform.position);
                 break;
             }
         }
@@ -125,6 +133,5 @@ public class SpellCraftingManager : MonoBehaviour
         resultSlot.currentSpell = null;
         resultSlot.GetComponent<Image>().sprite = null;
         currentSpell = null;
-        customCursor.gameObject.SetActive(false);
     }
 }

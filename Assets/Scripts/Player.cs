@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public float speed = 2.5f;
     public int nextLevelUp = 3;
-    public int maxHealth = 10;
-    public int health = 9;
+    public int maxHealth = 3;
+    public int health = 3;
+    [SerializeField] GameObject[] healthSlots;
+    [SerializeField] Sprite emptyHealth, fullHealth;
     private float iFramesTime = 0.5f;
 
     private bool canDamage = true;
@@ -58,8 +61,8 @@ public class Player : MonoBehaviour
         if (canDamage)
         {
             PlayerDamaged?.Invoke();
-            Debug.Log("Hi");
             health -= damage;
+            displayHealth();
             canDamage = false;
             //GetComponent<Pulse>().quickCast();
             camera.GetComponent<CameraShake>().startCameraShake();
@@ -82,6 +85,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        displayHealth();
         nextLevelUp = levelRequirements[level - 1];
         GetComponent<PlayerDamageKnockback>().enable();
         GetComponent<MagicMissile>().enable();
@@ -116,5 +120,23 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = input * speed;
+    }
+    void displayHealth()
+    {
+        for(int i = 0; i < healthSlots.Count(); i++)
+        {
+            if(health >= i + 1)
+            { 
+                healthSlots[i].GetComponent<Image>().sprite = fullHealth;
+            }
+            else
+            {
+                healthSlots[i].GetComponent<Image>().sprite = emptyHealth;
+            }
+            RectTransform rect = healthSlots[i].GetComponent<Image>().rectTransform;
+            rect.pivot = new Vector2(0.5f, 0f);
+            healthSlots[i].GetComponent<Image>().SetNativeSize();
+            
+        }
     }
 }
