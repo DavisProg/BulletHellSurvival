@@ -5,6 +5,7 @@ using UnityEngine;
 public class levelRequirementManager : Editor
 {
     private float percentage = 1f;
+    private int startLevel = 1;
 
     public override void OnInspectorGUI()
     {
@@ -19,12 +20,18 @@ public class levelRequirementManager : Editor
             "Percentage",
             percentage
         );
+        EditorGUILayout.LabelField("Starting from level ", EditorStyles.boldLabel);
+
+        startLevel = EditorGUILayout.IntField(
+            "level",
+            startLevel
+        );
 
         if (GUILayout.Button("Increase All Values"))
         {
             Undo.RecordObject(player, "Increase All Values");
 
-            player.increaseXPRequirement(percentage);
+            player.increaseXPRequirement(percentage, startLevel);
 
             EditorUtility.SetDirty(player);
             PrefabUtility.RecordPrefabInstancePropertyModifications(player);

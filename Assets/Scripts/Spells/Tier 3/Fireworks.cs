@@ -10,7 +10,6 @@ public class Fireworks : BaseSpell
     [SerializeField] float projectileSize;
     [SerializeField] float explosionSize;
     [SerializeField] float speed;
-    [SerializeField] float duration;
     [SerializeField] int splitAmount;
     [SerializeField] float deviationAngle;
     [SerializeField] float projectileLifeTime;
@@ -25,13 +24,13 @@ public class Fireworks : BaseSpell
     {
         targeting = new NearestTarget(enemyLayer, 1);
         float currentAngle = 0;
-        effectList.Add(new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter()));
+        effectList.Add(new RepeatEffect(new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this)), 0.1f, new PlayerCenter()));
         for(int i = 0; i < splitAmount; i++)
             {
                 effectList.Add(
                 new RepeatEffect(new CastProjectile(
                     projectilePrefab, speed, 1, projectileSize, projectileLifeTime, new RepeatEffect(
-                        new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), range, new PlayerCenter()
+                        new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this)), range, new PlayerCenter()
                     )), range, new Direction(currentAngle + deviationAngle))
                     );
                 currentAngle += deviationAngle;
@@ -57,13 +56,13 @@ public class Fireworks : BaseSpell
     {
         effectList.Clear();
         float currentAngle = 0;
-        effectList.Add(new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter()));
+        effectList.Add(new RepeatEffect(new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this)), 0.1f, new PlayerCenter()));
         for(int i = 0; i < splitAmount; i++)
             {
                 effectList.Add(
                 new RepeatEffect(new CastProjectile(
                     projectilePrefab, speed, 1, projectileSize, projectileLifeTime, new RepeatEffect(
-                        new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this), new DamageOverTimeEffect(30, 5, 1, this)), range, new PlayerCenter()
+                        new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this), new DamageOverTimeEffect(30, 5, 1, this)), range, new PlayerCenter()
                     )), range, new Direction(currentAngle + deviationAngle))
                     );
                 currentAngle += deviationAngle;

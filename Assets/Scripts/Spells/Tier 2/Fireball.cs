@@ -9,7 +9,6 @@ public class Fireball : BaseSpell
     [SerializeField] float projectileSize;
     [SerializeField] float explosionSize;
     [SerializeField] float speed;
-    [SerializeField] float duration;
     [SerializeField] int amount;
     [SerializeField] float projectileLifeTime;
 
@@ -29,7 +28,7 @@ public class Fireball : BaseSpell
             projectileLifeTime,
             new IEffect[]
             {
-                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())
+                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())
             }
         );
     }

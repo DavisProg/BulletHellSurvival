@@ -26,8 +26,12 @@ public abstract class BaseSpell : MonoBehaviour
             trigger.Disable();
         }
         trigger = newTrigger;
-
         trigger.Triggered += tryCast;
+
+        if (level > 0)
+        {
+            trigger.Enable();
+        }
     }
 
     public virtual void tryCast()

@@ -173495,7 +173495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1325019441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -177326,7 +177326,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 431025586}
   xp: 0
   level: 1
-  levelRequirements: 070000000b0000000f000000120000001a00000025000000300000003c0000004b0000005a0000006900000087000000a5000000d2000000ff0000002c01000077010000c20100000d0200007d020000ee020000a9030000650400002005000053070000
+  levelRequirements: 070000000b0000000f00000012000000170000001c000000240000002e000000390000004500000050000000670000007f000000a1000000c4000000e6000000200100005a01000094010000ea01000041020000d102000062030000f2030000a3050000
   input: {x: 0, y: 0}
   camera: {fileID: 519420031}
 --- !u!61 &1725769604
@@ -178013,10 +178013,10 @@ MonoBehaviour:
   spellName: Lava
   spellDescription: Create an area in which enemies get injured while they remain
     inside.
-  firstPathName: Increased Duration
-  firstPathDescription: Increases duration by uhm erm maybe
-  secondPathName: Increase Damage
-  secondPathDescription: Mega oucchie
+  firstPathName: Hotter Than Hot
+  firstPathDescription: Increases damage to 15 damage per tick
+  secondPathName: Eruption
+  secondPathDescription: Decrease the cooldown and slow enemies inside of it
   addToSpellsKnown: 1
   explosionPrefab: {fileID: 5906477184599646929, guid: d50aaaa561980774bacd8e2498e3a1ec, type: 3}
   enemyLayer:

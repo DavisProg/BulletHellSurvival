@@ -4,7 +4,6 @@ public class TankMissiles : TurretMissile
 {
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] float explosionSize;
-    [SerializeField] float duration;
 
     public override void defineCast()
     {
@@ -17,7 +16,7 @@ public class TankMissiles : TurretMissile
             projectileLifeTime,
             new IEffect[]
             {
-                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, duration, new DamageEffect(damage, this)), 0.1f, new PlayerCenter())
+                new RepeatEffect(new CastArea(explosionPrefab, explosionSize, new DamageEffect(damage, this)).SetAnimated(false), 0.1f, new PlayerCenter())
             }
         );
         setTrigger(new onLoop(this, newCooldown));

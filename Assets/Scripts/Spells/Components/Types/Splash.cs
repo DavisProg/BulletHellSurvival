@@ -20,10 +20,13 @@ public class Splash : MonoBehaviour
         }
     }
 
-    public void Init(float size, IEffect[] effects, float duration){
+    public void Init(float size, IEffect[] effects, bool animated = true){
         this.effects = effects;
         
         gameObject.transform.localScale = new Vector3(size, size, 1f);
+        if(!animated){
+            col.enabled = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision){

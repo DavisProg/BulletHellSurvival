@@ -5,7 +5,6 @@ public class Pulse : BaseSpell
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float size;
-    [SerializeField] float duration;
     [SerializeField] float strength;
     [SerializeField] float delay;
 
@@ -20,9 +19,8 @@ public class Pulse : BaseSpell
         casting =  new CastArea(
             explosionPrefab,
             size,
-            duration,
             new KnockbackEffect(strength, delay, gameObject.transform)
-        );
+        ).SetAnimated(false);
     }
     public override void firstPathEnable()
     {

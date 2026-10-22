@@ -6,7 +6,6 @@ public class EnergyExplosion : BaseSpell
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float damage;
     [SerializeField] float size;
-    [SerializeField] float duration;
 
     void Awake()
     {
@@ -19,7 +18,6 @@ public class EnergyExplosion : BaseSpell
         casting = new CastArea(
             explosionPrefab,
             size,
-            duration,
             new IEffect[]{
             new DamageEffect(damage, this)
             }

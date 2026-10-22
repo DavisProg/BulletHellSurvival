@@ -48,9 +48,9 @@ public class Player : MonoBehaviour
             GetComponent<SpellSelection>().showSpellSelectionMenu();
         }
     }
-    public void increaseXPRequirement(float percentage)
+    public void increaseXPRequirement(float percentage, int startLevel = 1)
     {
-        for(int i = 0; i < levelRequirements.Length; i++)
+        for(int i = startLevel - 1; i < levelRequirements.Length; i++)
         {
             levelRequirements[i] = (int)(levelRequirements[i] * percentage);
         }
