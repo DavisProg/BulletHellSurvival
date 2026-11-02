@@ -67,5 +67,9 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "School project.slnx"
+    "dotnet.defaultSolution": "School project.slnx",
+    "clipboardManagerPro.maxHistorySize": 100,
+    "clipboardManagerPro.autoDetectLanguage": true,
+    "clipboardManagerPro.showPreview": true,
+    "clipboardManagerPro.storageLocation": "workspace"
 }

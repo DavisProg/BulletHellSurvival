@@ -17,5 +17,9 @@ public class DamageEffect : IEffect
         {
             enemy.takeDamage(damage, source);
         }
+        if(target.TryGetComponent(out DamageAnimationController anim))
+        {
+            anim.DoDamageAnimation(Color.red);
+        }
     }
 }

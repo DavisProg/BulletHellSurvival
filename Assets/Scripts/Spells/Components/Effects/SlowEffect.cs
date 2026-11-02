@@ -29,5 +29,9 @@ public class SlowEffect : IEffect
     {
         Enemy enemy = target.GetComponent<Enemy>();
         enemy.StartCoroutine(Slow(enemy));
+        if(target.TryGetComponent(out DamageAnimationController anim))
+        {
+            anim.ChangeColor(Color.blue, duration);
+        }
     }
 }

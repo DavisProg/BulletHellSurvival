@@ -31,6 +31,10 @@ public class DamageOverTimeEffect : IEffect
                 enemy.takeDamage(damageLeft, source);
                 damageLeft = 0;
             }
+            if(target.TryGetComponent(out DamageAnimationController anim))
+            {
+                anim.DoDamageAnimation(Color.green);
+            }
             yield return new WaitForSeconds(intervalCooldown);
         }
     }

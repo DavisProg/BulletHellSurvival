@@ -15,15 +15,20 @@ public class SpellCraftingManager : MonoBehaviour
     [SerializeField] Recipe[] recipeList;
     [SerializeField] TMP_Text msg;
     Player player;
+    // Funkcija, kas izpildās spēles sākumā. Veido savienojumu ar spēlētāja klasi.
     void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
     }
+    /*Funkcija, kas palaižas katru kadru. Pārbauda, ja spēlētājs velk spēju ar pelīti, 
+    vai atlaišanas brīdi spēja ir pietiekami tuvu spēju kombinēšanas blokam*/
     void Update(){
+        //Pārbauda pelīšu kreiso klikšķa atlaišanu
         if (Input.GetMouseButtonUp(0))
         {
             if(currentSpell != null)
             {
+                //Pārbada tuvāko spēju kombinēšanas lauciņu un vai tā ir tuvāka par maksimālo attālumu
                 SpellCraftSlot nearestSlot = null;
                 float shortestDistance = float.MaxValue;
 
@@ -34,15 +39,18 @@ public class SpellCraftingManager : MonoBehaviour
                     {
                         shortestDistance = dist;
                         nearestSlot = slot;
-                        Debug.Log("Slot: " + slot + " Distance: " + dist);
                     }        
                 }
+                /* Ja veiksmīgi atrada tuvāko spēju kombinēšana lauciņu
+                Tad ieliek spēju kombinēšanas lauciņas pozīcijā un atzīme to tās klasē*/
+                
                 if (nearestSlot)
                 {
                     nearestSlot.gameObject.SetActive(true);
                     cursor.currentObject.transform.position = nearestSlot.transform.position;
                     nearestSlot.currentSpell = currentSpell;
                 }
+                //Ja neatrada tad noliek spēju sarakstā, kā pirmo elementu
                 else
                 {
                     cursor.currentObject.transform.parent = spellBlockParent.transform;
@@ -54,6 +62,7 @@ public class SpellCraftingManager : MonoBehaviour
 
         }
     }
+    //Funkcija, kas turot ar kreiso pelītes taustiņu uz spējas attēlojumu izņem no spēju saraksta un liek tai sekot pelītes pozīcijai
     public void OnMouseDownSpell(SpellBlock spell)
     {
         if(currentSpell == null)
@@ -68,9 +77,10 @@ public class SpellCraftingManager : MonoBehaviour
             cursor.currentObject = currentSpell.gameObject;
         }
     }
+    //Funkcija, kas aktivizējas uzklikšķinot kombinēšanas pogai
     public void CraftSpell()
     {
-        Debug.Log(player.learntSpells);
+        //Pārbauda, ka abas spēju kombinēšanas lauciņi ir aizpildīti
         if(slots[0].currentSpell == null || slots[1].currentSpell == null)
         {
             displayCraftError("Both slots must be filled");
@@ -78,27 +88,28 @@ public class SpellCraftingManager : MonoBehaviour
         }
         BaseSpell firstSpell = slots[0].currentSpell.spell;
         BaseSpell secondSpell = slots[1].currentSpell.spell;
+        //Pārbauda, ka abas spēju kombinēšanas laucīņu saturošās spējas ir sasniegušas otro līmeni
         if(firstSpell.getLevel() < 2 || secondSpell.getLevel() < 2)
         {
             displayCraftError("Both spells must be 2nd level");
             return;
         }
-        Debug.Log("firstspell: " + firstSpell + " secondspell: " + secondSpell);
-        Debug.Log("Made it through spell null check");
         bool foundRecipe = false;
+        //Pārbauda katru iespējamo kombināciju
         foreach(Recipe recipe in recipeList)
         {
             BaseSpell resultSpell = recipe.CompareSpells(firstSpell, secondSpell);
 
             if (resultSpell != null )
             {
+                //Pārbauda vai rezultāta spēja ir jau sasniedzis otro līmeni
                 if(resultSpell.getLevel() >= 2)
                 {
                     displayCraftError("Resulting spell already max level!");
                     return;
                 }
-                Debug.Log("Found resultSpell");
                 foundRecipe = true;
+                //Iztukšo katru spēju kombinēšanas lauciņu un izslēdz abas izmantotās spējas
                 foreach(SpellCraftSlot slot in slots)
                 {
                     slot.GetComponent<Image>().sprite = null;
@@ -107,22 +118,24 @@ public class SpellCraftingManager : MonoBehaviour
                     slot.currentSpell = null;
                     displayCraftError("");
                 }
+                //Aktivizē rezultāta spēju un izveido rezultāta spējas attēlojumu
                 resultSpell.enable();
                 spellCraftingScreen.CreateSpellBlock(resultSpell, false, resultSlot.transform.position);
                 break;
             }
         }
+        //Ja nav atrasta kombinācija, tad paziņo spēlētājam
         if (!foundRecipe)
         {
             displayCraftError("Oops! No recipe like this one...");
         }
-        Debug.Log(player.learntSpells);
-
     }
+    //Funkcija, kas attēlo kļūdas paziņojumu
     public void displayCraftError(string text)
     {
         msg.GetComponent<TextMeshProUGUI>().text = text;
     }
+    //Iztukšo spēju kombinēšanas lauciņus
     public void Clear()
     {
         foreach(SpellCraftSlot slot in slots)

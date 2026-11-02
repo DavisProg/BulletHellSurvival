@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1343610570141255519}
   - component: {fileID: 1333276860537717586}
   - component: {fileID: 6250141819904687714}
+  - component: {fileID: -7013731448179376187}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
   speed: 1.2
+  maxSpeed: 1.5
   separationDistance: 0.22
   separationStrength: 0.3
   seperationWeight: 0.3
@@ -256,3 +258,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7013731448179376187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906689853839711279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4f24987c3540f4babd8e9a9b188a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAnimationController

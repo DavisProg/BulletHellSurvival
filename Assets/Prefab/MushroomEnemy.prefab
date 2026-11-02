@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8681931269344517990}
   - component: {fileID: 364093000066475185}
   - component: {fileID: 1558131721449843889}
+  - component: {fileID: -5012635410849830476}
   m_Layer: 3
   m_Name: MushroomEnemy
   m_TagString: Enemy
@@ -286,14 +287,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomEnemy
   speed: 8
-  health: 3
+  maxSpeed: 1.5
   separationDistance: 0.22
   separationStrength: 0.3
   seperationWeight: 0.3
-  isRegisteredForDeath: 0
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
+  health: 3
+  damageDisplay: {fileID: 0}
+  isRegisteredForDeath: 0
   detectionRange: 5
   enemyProjectile: {fileID: 6584298158503895278, guid: 8bc775f40572fef4b9b72bc1cc11d937, type: 3}
   attackInterval: 1
   projectileSpeed: 5
   projectileSize: 1
+--- !u!114 &-5012635410849830476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774154210496172125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4f24987c3540f4babd8e9a9b188a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAnimationController
