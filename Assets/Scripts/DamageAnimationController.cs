@@ -34,13 +34,20 @@ public class DamageAnimationController : MonoBehaviour
             });
             startX = transform.localScale.x;
             startY = transform.localScale.y;
-            transform.DOScaleX((float) (startX * 1.4), duration / 3).OnComplete(() =>
+            //bounce
+            transform.DOScaleX((float) (startX * 1.4), duration / 5).OnComplete(() =>
             {
-                transform.DOScaleX(startX, duration / 2);
+                transform.DOScaleX((float) (startX * 0.8), duration / 3).OnComplete(() =>
+                {
+                    transform.DOScaleX(startX, duration / 2);
+                });
             });
-            transform.DOScaleY((float) (startY * 0.8), duration / (float)(1.5)).OnComplete(() =>
+            transform.DOScaleY((float) (startY * 0.8), duration / 5).OnComplete(() =>
             {
-                transform.DOScaleY(startY, duration / 2);
+                transform.DOScaleY((float) (startY * 1.4), duration / 3).OnComplete(() =>
+                {
+                    transform.DOScaleY(startY, duration / 2);
+                });
             });
         }
     }
