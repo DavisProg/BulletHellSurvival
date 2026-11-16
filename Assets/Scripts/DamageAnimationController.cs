@@ -12,9 +12,11 @@ public class DamageAnimationController : MonoBehaviour
     private event Action finishedAnimation;
     Action colorChange;
     Action colorReset;
+    ParticleSystem particleSystem;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
     public void DoDamageAnimation(Color color, float duration = 0.2f)
     {
@@ -32,6 +34,7 @@ public class DamageAnimationController : MonoBehaviour
                 }
                 );
             });
+            particleSystem.Play();
             startX = transform.localScale.x;
             startY = transform.localScale.y;
             //bounce

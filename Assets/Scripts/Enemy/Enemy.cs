@@ -20,6 +20,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private GameObject damageDisplay;
     public event Action<Enemy, BaseSpell> onDeath;
     [SerializeField] protected bool isRegisteredForDeath = false;
+    [SerializeField] AudioClip[] damageSoundFX;
+    [SerializeField] float minPitch, maxPitch;
 
     void die(BaseSpell source)
     {
@@ -41,6 +43,14 @@ public abstract class Enemy : MonoBehaviour
         if (health <= 0)
         {
             die(source);
+        }
+        else
+        {
+            float pitch = UnityEngine.Random.Range(minPitch, maxPitch);
+            if(damageSoundFX.Length > 0)
+            {
+                SoundFXManager.instance.playSoundEffect(damageSoundFX, transform, 1f, pitch);
+            }
         }
     }
     private void displayDamage(float damage)
