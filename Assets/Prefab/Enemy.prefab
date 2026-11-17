@@ -2639,8 +2639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe69e775285ab2c42bb40a9906c1d227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
-  speed: 1.2
-  maxSpeed: 1.5
+  speed: 1.6
+  maxSpeed: 1.6
   separationDistance: 0.22
   separationStrength: 0.3
   seperationWeight: 0.3
@@ -2651,6 +2651,8 @@ MonoBehaviour:
   damageSoundFX:
   - {fileID: 8300000, guid: f652c028499f9154aa9a4379312b071b, type: 3}
   - {fileID: 8300000, guid: 84a9dfe2b2a48b14d875270e2672b44f, type: 3}
+  deathSoundFX:
+  - {fileID: 8300000, guid: 39d9f6eb572ed2743a277d1fd3a4153a, type: 3}
   minPitch: 0.8
   maxPitch: 1.2
 --- !u!95 &6250141819904687714

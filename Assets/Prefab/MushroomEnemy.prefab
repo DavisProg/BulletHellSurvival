@@ -295,11 +295,13 @@ MonoBehaviour:
   seperationWeight: 0.3
   xp: {fileID: 9199239139621321797, guid: 235a39f34490f93489bbfee4179efdec, type: 3}
   health: 3
-  damageDisplay: {fileID: 0}
+  damageDisplay: {fileID: 8265365144937469105, guid: a66e068043699004a96347d9e6196e48, type: 3}
   isRegisteredForDeath: 0
   damageSoundFX:
   - {fileID: 8300000, guid: f652c028499f9154aa9a4379312b071b, type: 3}
   - {fileID: 8300000, guid: 84a9dfe2b2a48b14d875270e2672b44f, type: 3}
+  deathSoundFX:
+  - {fileID: 8300000, guid: 39d9f6eb572ed2743a277d1fd3a4153a, type: 3}
   minPitch: 1.6
   maxPitch: 1.8
   detectionRange: 5

@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
     public event Action<Enemy, BaseSpell> onDeath;
     [SerializeField] protected bool isRegisteredForDeath = false;
     [SerializeField] AudioClip[] damageSoundFX;
+    [SerializeField] AudioClip[] deathSoundFX;
     [SerializeField] float minPitch, maxPitch;
 
     void die(BaseSpell source)
@@ -28,6 +29,11 @@ public abstract class Enemy : MonoBehaviour
         Instantiate(xp, transform.position, Quaternion.identity);
         Debug.Log("Died from " + source);
         onDeath?.Invoke(this, source);
+        if(deathSoundFX.Length > 0)
+        {
+            float pitch = UnityEngine.Random.Range(minPitch, maxPitch);
+            SoundFXManager.instance.playSoundEffect(deathSoundFX, transform, 1f, pitch);
+        }
         Destroy(gameObject);
     }
     public void takeDamage(float damage, BaseSpell source)
@@ -35,6 +41,10 @@ public abstract class Enemy : MonoBehaviour
         health -= damage;
         displayDamage(damage);
         Debug.Log("Took damage from " + source);
+        if(damageSoundFX.Length > 0)
+        {
+            SoundFXManager.instance.playSoundEffect(damageSoundFX, transform, 1f, 1f);
+        }
         if (!isRegisteredForDeath)
         {
             EnemyDeathController.Instance.RegisterEnemyDeathEvent(this);
@@ -46,11 +56,7 @@ public abstract class Enemy : MonoBehaviour
         }
         else
         {
-            float pitch = UnityEngine.Random.Range(minPitch, maxPitch);
-            if(damageSoundFX.Length > 0)
-            {
-                SoundFXManager.instance.playSoundEffect(damageSoundFX, transform, 1f, pitch);
-            }
+            
         }
     }
     private void displayDamage(float damage)
