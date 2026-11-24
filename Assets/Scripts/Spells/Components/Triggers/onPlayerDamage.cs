@@ -4,6 +4,8 @@ using UnityEngine;
 public class onPlayerDamage : ITrigger
 {
     public event Action Triggered;
+    public float cooldown { get; set; }
+    public float elapsedTime { get; set; }
     private Player player;
     public onPlayerDamage(Player player)
     {

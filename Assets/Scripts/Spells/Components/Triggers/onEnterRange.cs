@@ -6,7 +6,8 @@ public class onEnterRange : ITrigger
 {
     public event Action Triggered;
     private MonoBehaviour owner;
-    private float cooldown;
+    public float cooldown { get; set; }
+    public float elapsedTime { get; set; }
     Transform caster;
     private Coroutine routine;
     float range;

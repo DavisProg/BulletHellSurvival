@@ -8,6 +8,7 @@ public class CastProjectile : ICast
     int pierce;
     float size;
     float maxLifeTime;
+    bool delayed = false;
     IEffect[] effects;
 
     public CastProjectile(GameObject prefab, float speed, int pierce, float size, float maxLifeTime, params IEffect[] effects)
@@ -19,9 +20,14 @@ public class CastProjectile : ICast
         this.effects = effects;
         this.maxLifeTime = maxLifeTime;
     }
+    public CastProjectile SetCollisionDelay(bool delayed = true)
+    {
+        this.delayed = delayed;
+        return this;
+    }
     public void Cast(Transform caster, Vector2 target)
     {
         GameObject proj  = Object.Instantiate(prefab, caster.position, Quaternion.identity);
-        proj.GetComponent<Projectile>().Init(target, caster, speed, pierce, size, maxLifeTime, effects);
+        proj.GetComponent<Projectile>().Init(target, caster, speed, pierce, size, maxLifeTime, effects, delayed);
     }
 }

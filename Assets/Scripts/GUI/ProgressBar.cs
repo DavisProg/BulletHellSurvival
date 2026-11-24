@@ -19,12 +19,6 @@ public class ProgressBar : MonoBehaviour
             current = GameObject.Find("Player").GetComponent<Player>().xp;
             max = GameObject.Find("Player").GetComponent<Player>().nextLevelUp;
         }
-        else if (gameObject.CompareTag("healthBar"))
-        {
-            current = GameObject.Find("Player").GetComponent<Player>().health;
-            max = GameObject.Find("Player").GetComponent<Player>().maxHealth;
-        }
-
         getCurrentFill();
     }
     void getCurrentFill()

@@ -4,6 +4,8 @@ using UnityEngine;
 public class onEnemyDeath : ITrigger
 {
     public event Action Triggered;
+    public float cooldown { get; set; }
+    public float elapsedTime { get; set; }
     private Enemy enemy;
     BaseSpell targetSpell;
     EnemyDeathController deathManager;

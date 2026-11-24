@@ -15,7 +15,9 @@ public interface IEffect
 public interface ITrigger
 {
     event Action Triggered;
-    
+    float cooldown { get; set; }
+    float elapsedTime { get; set; }
+
     void Enable();
     void Disable();
 }

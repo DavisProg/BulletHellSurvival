@@ -49,7 +49,7 @@ public class Projectile : MonoBehaviour
             SoundFXManager.instance.playSoundEffect(soundFX, transform, volume, pitch);
         }
     }
-    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, float maxLifeTime, IEffect[] effects)
+    public void Init(Vector2 target, Transform caster, float speed, int pierce, float size, float maxLifeTime, IEffect[] effects, bool colliderDelay = false)
     {
         this.speed = speed;
         this.pierce = pierce;
@@ -63,8 +63,15 @@ public class Projectile : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         rb.rotation = angle;
         col.enabled = true;
+        if (!colliderDelay)
+        {
+            canCollide = true;
+        }
+        else
+        {
+            StartCoroutine(immunityTimer());
+        }
         StartCoroutine(lifeTime());
-        StartCoroutine(immunityTimer());
     }
     void FixedUpdate()
     {

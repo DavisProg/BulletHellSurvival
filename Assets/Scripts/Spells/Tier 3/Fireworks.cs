@@ -43,7 +43,7 @@ public class Fireworks : BaseSpell
             projectileSize,
             projectileLifeTime,
             effectList.ToArray()
-        );
+        ).SetCollisionDelay();
     }
     public override void firstPathEnable()
     {

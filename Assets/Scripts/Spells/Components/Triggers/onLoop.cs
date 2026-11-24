@@ -6,7 +6,8 @@ public class onLoop : ITrigger
 {
     public event Action Triggered;
     private MonoBehaviour owner;
-    private float cooldown;
+    public float cooldown { get; set; }
+    public float elapsedTime { get; set; } = 0f;
     private Coroutine routine;
 
     public onLoop(MonoBehaviour owner, float cooldown)
@@ -28,14 +29,20 @@ public class onLoop : ITrigger
         {
             owner.StopCoroutine(routine);
             routine = null;
+            elapsedTime = 0f;
         }
     }
     private IEnumerator Tick()
     {
         while (true)
         {
-            yield return new WaitForSeconds(cooldown);
-            Triggered?.Invoke();
+            elapsedTime += Time.deltaTime;
+            if(elapsedTime > cooldown)
+            {
+                elapsedTime = 0f;
+                Triggered?.Invoke();
+            }
+            yield return null;
         }
     }
 

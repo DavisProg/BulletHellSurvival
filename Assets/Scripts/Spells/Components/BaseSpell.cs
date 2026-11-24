@@ -16,7 +16,7 @@ public abstract class BaseSpell : MonoBehaviour
 
     protected ITarget targeting;
     protected ICast casting;
-    protected ITrigger trigger;
+    public ITrigger trigger;
 
     public void setTrigger(ITrigger newTrigger)
     {
@@ -75,12 +75,14 @@ public abstract class BaseSpell : MonoBehaviour
             level++;
             GetComponent<SpellUpgrade>().showUpgradeSelectionMenu(this);
         }
+        SpellChangeController.instance.InvokeChange();
     }
     public void disable()
     {
         trigger.Disable();
         level = 0;
         GetComponent<Player>().learntSpells.Remove(this);
+        SpellChangeController.instance.InvokeChange();
         if(startingValues.Count != 0)
         {
             restoreValues();
